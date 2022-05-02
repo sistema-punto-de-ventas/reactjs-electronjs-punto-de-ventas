@@ -13,14 +13,14 @@ import iziToast from 'izitoast';
 toast.configure()
 
 const formDatas = [
-    { disable: false, error: '', isRequired: true, focus: '', name: 'name', label: 'Nonbres', value: '', tipe: 'text' },
+    { disable: false, error: '', isRequired: true, focus: '', name: 'name', label: 'Nombres', value: '', tipe: 'text' },
     { disable: false, error: '', isRequired: true, focus: '', name: 'lastName', label: 'Apellidos', value: '', tipe: 'text' },
     { disable: false, error: '', isRequired: true, focus: '', name: 'ci', label: 'C.I.', value: '', tipe: 'text' },
-    { disable: false, error: '', isRequired: true, focus: '', name: 'direction', label: 'Direccion', value: '', tipe: 'text' },
-    { disable: false, error: '', isRequired: true, focus: '', name: 'phoneNumber', label: 'Telefono', value: '', tipe: 'text' },
+    { disable: false, error: '', isRequired: true, focus: '', name: 'direction', label: 'Dirección', value: '', tipe: 'text' },
+    { disable: false, error: '', isRequired: true, focus: '', name: 'phoneNumber', label: 'Telefono o Celular', value: '', tipe: 'text' },
     { disable: false, error: '', isRequired: true, focus: '', name: 'email', label: 'Email', value: '', tipe: 'text' },
-    { disable: false, error: '', isRequired: true, focus: '', name: 'password', label: 'Contraceña', value: '', tipe: 'password' },
-    { disable: false, error: '', isRequired: true, focus: '', name: 'password1', label: 'Repita su contraceña', value: '', tipe: 'password' },
+    { disable: false, error: '', isRequired: true, focus: '', name: 'password', label: 'Contraseña', value: '', tipe: 'password' },
+    { disable: false, error: '', isRequired: true, focus: '', name: 'password1', label: 'Repita su contraseña', value: '', tipe: 'password' },
     {
         disable: false, error: '', isRequired: true, focus: '', name: 'role', label: 'Rol', value: '', tipe: 'select', options: [
             { name: 'Admin', value: 'admin' },

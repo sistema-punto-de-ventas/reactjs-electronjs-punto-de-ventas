@@ -11,7 +11,7 @@ import MenuRoutes from "../routes/Menu";
 import { Url, Socket } from "../routes/Url";
 import CategoriaProductosRoute from '../routes/CategoriaProductos';
 import SearcProdcutsForClass from "../components/SearchProductsForClass/SearchProductsForClass";
-
+// ddddss
 
 
 class MenuProduct extends React.Component {
@@ -39,19 +39,20 @@ class MenuProduct extends React.Component {
             {
                 disable: false, error: '', isRequired: true, focus: '', name: 'category', label: 'Categoria', value: '', tipe: 'select', options: [
                     /* { name: 'Pollo', value: 'pollo' }, */
-                     /* se va a añadir de forma dinamica */
+                    /* se va a añadir de forma dinamica */
                 ]
             },
             {
                 disable: false, error: '', isRequired: true, focus: '', name: 'subcategory', label: 'Sub categoria', value: '', tipe: 'select', options: [
                     /*  { name: 'Pecho', value: 'pecho' }, */
-                   /* se va a añadir de forma dinamica */
+                    /* se va a añadir de forma dinamica */
                 ]
             },
+            { error: '', isRequired: false, focus: '', name: 'codigoProducto', label: 'Codigo producto', value: '', tipe: 'text' },
             { error: '', isRequired: true, focus: '', name: 'precioCosto', label: 'Precio de compra (proveedor)', value: '', tipe: 'number' },
             { error: '', isRequired: true, focus: '', name: 'precioUnitario', label: 'Precio de venta (cliente final)', value: '', tipe: 'number' },
             { error: '', isRequired: true, focus: '', name: 'unidadesDisponibles', label: 'Cantidad', value: '', tipe: 'number' },
-            { error: '', isRequired: true, focus: '', name: 'image', label: 'Imagen de producto', value: '', tipe: 'file' },
+            { error: '', isRequired: false, focus: '', name: 'image', label: 'Imagen de producto', value: '', tipe: 'file' },
 
         ],
         formUpdate: [
@@ -60,16 +61,17 @@ class MenuProduct extends React.Component {
             {
                 disable: false, error: '', isRequired: true, focus: '', name: 'category', label: 'Categoria', value: '', tipe: 'select', options: [
                     /* { name: 'Pollo', value: 'pollo' }, */
-                     /* se va a añadir de forma dinamica */
+                    /* se va a añadir de forma dinamica */
                 ]
             },
             {
                 disable: false, error: '', isRequired: true, focus: '', name: 'subcategory', label: 'Sub categoria', value: '', tipe: 'select', options: [
-                   /*  { name: 'Pecho', value: 'pecho' }, */
-                   /* se va a añadir de forma dinamica */
+                    /*  { name: 'Pecho', value: 'pecho' }, */
+                    /* se va a añadir de forma dinamica */
                     
                 ]
             },
+            { error: '', isRequired: false, focus: '', name: 'codigoProducto', label: 'Codigo producto', value: '', tipe: 'text' },
             { error: '', isRequired: true, focus: '', name: 'precio', label: 'Precio unidad', value: '', tipe: 'number' },
             { error: '', isRequired: true, focus: '', name: 'precioUnitario', label: ' Precio final', value: '', tipe: 'number' },            
             { error: '', isRequired: true, focus: '', name: 'quantity', label: 'Cantidad', value: '', tipe: 'number' },
@@ -106,6 +108,7 @@ class MenuProduct extends React.Component {
                 return {
                     id: data._id,
                     nombre: data.nameProduct,
+                    codigoProducto: data.codigoProducto,
                     ingredientes: data.description,
                     quantity: data.unidadesDisponibles,
                     // img: Url.urlBackEnd + data.urlImages[0]?.img,
@@ -131,6 +134,7 @@ class MenuProduct extends React.Component {
                         ...this.state.listCard, ...[{
                             id: data._id,
                             nombre: data.nameProduct,
+                            codigoProducto: data.codigoProducto,
                             ingredientes: data.description,
                             quantity: data.unidadesDisponibles,
                             // img: Url.urlBackEnd + data.urlImages[0]?.img,
@@ -213,6 +217,7 @@ class MenuProduct extends React.Component {
     updateDataMenu = async (data) => {
         const newData = await {
             nameProduct: data.nombre,
+            codigoProducto: data.codigoProducto,
             description: data.ingredientes,
             unidadesDisponibles: data.quantity,
             precioUnitario: data.precioUnitario,
@@ -413,15 +418,20 @@ class MenuProduct extends React.Component {
             });
             return;
         }
+
         if (resp.resp.status === 'ok') {
+
             let arr = this.state.form;
             let arrUpate = this.state.formUpdate
+
             for (let i = 0; i < resp.resp.result.length; i++) {
+                console.log('resp.resp.result[i]', resp.resp.result[i])
                 arr[2].options.push({
                     name:resp.resp.result[i].nombre,
                     value:resp.resp.result[i].nombre,
                     main:true                
                 })
+                
             }
             for (let j = 0; j < resp.resp.result.length; j++) {
                 arrUpate[2].options.push({
@@ -490,7 +500,7 @@ class MenuProduct extends React.Component {
                     isOpen={this.state.modals.isOpen}
                     onClose={() => this.modalFunction(1)}
                     size='60%'
-                    title='Nuevo Producto'
+                    title='Formulario de registro'
                 >
                     <Form
                         form={this.state.form}

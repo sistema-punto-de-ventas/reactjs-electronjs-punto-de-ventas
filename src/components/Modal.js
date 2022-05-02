@@ -31,7 +31,8 @@ const Modal =(props)=> {
                     color: colors? colors.colorHeader.colorText : 'black'
                 }}>
                     <div onClick={props.onClose} className="close-modalStyle">✖</div>
-                    <h2>{title}: {dataTicket.numeroTicketActual}</h2>
+                    {/* <h2>{title}: {dataTicket.numeroTicketActual}</h2> */}
+                    <h2>{title}</h2>
                 </div>
                 <div className="modalStyle-body" style={{
                     background:colors?  colors.colorGlobal:'white',

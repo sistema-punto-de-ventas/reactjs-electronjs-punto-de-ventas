@@ -58,7 +58,7 @@ class Ventaas extends React.Component {
             { rolePermit: [{ name: 'admin' }], button: 'Caja', selected: '', possition: 'rigth' },
             { rolePermit: [{ name: 'admin' }], button: 'Lista de Estados financieros', selected: '', possition: 'rigth' },
             { rolePermit: [{ name: 'admin' }], button: 'Monto de inicio en caja', selected: '', possition: 'rigth' },
-            { rolePermit: [{ name: 'admin' }, { name: 'Tickets' }], button: 'Tickets', selected: '', possition: 'left' }
+            // { rolePermit: [{ name: 'admin' }, { name: 'Tickets' }], button: 'Tickets', selected: '', possition: 'left' }
 
         ],
         sectionContainer: 0,

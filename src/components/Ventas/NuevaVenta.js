@@ -190,6 +190,7 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
                     id: data.id,
                     idProduct: data.id,
                     nombre: data.nombre,
+                    codigoProducto: data.codigoProducto,
                     description: '',
                     precio: data.precio,
                     unidadesDisponibles: data.quantity,

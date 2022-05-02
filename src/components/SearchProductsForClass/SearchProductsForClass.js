@@ -228,6 +228,7 @@ const getSearProducts = async (arr)=>{
             return {
                     id: data._id,
                     nombre: data.nameProduct,
+                    codigoProducto: data.codigoProducto,
                     ingredientes: data.description,
                     quantity: data.unidadesDisponibles,
                     // img: Url.urlBackEnd + data.urlImages[0]?.img,

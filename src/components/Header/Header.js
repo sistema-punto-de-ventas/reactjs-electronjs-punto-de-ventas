@@ -27,8 +27,8 @@ const menuArray = [
     { active: false, path: '/clientes', img: Clientes, alt: 'cliente', name: 'Clientes', rolePermit: [{ name: 'admin' }, { name: 'caja' }] },
     { active: false, path: '/gastos', img: Gastos, alt: 'gastos', name: 'Gastos', rolePermit: [{ name: 'admin' }] },
     { active: false, path: '/PCategoria', img: CategoriaImg, alt: 'pcategoria', name: 'Categoria', rolePermit: [{ name: 'admin' }] },
-    { active: false, path: '/galeria', img: Galeria, alt: 'galeria', name: 'Galeria', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
-    { active: false, path: '/config', img: Config, alt: 'config', name: 'Configuracion', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
+    // { active: false, path: '/galeria', img: Galeria, alt: 'galeria', name: 'Galeria', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
+    // { active: false, path: '/config', img: Config, alt: 'config', name: 'Configuracion', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
 
 ]
 function Header(props) {
