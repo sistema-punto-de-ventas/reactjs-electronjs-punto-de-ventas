@@ -1,0 +1,69 @@
+.contend-gastos{   
+    position: relative;
+    color:#D8DBE2;
+}
+.conted-left{
+    color:#D8DBE2;
+    position:absolute;
+    left: 15px;
+}
+
+.conted-right{
+    top:5px;
+    position:absolute;
+    right: 15px;
+    
+}
+.button-table{
+    border:none;
+    border-radius: 15px;
+    padding: 7px 15px;
+    background-color: #27272B;
+    color: #D8DBE2;
+}
+
+.button-table:hover{   
+    background-color: rgba(230, 230, 230, 0.37);
+}
+.active-button-table{
+    background-color: rgba(197, 195, 195, 0.246);
+}
+.contend-table-gastos{
+    /* background-color:red; */
+    position: absolute;
+    width: 100%;
+    top:50px;
+    overflow-y: scroll;
+}
+
+.heightAdmin{
+    height:800px;
+    overflow: scroll;
+}
+.contend-table-gastos::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.contend-table-gastos::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.contend-table-gastos::-webkit-scrollbar-button:increment,.contend-table-gastos::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.contend-table-gastos::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.contend-table-gastos::-webkit-scrollbar-thumb {
+    background-color: #27272B;
+    border-radius: 15px;
+    border: 1px solid #f1f2f349;
+}
+
+.contend-table-gastos::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+

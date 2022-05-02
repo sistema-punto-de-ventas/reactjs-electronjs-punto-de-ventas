@@ -1,0 +1,12 @@
+.contend{
+    background-color: red;
+    position: absolute;
+    top: 15px;
+    transition: 380ms;    
+    padding: 15px 10px 15px 85px;
+    border-radius: 15px;
+}
+.contend.active{
+    padding: 15px 10px 15px 15px;
+}
+/* restar left menos widt full */

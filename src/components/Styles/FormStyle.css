@@ -1,0 +1,98 @@
+
+.containerForm{
+    position: relative;
+    /* background-color: rgba(255, 0, 0, 0.157); */ /* cambiar de color dinamicamente esta parte */
+    width: 100%;    
+}
+
+.wrap {
+    width: 100%;
+    /* position: absolute; */     
+    vertical-align: middle;
+    height: auto;
+}
+
+.wrap div {
+    position: relative;
+    margin: 20px 0;
+}
+
+.label-form {
+    position: absolute;
+    top: 0;
+    font-size: 20px;
+    margin: 10px;
+    padding: 0 10px;
+    background-color: rgb(255, 255, 255); /* cambiar de color dinamicamente esta parte */
+    -webkit-transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+    transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
+    color: rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+}
+
+.active {
+    top: -25px;
+    font-size: 16px;
+}
+
+.wrap input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);/* cambiar de color dinamicamente esta parte */
+    color: rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+}
+.wrap input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);/* cambiar de color dinamicamente esta parte */
+    color: rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+}
+.wrap input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);/* cambiar de color dinamicamente esta parte */
+    color: rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+}
+.icon-form-rigth{
+    position: absolute;
+    color: #D8DBE2;
+    font-size: 25px;
+    top: 7px;
+    right: 8px;
+    
+}
+.wrap textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);/* cambiar de color dinamicamente esta parte */
+    color: rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+}
+.wrap input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);/* cambiar de color dinamicamente esta parte */
+    color: rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+}
+
+.wrap input[type="text"]:focus {
+    outline: none;
+}
+.select-form{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);/* cambiar de color dinamicamente esta parte */
+    font-size: 20px;
+    background-color: rgb(255, 255, 255);/* cambiar de color dinamicamente esta parte */
+    color: rgb(0, 0, 0);
+}
+/* style unput file */
+

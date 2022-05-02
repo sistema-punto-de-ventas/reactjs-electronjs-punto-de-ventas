@@ -1,0 +1,126 @@
+@charset "UTF-8";
+/* Aquí definimos las Custom properties */
+:root {
+  --negro: #393939;
+  --blanco: #ececec;
+  --sombra-ppal: #c9c9c9;
+  --sombra-sec: #ffffff;
+  --borde-negro: #00000050;
+  --marcado: rgb(127, 195, 255);
+  /* Tipografía */
+  --tipo-principal: Helvetica, Arial, sans-serif;
+}
+
+/* Las adaptamos al modo oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --negro: #ececec;
+    --blanco: #303030;
+    --sombra-ppal: #242424;
+    --sombra-sec: #3c3c3c;
+    --borde-negro: #FFFFFF50;
+  }
+}
+.carrousel {
+  width: 100%;
+  height:100vh;
+  max-width: 120em;
+  padding: 1em;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  /* border-radius: 1em; */
+  background-color: var(--blanco);
+  box-shadow: 1em 1em 1em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  overflow: hidden;
+
+}
+
+.carrousel .grande {  
+  width: calc( 400% + 2.5em);   
+  height:95%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  border-radius: 1em;
+  /* background-color: var(--blanco); */
+  
+  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+  /* padding: 1em; */
+  transition: all 0.5s ease;
+  transform: translateX(0%);
+}
+
+.carrousel .img {
+  /* background-color: red;   */
+  width: calc( 100% / 9 - 1.5em);
+  height:100%;
+  object-fit:cover;
+  object-position: 20% 10%;
+  min-height: 10vh;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  border-radius: 1em;
+  background-color: var(--blanco);
+  box-shadow: 1em 1em 2em var(--sombra-ppal), -1em -1em 2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+}
+.carrousel .puntos {
+  /* background-color: red; */
+  width: 100%;
+  height: 5%;
+  padding:10px;
+  position:absolute;
+  bottom: 0px;
+  left: 0px;
+  margin: 1em 0 0;
+  
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  list-style:none;
+}
+.carrousel .punto {
+  width: 2em;
+  height: 2em;
+  margin: 0 0.5em 0;
+  color: var(--negro);
+  transition: all 0.4s ease;
+  border-radius: 1em;
+  background-color: var(--blanco);
+  box-shadow: 0.6em 0.6em 1.2em var(--sombra-ppal), -0.6em -0.6em 1.2em var(--sombra-sec), inset 0 0 0 transparent, inset 0 0 0 transparent;
+}
+.carrousel .punto.activo {
+  background-color: lightblue;
+}
+@media screen and (max-width: 1080px) {
+  .carrousel {
+    padding: 1em 0px;
+  }
+  .carrousel .grande {
+    /* background-color:red; */
+    width: 200%;
+  }
+  .carrousel .img {    
+    width: calc( 100% + 2em);
+  }
+}
+@media screen and (max-width: 720px) {
+  .carrousel .grande {
+    width: 100%;
+  }
+  .carrousel .img {
+    width: calc( 100% + 1em);
+  }
+}
+@media screen and (max-width: 520px) {
+  .carrousel .grande {
+    width: 100%;
+  }
+  .carrousel .img {
+    object-fit:scale-down;
+  }
+}
+  

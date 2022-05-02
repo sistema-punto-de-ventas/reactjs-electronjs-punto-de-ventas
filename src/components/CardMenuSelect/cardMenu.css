@@ -1,0 +1,159 @@
+.container-card-list{
+    position: relative;    
+    margin: 10px;
+    width: 170px; 
+    height: 180px;
+    /* background-color: aqua; */
+}
+
+.container-card-list img{   
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;  
+    background-color: rgb(255, 255, 255); 
+}
+.card-container{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 3px 5px;
+    /* background-color: rgba(0, 0, 0, 0.568); */
+    border-radius: 15px;
+    color: rgb(211, 211, 211);
+    
+    /* font-weight: bolder */;
+}
+
+
+
+.br-vard-menu {
+    content: "";
+    margin: 0px;
+    display: block;
+    font-size: 1%;
+}
+
+.content-nombre-cantidad{
+    /* background-color: rgba(0, 0, 0, 0.329); */
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 40px;
+    text-transform: none;
+    line-height:15px;
+    /* height: 30px; */
+}
+.text-header-title{
+    /* text-decoration: underline; */
+    color: white;
+    margin: 2px;
+    line-height: 1.1;  
+    font-size: 16px;
+    font-weight: bolder;
+    text-align: left;
+    text-shadow: -2px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
+    /* background-color:rgba(68, 68, 68, 0.349);
+    border-radius: 5px; */
+    /* font-family:"Lucida Console", "Courier New", monospace; */
+    /* font-weight: bolder */
+}
+
+.text-cantidad{
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 13.5px;
+    text-shadow: -2px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.text-header{  
+    position: absolute;
+    top: 12px;
+    right: 0;
+    color: white;
+    background-image: linear-gradient(to right, rgb(107, 107, 107) , rgb(43, 43, 41) , rgb(102, 102, 102));
+    border: rgb(7, 228, 162) 1px solid;
+    margin-top:-14px;
+    font-size: 17px; 
+    font-weight: semi-bold;
+    line-height: 1.1;
+    border-radius: 0 10px 0 10px;
+    padding: 3px 10px 3px 10px;  
+
+    font-family:"Lucida Console", "Courier New", monospace;    
+}
+
+.card-body-list{  
+    margin-top:-15px;  
+    background-color:rgba(47, 47, 47, 0.445);
+    border-radius: 10px;
+}
+.card-footer-list{
+    position: absolute;
+    bottom:3px;
+}
+.btn-card-footer{
+    background-color: #1D2D44;
+    color: #d8dbe2;
+    padding: 2px 8px;    
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-style: initial;          
+}
+.tex-description{
+    position: absolute;
+    color: white;
+    right: 5px;
+    bottom: -10px;
+    border: 1px solid #1D2D44;
+    width: 25px;
+    height: 25px;
+    font-size: 40px;
+    line-height: 1.1;
+    font-family:"Lucida Console", "Courier New", monospace;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.description-text-hover{
+    position:absolute;
+    background-color:#1b1b1ed7 !important;
+    
+    color: white;
+    width: 210px;
+    z-index: 1;
+    top: 15px;
+    left:100px;
+    padding:2px;
+    border-radius: 10px;
+    text-align: center;
+}
+.description-text-hover p{
+    font-size: 16px;
+    line-height: 1.1;
+    font-family:"Lucida Console", "Courier New", monospace;
+    position: relative;
+    top:8px;    
+}
+
+@media screen and (max-width: 1140px) {    
+    .container-card-list{
+        width: 155px; 
+        height: 165px
+    }
+}
+@media screen and (max-width: 960px) {     
+    .container-card-list{
+        width: 145px; 
+        height: 155px
+    }
+}
+
+@media screen and (max-width:  720px) {    
+    .container-card-list{
+        width: 135px; 
+        height: 145px
+    }
+}

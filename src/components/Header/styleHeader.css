@@ -1,0 +1,139 @@
+.head-container{
+    background-color: var(--color-primario);
+    /* background-color: green; */
+    position: relative;    
+    padding: 0 4px 0 4px;
+    min-width: 576px;
+    height: 140px;
+}
+.navigation-contend{
+    /* background-color:red; */
+    display: grid;
+    grid-template-columns: repeat(auto, 1fr);
+    padding: 5px;
+    height: 60%;
+    border-radius: 25px; 
+    /* background-color: rgb(145, 255, 71) !important; */
+    width: 100%;
+    min-width:576px;
+    position: relative;
+    
+}
+.navigator{
+    /* background-color:rgba(117, 0, 0, 0.432); */
+    position: relative;
+    text-decoration: none;     
+    border-radius: 10px;
+    margin:9px;
+    height:57.5% /* 1080 maximo alto es 113px  */
+    
+}
+.navigator:hover{
+    border-radius: 20px;    
+    transition: ease 200ms;
+    background-color: rgba(131, 130, 130, 0.342);
+}
+.logoImg{
+    max-height: 100%;
+    width: 100%;
+    object-fit: scale-down;  
+    display:block;  
+}
+.labelLogo{
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-size: 28px;
+}
+.selected{
+    border-radius: 15px;
+    border:2px solid rgba(134, 134, 134, 0);   
+    background-color: rgba(131, 130, 130, 0.376);
+}
+.labelSelected{
+    font-size: 1.7rem;    
+}
+.navbar-content{
+    /* background-color: rgb(1, 138, 126) !important; */
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: no-wrap;
+    align-items: center;
+    background-color: var(--color-primario);
+    height: 38%;
+    padding: 2px 10px 2px 10px;
+    margin: 0 0 2px 0;
+}
+.content-user{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: crimson; */
+    height: 100%;
+   
+}
+
+.user-img{    
+    /* background-color: chocolate; */
+    padding: 5px;
+
+}
+.user-name{
+    height:100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+   /*  background-color: rgb(153, 136, 99); */    
+    list-style-type: none;
+
+}
+.textRole{
+    color: rgb(160, 160, 160)!important;
+}
+
+.logo .nameLogo{
+    font-size:1.7rem;
+    text-transform: uppercase;
+}
+.contendButtons{ 
+    display: flex;
+    justify-content: flex-end;
+    /* background: chartreuse; */
+    padding: 10px;
+    width: 15%;
+
+}
+
+.button-getOut{
+    padding: 2px 26px 2px 26px;
+    border: none;
+    border-radius: 18px;
+    font-size: 100%;
+    font-style: initial;  
+    background-color: var(--color-secunadrio) !important;     
+}
+
+.button-getOut:hover{
+    color: white !important;
+}
+
+/* @media screen and (max-width: 1255px) {
+    .labelLogo{
+        font-size: 25px !important;
+    }
+
+} */
+
+.icon-menu{
+    color: aliceblue !important;
+    width: 30px;
+    margin-right: 40px;
+}
+/* .menuSatate{
+    height: 70px;
+} */

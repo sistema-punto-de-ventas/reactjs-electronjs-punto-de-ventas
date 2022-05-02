@@ -1,0 +1,290 @@
+.contend-input-venta{
+    /* background-color: red; */
+    position: relative;
+    
+}
+
+.input-venta {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 20px;
+    color: #ececec;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #a8a8a8;
+    outline: none;
+    background: transparent;
+    transition: .2s;
+}
+.pago-cliente{
+    width: 100%;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.venta-label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #818181;
+    pointer-events: none;
+    transition: .2s;
+}
+.input-venta:focus ~ .venta-label,
+.input-venta:valid ~ .venta-label {
+  top: -20px;
+  left: 0;
+  color: #D8DBE2;
+  font-size: 16px;           
+}
+.label-detalle{
+    font-size: 22px;  
+}
+
+.tabel-input{
+    width: 90%;
+  /*   margin-bottom: 30px; */
+    padding: 5px 0;
+    color: #d3d3d3;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    outline: none;
+    background: transparent;
+}
+
+.tabel-input option{
+    background-color: #1b1b1eb9;
+}
+.list-clientes{
+    padding: 8px;
+    background-color: #1D2D44;
+    width: 100%;
+    position:absolute;
+    z-index: 1;
+    top: 50px;
+    border-radius: 10px;
+    max-height: 320px;
+    overflow-y: scroll;
+}
+.list-clientes ul{
+    list-style-type: none;
+    margin: 0 auto;
+    margin-left: -30px;
+}
+.list-clientes ul li{
+    list-style-type: none;
+    border-bottom: 1px solid #ccc;
+    margin: 0px 0px 5px;
+    padding: 0 0 5px;
+
+}
+.button-form-venta{
+    background-color: #1D2D44; /* Green */
+    border: none;
+    color: #D8DBE2;
+    padding: 7px 10px 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10.5px 6px;
+    cursor: pointer;
+    border-radius: 15px; 
+    width: 100px; 
+}
+.button-form-venta:hover{
+    background-color: #d8dbe24b;
+    transition: ease 350ms;
+}
+
+.list-clientes::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.list-clientes::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.list-clientes::-webkit-scrollbar-button:increment,.list-clientes::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.list-clientes::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.list-clientes::-webkit-scrollbar-thumb {
+    background-color: #27272B;
+    border-radius: 15px;
+    border: 1px solid #f1f2f349;
+}
+
+.list-clientes::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+.contend-left{     
+    position:absolute;    
+}
+.contend-right{
+    width: 58%;
+    position:absolute;
+    right:10px;
+    text-align:start;
+}
+
+.buttons-number{
+    display:grid;
+    grid-template-columns: repeat(4,50px);
+}
+.button-number{
+    background-color: #1D2D44;
+    border:1px  #27272B solid;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    color:white;
+}
+.button-number:hover{
+    background-color: #a5a5a593;
+}
+.n{
+    background-color: #838383fd;
+}
+.spanError{
+    color: rgba(255, 0, 0, 0.651);
+    line-height: 1.6;        
+    font-size: 15px;
+}
+@media screen and (max-width: 1500px) {    
+    .contend-right{
+        width: 52%;
+    }
+}
+@media screen and (max-width: 1300px) {    
+    .contend-right{
+        width: 45%;
+    }
+    .label-detalle{
+        font-size: 20px;  
+    }
+    .spanError{
+        color: rgba(255, 0, 0, 0.651);
+        line-height: 1.6;        
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 1140px) {    
+    .contend-right{
+        width: 36%;
+    }
+    .label-detalle{
+        font-size: 16px;  
+    }
+    .venta-label {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 1000px) {    
+    .contend-right{
+        width: 35%;
+    }
+    .label-detalle{
+        font-size: 16px;  
+    }
+    .size{
+        font-size: 14px !important;
+    }
+    .buttons-number{
+        display:grid;
+        grid-template-columns: repeat(4,40px);
+    }
+    .button-number{      
+        width:40px;
+        height:40px;
+    }
+    .table-from-venta th {
+        font-size: 14px;
+    }
+    .table-from-venta td {
+        font-size: 11px;
+    }
+}
+@media screen and (max-width: 880px) {    
+    .contend-right{
+        width: 40%;
+    }
+    .label-detalle{
+        font-size: 13px;  
+    }
+    .size{
+        font-size: 12px !important;
+    }
+    .buttons-number{
+        display:grid;
+        grid-template-columns: repeat(4,30px);
+    }
+    .button-number{      
+        width:30px;
+        height:30px;
+        font-size:10px;
+    }
+    .table-from-venta th {
+        font-size: 12px;
+    }
+    .table-from-venta td {
+        font-size: 11px;
+    }
+}
+@media screen and (max-width: 715px) {    
+    .contend-right{
+        width: 35%;
+    }
+    .label-detalle{
+        font-size: 10px;  
+    }
+    .size{
+        font-size: 10px !important;
+    }
+    .buttons-number{
+        display:grid;
+        grid-template-columns: repeat(4,26px);
+    }
+    .button-number{      
+        width:26px;
+        height:26px;
+        font-size:8px;
+    }
+    .table-from-venta th {
+        font-size: 12px;
+    }
+    .table-from-venta td {
+        font-size: 11px;
+    }
+}
+
+/* cantidad de compra */
+.select-cantidad-ventas{
+    width: 60%;
+
+     border-radius: 20px;
+}
+.select-cantidad-ventas:focus{
+    background-color: white;
+}
+.select-cantidad-ventas::-webkit-scrollbar {
+    width: 5px;
+}
+.select-cantidad-ventas::-webkit-scrollbar-thumb {
+    background: #1D2D44;
+    border-radius: 20px 20px 20px 20px;
+
+}
+.select-cantidad-ventas::-webkit-scrollbar-track{
+    background: #ffffff;
+    border-radius: 20px 20px 20px 20px;
+}

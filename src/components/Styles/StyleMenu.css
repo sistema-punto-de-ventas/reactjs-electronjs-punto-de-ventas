@@ -1,0 +1,127 @@
+.headMenu{    
+    height: 60px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    padding-left: 10px;
+    position: relative;
+    background-color: var(--color-secuandrio-1) !important;
+}
+.button-content-left{
+    /* background-color: blue; */
+    height: 100%;    
+    position: absolute;
+    left: 5px;
+}
+.button-content-rigth{
+    /* background-color: red; */
+    height: 100%;    
+    position: absolute;
+    right:5px;
+}
+.buttonMenu {
+    background-color: #1D2D44; /* Green */
+    border: none;
+    color: #D8DBE2;
+    padding: 7px 10px 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10.5px 6px;
+    cursor: pointer;
+    border-radius: 15px;    
+}
+/* button para modo ligth */
+.buttonWithe{
+    background-color:#D8DBE2;
+    border: 1px solid #27272B; 
+    color:#27272B;
+}
+/* button warning */
+.buttonWarnig{
+    background-color:#750D37;
+    border: 1px solid #27272B; 
+    color:#D8DBE2;
+}
+.buttonMenu:hover{
+    background-color: var(--color-secundario-hover);;
+    transition: ease 350ms;
+}
+.buttonWithe:hover{
+    background-color:#ffffff;
+    border: 1px solid #27272B; 
+    transition: ease 350ms;
+}
+.buttonWarnig:hover{
+    background-color:#750d37c7;
+    border: 1px solid #27272B; 
+    transition: ease 350ms;
+}
+.buttonSeleccted{
+    background-color: var(--color-secunadrio);
+    border: 1px solid rgba(255, 0, 0, 0);
+}    
+
+@media screen and (max-height: 900px) {
+
+    .headMenu{ 
+        height: 55px;
+    }
+    .buttonMenu {
+        font-size: 12.5px;
+    }
+}
+@media screen and (max-height: 650px) {
+
+    .headMenu{ 
+        height: 50px;
+    }
+    .buttonMenu {
+        font-size: 10px;
+    }
+}
+/* Para pantallas menores a 1400px */
+@media screen and (max-width: 1400px) {
+    .headMenu{
+        display: flex;
+        flex-direction: column;
+        height: 45px;
+        background-color: var(--color-secuandrio-1) !important;
+        /* background-color: #12e72e !important; */
+        
+        
+
+    }
+    .button-content-left{
+        /* background-color: aqua; */
+        display: flex;
+        align-items: center;
+    }
+    .buttonMenu{
+        /* background-color: red; */
+        /* background-color: var(--color-secunadrio) !important; */
+        font-size: 13px;
+        /* font-weight: bold !important; */
+        height: 30px;
+        margin: 2px;
+        
+    }
+
+    .button-content-rigth{
+        
+        display: flex;
+        justify-items: end;
+        align-items: center;
+    }
+
+
+    .buttonSeleccted{
+        background-color: var(--color-secunadrio);
+        color: #ffffff;
+        border: 1px solid rgba(255, 0, 0, 0);
+    } 
+    .buttonMenu:hover{
+        background-color: var(--color-secundario-hover);
+        transition: ease 350ms;
+    }
+}

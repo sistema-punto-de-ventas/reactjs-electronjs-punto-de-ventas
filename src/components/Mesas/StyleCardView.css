@@ -1,0 +1,177 @@
+.containerCardList{
+    background-color: var(--color-primario);
+    position: relative;    
+    border-radius: 10px 10px 10px 10px;
+    margin: 9px;
+    width: 155px;
+    height: 250px; 
+}
+.image-content{
+    /* background-color: rgb(173, 15, 113); */
+    height:59%;
+    border-radius: 10px 10px 0 0 ;
+}
+
+.image-content .img{
+    width: 100%;
+    height: 100%;
+  
+    object-fit: fill;
+    border-radius: 7px;
+    object-fit: cover !important;
+}
+.card-body{
+    /* background-color: deeppink; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 40%;
+    margin: 0 !important;
+    padding: 3px !important;
+    /* padding:2 */
+}
+.cardContainer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    background-color: var(--color-cuarto);
+    border-radius: 10px;
+}
+/* .cardHeader{
+    background-color: red;   
+    
+} */
+.br-card-list {
+    content: "";
+    margin: -5px;
+    display: block;
+    font-size: 1%;
+}
+.cardHeader span{    
+    font-size: 6px;  
+    font-family:"Lucida Console", "Courier New", monospace; 
+}
+.title-carHeader{
+    margin: 0;
+    font-size: 15.5px; 
+    font-weight: bold;
+    text-align: left;
+}
+.cantidad-disponible{
+    color: var(--color-text-secundario) !important;
+    font-size: 14px !important;
+    margin: 0 0 4px 0;
+
+}
+
+.precio-producto{
+    color: #ffffff;
+    font-size: 19px !important;
+    padding: 0 2px 0 2px;
+    margin: 0;
+}
+.precio-producto-content{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    border-radius: 0 10px;
+    /* background-color: rgb(0, 255, 157); */
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, rgba(134, 134, 134, 0.8) 100%);
+}
+.carHeader-data{
+    margin-top:-20px;
+}
+
+.cardBody{
+    padding: 0px;
+    /* background-color:rgba(37, 37, 37, 0.65); */
+    border-radius: 5px;
+    margin-top: -17px;
+}
+/* .btn-options{
+    background-color: red;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    
+
+} */
+.cardFooter{
+    
+    padding-left:3px;
+    /* position: absolute; */
+    width: 100%;   
+}
+.btn-cardFooter{
+    background-color: #1D2D44;
+    color: #D8DBE2;
+    padding: 2px 8px;    
+    border: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-style: initial;
+}
+.buttonRight{    
+   /*  position:absolute; */
+    margin-left: 48.5px;
+    right: 4px;
+}
+.danger-btn{
+    background-color: #750D37;
+    color: #D8DBE2;
+}
+.description-menu{    
+    font-size: 14px;
+    line-height: 1.1;
+    /* font-family:"Lucida Console", "Courier New", monospace; */
+}
+.hover-text{
+    background-color:#1b1b1ed7;
+    position:absolute;
+    z-index: 1;
+    width: 100%;
+    top:20px;
+    left:80px;
+    padding:10px;
+    border-radius: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.hover-text-description{
+    font-size: 16px;
+    line-height: 1.1;
+    /* font-family:"Lucida Console", "Courier New", monospace; */
+    position: relative;
+    top:10px;    
+}
+/* @media (max-width: 585px) {
+    .containerCardList{
+        width: 300px;
+        height: 260px;
+        margin: 0px 0px 18px -20px;
+        
+    }
+    .cardBody{
+       
+        height: 165px;        
+        
+    }
+} */
+
+
+
+/*------diseño para pantallas inferiores a 1400px------ */
+
+@media screen and (max-width: 1140px) {
+          
+    .containerCardList{
+        width: 160px;
+        height: 250px; 
+    }
+    .btn-cardFooter{        
+        font-size: 12px;        
+    }
+}

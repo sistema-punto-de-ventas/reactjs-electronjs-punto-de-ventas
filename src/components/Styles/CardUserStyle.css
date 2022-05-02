@@ -1,0 +1,81 @@
+.cardUser{
+    background-color: var(--color-cuarto);
+    position: relative;
+    margin: 10px;
+    width: 210px;
+    height: 310px;   
+    border-radius: 15px;
+    color:#D8DBE2;
+
+}
+.client{
+    height: 260px;   
+}
+.cardUser img {
+    margin: 15px 25%;
+    background-color: #D8DBE2;
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+}
+.card-container-user{
+    /* background-color: rgba(255, 0, 0, 0.404); */
+    padding: 0px 10px;
+    height: 57%;
+}
+.cardUSer-body{
+    /* background-color: rgba(255, 255, 255, 0.527); */
+    height: 70%;
+    margin-left: 10px;
+}
+.cardUSer-body p{
+    font-size: 15px;
+}
+.description{
+    margin-top:-11px;
+}
+.cardUSer-footer{
+    position: relative;    
+    height: 18%;
+    padding: 10px 0px;
+    /* background-color: red; */
+}
+.btn-cardFooter{
+    position: absolute;
+    bottom: 0px;
+}
+.users{
+    height: 25%;
+}
+
+@media (max-width: 1140px) {
+    .cardUser{
+        margin: 10px;
+        width: 180px;
+        height: 260px;   
+        border-radius: 12px;    
+    }
+    .isUser{
+        width: 180px;
+        height: 290px;  
+    }
+    .cardUser img {
+        margin: 15px 21%;
+        
+    }
+    .cardUSer-body{
+        
+        height: 65%;
+        margin-left: 10px;
+    }
+    .cardUSer-body p{
+        font-size: 14px;
+        
+    }
+    .cardUSer-footer{        
+        height: 23%;
+    }
+    .users{
+        height: 25%;
+    }
+}

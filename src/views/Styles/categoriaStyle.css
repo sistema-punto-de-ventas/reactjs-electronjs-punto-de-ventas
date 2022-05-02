@@ -1,0 +1,30 @@
+.buttonCategory {
+    background-color: #27272B; /* Green */
+    border: none;
+    color: #D8DBE2;
+    padding: 3px 15px 3px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 5px 5px;
+    cursor: pointer;
+    border-radius: 10px;    
+}
+
+.blue{
+    background-color: #1D2D44;
+}
+
+.buttonCategory:hover{
+    background-color:#ffffff6c;   
+    transition: ease 350ms;
+}
+
+#table-data{
+    overflow-y: scroll !important;
+    /* background-color: red; */
+    padding-bottom: 100px;
+   height: calc(100vh - 200px);
+
+}

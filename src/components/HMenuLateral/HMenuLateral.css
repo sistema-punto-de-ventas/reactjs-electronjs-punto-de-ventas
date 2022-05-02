@@ -1,0 +1,35 @@
+.content-icon-close{
+    display:flex;
+    flex-direction: row-reverse;
+    padding-bottom: 40px;
+}
+.content-icon-close svg{
+    margin: 9px;
+    cursor: pointer;
+}
+
+.HMenu-lateral-content{
+    background-color: var(--color-primario);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 50 !important;
+    overflow: hidden !important;
+}
+
+.body-menu-option-content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+
+.card-menu-option{
+    background-color: aliceblue;
+    border-radius: 10px;
+
+}

@@ -1,0 +1,73 @@
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(32, 32, 32, 0.527);  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 40;
+}
+  
+
+.modalStyle,
+.modalStyle-box {
+  z-index: 40;
+}
+.modalStyle-box { 
+  position: relative;
+  
+  /* max-width: 1220px; */
+  margin: 50px auto; 
+  animation-name: modalStylebox;
+  animation-duration: 0.4s;
+  animation-timing-function: cubic-bezier(0, 0, 0.3, 1.6);
+}
+.modalStyle-header {
+  border-radius: 20px 20px 0px 0px;
+  padding: 5px 20px;
+}
+.modalStyle-body {
+  padding: 20px 20px;
+  border-radius: 0px 0px 20px 20px;
+}
+/* Close Button */
+.close-modalStyle {
+  text-align: right;
+  cursor: pointer;  
+}
+
+/* Animation */
+@-webkit-keyframes modalStylebox {
+  0% {
+    top: 250px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes modalStylebox {
+  0% {
+    top: -250px;
+    opacity: 0;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .Modal{
+    
+    overflow-y: scroll;
+  }
+
+
+  
+}

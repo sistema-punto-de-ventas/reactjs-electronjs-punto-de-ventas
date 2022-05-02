@@ -1,0 +1,102 @@
+
+.conted-venta{
+    position: relative;
+}
+.conted-products{
+    background-color: var(--color-secuandrio-1);
+    position: absolute;
+    width: 60%;    
+    padding:  10px;
+    border-radius: 15px;
+    display: inline-block;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 12.5rem);
+    grid-template-rows:auto 1fr;
+    grid-column-gap: 6px;
+    row-gap: 15px;
+    justify-content: center;   
+    overflow-y: scroll;
+}
+
+.conted-form-venta{
+    background-color: var(--color-secuandrio-1);
+    position: absolute;
+    width: 39%;
+    right: 0px;
+    padding: 10px;
+    border-radius: 15px;
+    overflow-y: scroll;
+}
+.heightAdmin{
+    height: 850px;
+}
+
+.conted-products::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.conted-products::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.conted-products::-webkit-scrollbar-button:increment,.conted-products::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.conted-products::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.conted-products::-webkit-scrollbar-thumb {
+    background-color: #27272B;
+    border-radius: 15px;
+    border: 1px solid #f1f2f349;
+}
+
+.conted-products::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+
+/* sdfsdf */
+
+.conted-form-venta::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.conted-form-venta::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.conted-form-venta::-webkit-scrollbar-button:increment,.conted-form-venta::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.conted-form-venta::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.conted-form-venta::-webkit-scrollbar-thumb {
+    background-color: #27272B;
+    border-radius: 15px;
+    border: 1px solid #f1f2f349;
+}
+
+.conted-form-venta::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+@media screen and (max-width: 1140px) {    
+    .conted-products{
+        grid-template-columns: repeat(auto-fit, 11rem);
+        grid-template-rows:auto 1fr;
+        grid-column-gap: 10px;
+        row-gap: 10px;
+    }
+}
+@media screen and (max-width: 720px) {    
+    .conted-products{
+        grid-template-columns: repeat(auto-fit, 9rem);
+        grid-template-rows:auto 1fr;
+        grid-column-gap: 10px;
+        row-gap: 2px;
+    }
+}
