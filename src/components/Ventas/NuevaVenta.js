@@ -99,6 +99,8 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
                         // img: Url.urlBackEnd + data.urlImages[0]?.img,
                         img: data.urlImages[0]?.img,
                         precioCosto: data.precioCosto,
+
+                        codigoProducto: data.codigoProducto?data.codigoProducto:'',
                         precio: data.precioUnitario,
                         idUser: data.idUser,
                         category: data.category,
@@ -190,7 +192,7 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
                     id: data.id,
                     idProduct: data.id,
                     nombre: data.nombre,
-                    codigoProducto: data.codigoProducto,
+                    codigoProducto: data.codigoProducto?data.codigoProducto:'',
                     description: '',
                     precio: data.precio,
                     unidadesDisponibles: data.quantity,

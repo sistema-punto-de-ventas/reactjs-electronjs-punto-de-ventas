@@ -463,7 +463,7 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
 
                         <li>Total Gastos BS:  {dataEstadoFinanciero.montoActualUtilizado}</li>
                         <li>Total Ventas BS:  {dataEstadoFinanciero.ventas?.total}</li>
-                        {/* <li>Total BS: {dataEstadoFinanciero.montoActualDisponble}</li> */}
+                        <li>Total BS: {dataEstadoFinanciero.montoActualDisponble}</li>
                         {/*  <li>Total:  Bs</li> */}
                     </div>
                     <div className="footer">

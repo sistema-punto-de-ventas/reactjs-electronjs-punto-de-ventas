@@ -50,5 +50,18 @@
     color: white;
 }
 
+.btn-codigo-producto{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding:2px 6px 2px 6px;
+    background-color: rgb(253, 253, 253);
+    border-radius: 20px;
+    cursor: pointer;
+    color:black;
+}
 
+.btn-codigo-producto.active-codigo{
+    background-color: rgb(22, 214, 166);
+    color: aliceblue;
+}
 

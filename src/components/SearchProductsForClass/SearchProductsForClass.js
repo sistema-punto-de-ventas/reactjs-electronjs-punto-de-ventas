@@ -15,6 +15,7 @@ const  SearcProdcutsForClass=(props)=>{
     const [selectCantidad, setSeletCantidad] = useState('');
     const [selectCategoriaStyle, setSelectCategoriastyle] = useState('');
     const [orderCategory, setOrderCategory] = useState('');
+    const [selectCodigoP, setSelectCodigoP] = useState('');
 
     const [pagination, setPagination] = useState([1,2,3,4,5,6,7,8,9,10]);
 
@@ -49,6 +50,7 @@ const  SearcProdcutsForClass=(props)=>{
         
         setSelectPrecio('active-precio');
         setSeletCantidad('')
+        setSelectCodigoP('');
         // setSelectCategoriastyle('');
     }
     const handleSelectCantidad=({target})=>{
@@ -61,6 +63,7 @@ const  SearcProdcutsForClass=(props)=>{
         
         setSeletCantidad('active-cantidad')
         setSelectPrecio('');
+        setSelectCodigoP('');
         // setSelectCategoriastyle('');
     }
 
@@ -72,6 +75,7 @@ const  SearcProdcutsForClass=(props)=>{
         setSelectCategoriastyle('active-categoria');
         setSelectPrecio('');
         setSeletCantidad('');
+        setSelectCodigoP('');
         setNumberPagina(1);
         if(target.value===''){
             setSelecPCategoria('');
@@ -97,7 +101,7 @@ const  SearcProdcutsForClass=(props)=>{
    const inputDefault =()=>{
        console.log("%c input default","color:red");
        
-       setOrder('')
+       if(order!="codigoProducto")setOrder('');
        setSelecPCategoria('');
        setSelectCategoriastyle('');
        setSeletCantidad('');
@@ -126,6 +130,16 @@ const  SearcProdcutsForClass=(props)=>{
        setPagination(number); 
    }
 
+   const handleBtnCodigoP=async()=>{
+        setSelectCodigoP(selectCodigoP==='active-codigo'?'':'active-codigo');
+        await setOrder(order==='codigoProducto'?'':'codigoProducto');
+        console.log('%c codigo p','color:green',order);
+
+        setSelecPCategoria('');
+        setSelectCategoriastyle('');
+        setSeletCantidad('');
+        setSelectPrecio('')
+    }
    const lestPagination=async(e)=>{
         console.log("mmmmm");
         if(pagination[0]>1){
@@ -150,6 +164,11 @@ const  SearcProdcutsForClass=(props)=>{
                     </div>
                     <motion.div whileTap={{scale:0.9}} className='content-btn-search'>
                         <button onClick={handleGetSearch} className='btn-search'>Buscar</button>
+                    </motion.div>
+                </div>
+                <div className={`conten-select-codigo-producto`}>
+                    <motion.div onClick={handleBtnCodigoP} whileHover={{scale:1.03}} whileTap={{scale:1}} className={`btn-codigo-producto ${selectCodigoP}`}>
+                        Por codigo  
                     </motion.div>
                 </div>
                 <div className={`content-select-products ${selectPrecio}`}>
@@ -231,6 +250,7 @@ const getSearProducts = async (arr)=>{
                     codigoProducto: data.codigoProducto,
                     ingredientes: data.description,
                     quantity: data.unidadesDisponibles,
+                    codigoProducto: data.codigoProducto?data.codigoProducto:'',
                     // img: Url.urlBackEnd + data.urlImages[0]?.img,
                     img: data.urlImages[0]?.img,
                     precioUnitario: data.precioUnitario,

@@ -8,6 +8,7 @@ import Menu from '../../assets/menu.png';
 //import Mesero from '../../assets/mesero1.png';
 import Products from '../../assets/product_.png';
 import Config from '../../assets/config.png';
+import Estadisticas from '../../assets/estadisticas.png';
 import Usuarios from '../../assets/team.png';
 import Ventas from '../../assets/ventas.png';
 import Clientes from '../../assets/clientess.png';
@@ -28,7 +29,7 @@ const menuArray = [
     { active: false, path: '/gastos', img: Gastos, alt: 'gastos', name: 'Gastos', rolePermit: [{ name: 'admin' }] },
     { active: false, path: '/PCategoria', img: CategoriaImg, alt: 'pcategoria', name: 'Categoria', rolePermit: [{ name: 'admin' }] },
     // { active: false, path: '/galeria', img: Galeria, alt: 'galeria', name: 'Galeria', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
-    // { active: false, path: '/config', img: Config, alt: 'config', name: 'Configuracion', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
+    { active: false, path: '/estadistica', img: Estadisticas, alt: 'config', name: 'Estadistica', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
 
 ]
 function Header(props) {

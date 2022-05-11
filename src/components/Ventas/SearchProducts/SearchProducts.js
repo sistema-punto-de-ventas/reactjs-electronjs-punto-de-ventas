@@ -17,6 +17,7 @@ export const SearcProdcuts =({setListProduct})=>{
     const [selectCantidad, setSeletCantidad] = useState('');
     const [selectCategoriaStyle, setSelectCategoriastyle] = useState('');
     const [orderCategory, setOrderCategory] = useState('');
+    const [selectCodigoP, setSelectCodigoP] = useState('');
 
     const [pagination, setPagination] = useState([1,2,3,4,5,6,7,8,9,10,11,12,13]);
 
@@ -51,6 +52,7 @@ export const SearcProdcuts =({setListProduct})=>{
         
         setSelectPrecio('active-precio');
         setSeletCantidad('')
+        setSelectCodigoP('')
         // setSelectCategoriastyle('');
     }
     const handleSelectCantidad=({target})=>{
@@ -63,6 +65,7 @@ export const SearcProdcuts =({setListProduct})=>{
         
         setSeletCantidad('active-cantidad')
         setSelectPrecio('');
+        setSelectCodigoP('')
         // setSelectCategoriastyle('');
     }
 
@@ -74,6 +77,7 @@ export const SearcProdcuts =({setListProduct})=>{
         setSelectCategoriastyle('active-categoria');
         setSelectPrecio('');
         setSeletCantidad('');
+        setSelectCodigoP('')
 
         if(target.value===''){
             setSelecPCategoria('');
@@ -99,14 +103,23 @@ export const SearcProdcuts =({setListProduct})=>{
    const inputDefault =()=>{
        console.log("%c input default","color:red");
        
-       setOrder('')
+       if(order!="codigoProducto")setOrder('');
        setSelecPCategoria('');
        setSelectCategoriastyle('');
        setSeletCantidad('');
        setSelectPrecio('')
-       
    }
 
+   const handleBtnCodigoP=async()=>{
+       setSelectCodigoP(selectCodigoP==='active-codigo'?'':'active-codigo');
+      await setOrder(order==='codigoProducto'?'':'codigoProducto');
+      console.log('%c codigo p','color:green',order);
+
+       setSelecPCategoria('');
+       setSelectCategoriastyle('');
+       setSeletCantidad('');
+       setSelectPrecio('')
+   }
  
    const numberPagination=(e)=>{
        e.preventDefault();
@@ -115,7 +128,6 @@ export const SearcProdcuts =({setListProduct})=>{
        console.log(e.target.innerText);
        setNumberPagina(e.target.innerText);
        console.log(document.querySelector('.pagination'));
-    
 
    }
 
@@ -133,6 +145,11 @@ export const SearcProdcuts =({setListProduct})=>{
                     </div>
                     <motion.div whileTap={{scale:0.9}} className='content-btn-search'>
                         <button onClick={handleGetSearch} className='btn-search'>Buscar</button>
+                    </motion.div>
+                </div>
+                <div className={`conten-select-codigo-producto`}>
+                    <motion.div onClick={handleBtnCodigoP} whileHover={{scale:1.03}} whileTap={{scale:1}} className={`btn-codigo-producto ${selectCodigoP}`}>
+                        Por codigo  
                     </motion.div>
                 </div>
                 <div className={`content-select-products ${selectPrecio}`}>
@@ -210,6 +227,7 @@ const getSearProducts = async (arr)=>{
                 // img: Url.urlBackEnd + data.urlImages[0]?.img,
                 img: data.urlImages[0]?.img,
                 precioCosto: data.precioCosto,
+                codigoProducto: data.codigoProducto?data.codigoProducto:'',
                 precio: data.precioUnitario,
                 idUser: data.idUser,
                 category: data.category,

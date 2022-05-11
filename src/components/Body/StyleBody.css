@@ -4,13 +4,25 @@
     width: 100%;
     padding: 10px;
     /* padding-top: 36px; */
-    height: 81%;
+    height: 100%;
     overflow:none;
     min-width:576px;
 }
+
+
 .contendRoutes{
     
     padding: 18px;
     border-radius: 25px;
     height: 100%;
+}
+
+@media screen and (min-width:1600px) {
+    .containerBody{
+        height:100% !important;
+        /* background-color: blue; */
+    }
+    .contendRoutes{
+        background-color: brown;
+    }
 }

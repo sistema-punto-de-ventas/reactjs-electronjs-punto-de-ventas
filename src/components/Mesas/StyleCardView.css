@@ -3,8 +3,8 @@
     position: relative;    
     border-radius: 10px 10px 10px 10px;
     margin: 9px;
-    width: 155px;
-    height: 250px; 
+    width: 169px;
+    height: 276px; 
 }
 .image-content{
     /* background-color: rgb(173, 15, 113); */
@@ -160,8 +160,22 @@
         
     }
 } */
+.image-content{
+    position: relative;
+}
 
-
+.image-content .codigo-producto{
+    bottom: 0;
+    height: 20%;
+    width: 100%;
+    position:absolute;
+    display: flex;
+    align-items: flex-end;
+    background-color: #0094e900;
+    background-image: linear-gradient(0deg, #080808 0%, #80d0c700 100%);
+    color: #ffffff;
+    z-index: 2;
+}
 
 /*------diseño para pantallas inferiores a 1400px------ */
 

@@ -139,6 +139,9 @@ export default function CardView(props) {
                                     <img className='img' src={data.img?Url.urlBackEnd+data.img:imgProduct} alt='' ></img>
                                         // <div>{data}</div>
                                     }
+                                    <div className='codigo-producto'>
+                                        {data.codigoProducto}
+                                    </div>
                                 </div>
                                 <div className='card-body'>
                                     {type === 'mesas' ?

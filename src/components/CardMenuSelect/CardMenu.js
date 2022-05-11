@@ -32,8 +32,14 @@ function CardMenu({ arrDatas, clickProduct }) {
             arrDatas.map((data, key) => {
                 return (
                     <div key={key} className='container-card-list' >
-                        <div className='card-container'>
+                        <div className='navigation-contend'>
                             <div className='card-header-list'>
+                            <div className='contend-image-ventas'>
+                                <img src={data.img?Url.urlBackEnd+data.img:srcImage}  alt=''></img>
+                                <div className='text-codigo-producto'>
+                                            {data.codigoProducto?data.codigoProducto:''}
+                                </div>
+                            </div>
 
                                 {/* <span>{data.nombre}</span>
                                 <br className='br-vard-menu'/>
@@ -42,19 +48,10 @@ function CardMenu({ arrDatas, clickProduct }) {
                                 <span>Cantidad: {data.quantity}</span> */}
                                 
                                 <motion.p initial={{opacity:0, y:-20}} animate={{opacity:1, y:0}} className='text-header'>
-                                     {data.precio}Bs<br className='br-vard-menu' />
+                                     {data.precio} Bs.<br className='br-vard-menu' />
                                 </motion.p>
-                               <div className='content-nombre-cantidad'>
-                                   
-                                    <motion.div  initial={{opacity:0}} animate={{opacity:1}}  transition={{duration:0.6}} className='text-header-title'>
-                                            {data.nombre} 
-                                        </motion.div>
-                                        <motion.div   initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6}} className='text-cantidad'>
-                                            Cantidad: {data.quantity}
-                                        </motion.div>
-                                  
-                                   
-                               </div>
+                             
+                              
 
                             </div>
                             <div className='card-body-list'
@@ -78,11 +75,22 @@ function CardMenu({ arrDatas, clickProduct }) {
 
 
                             <div className='card-footer-list'>
-                                <button onClick={() => clickProduct(data)}
+                            <div className='content-nombre-cantidad'>
+                                   
+                                   <motion.div  initial={{opacity:0}} animate={{opacity:1}}  transition={{duration:0.6}} className='text-header-title'>
+                                           {data.nombre} 
+                                       </motion.div>
+                                       
+                                       <motion.div   initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6}} className='text-cantidad'>
+                                           Cantidad: {data.quantity}
+                                       </motion.div>
+                                   
+                              </div>
+                                <motion.button whileHover={{scale:1.07}} whileTap={{scale:1}} onClick={() => clickProduct(data)}
                                     className={`btn-card-footer`}
                                 >
                                     Insertar
-                                </button>
+                                </motion.button>
                                 {/* <button
                                     className='btn-cardFooter buttonRight'
                                 >
@@ -92,7 +100,7 @@ function CardMenu({ arrDatas, clickProduct }) {
 
 
                         </div>
-                        <img src={data.img?Url.urlBackEnd+data.img:srcImage}  alt=''></img>
+                
                     </div>
                 );
             })}

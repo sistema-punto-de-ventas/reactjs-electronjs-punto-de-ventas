@@ -111,6 +111,7 @@ class MenuProduct extends React.Component {
                     codigoProducto: data.codigoProducto,
                     ingredientes: data.description,
                     quantity: data.unidadesDisponibles,
+                    codigoProducto: data.codigoProducto?data.codigoProducto:'',
                     // img: Url.urlBackEnd + data.urlImages[0]?.img,
                     img: data.urlImages[0]?.img,
                     precioUnitario: data.precioUnitario,
@@ -137,6 +138,8 @@ class MenuProduct extends React.Component {
                             codigoProducto: data.codigoProducto,
                             ingredientes: data.description,
                             quantity: data.unidadesDisponibles,
+                            codigoProducto: data.codigoProducto?data.codigoProducto:'',
+                        
                             // img: Url.urlBackEnd + data.urlImages[0]?.img,
                             img: data.urlImages[0]?.img,
                             precioUnitario: data.precioUnitario,

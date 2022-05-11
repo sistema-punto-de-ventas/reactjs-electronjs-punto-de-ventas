@@ -1,4 +1,5 @@
 import React from "react";
+import Estadisticas from "../components/Estadisticas/Estadisticas";
 class Home extends React.Component{
     state={
         isPermitRoute:null,
@@ -26,7 +27,8 @@ class Home extends React.Component{
         }
         return(
             <>
-                <h1>Esto es el home</h1>
+              <Estadisticas></Estadisticas>
+               
             </>
         );
     }
