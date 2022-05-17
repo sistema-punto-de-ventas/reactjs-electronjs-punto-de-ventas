@@ -437,7 +437,17 @@ class App extends React.Component {
                   ></Galeria>
                 }></Route>
 
-                
+              <Route path='/esdisticas' element={
+                  <Galeria
+                    RouteOnliAdmin={this.state.RouteOnliAdmin}
+                    menuButtonsPermit={this.menuButtonsPermit}
+                    permissions={this.permissions}
+                    verifyToken={this.verifiToken}
+                    color={this.state.color}
+                    msgToast={this.msgToast}
+                    setVistaProductos = {this.setVistaProductos}
+                  ></Galeria>
+                }></Route>
 
               </Routes>
             </ContendSidebar>
@@ -466,7 +476,8 @@ class App extends React.Component {
               <Header onliAdmin={this.onliAdmin} msgToast={this.msgToast} singOut={this.singOut} colorHeader={this.state.color.colorHeader} />
               <Layout color={this.state.color} isLoged={this.state.isLoged}>
                 <Routes>
-                  <Route path='/' element={<Home permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
+                <Route path='/' element={<Home permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
+                  <Route path='/estadisticas' element={<Home permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
                   <Route
                     path='/mesas'
                     element={

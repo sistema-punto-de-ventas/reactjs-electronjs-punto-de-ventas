@@ -348,7 +348,7 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
             }
             {arrProductSelect.length > 0 &&
                 <>
-                    <div className="contend-table tableOutModal table-from-venta">
+                    <div id="listaDeCompras" className="contend-table tableOutModal table-from-venta">
                         <table className="table">
                             <thead className="table-head">
                                 <tr className="table-headers">
@@ -457,6 +457,7 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                                 precioTotal: sumaTotal,
                             })}
                         >Verificar</button>
+                        <div className='sizedBoxBlank'></div>
                     </div>
                     <div className="contend-right">
                         <div className='contend-input-venta'>

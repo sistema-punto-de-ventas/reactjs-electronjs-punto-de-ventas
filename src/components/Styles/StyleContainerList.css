@@ -53,14 +53,15 @@
         grid-template-columns: repeat(auto-fit, 13.5rem);
     }
 }
-/* @media (max-width: 625px) {
+@media screen and (min-width: 1600px) {
     .containerList{
         
-        grid-template-columns: repeat(auto-fit, 12rem);
+        margin-top: 18px !important;
+        /* background-color: aliceblue !important; */
         
         
     }
-} */
+}
 
 
 /* diseño para vistas inferiores a lso 1400px */

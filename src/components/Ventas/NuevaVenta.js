@@ -40,7 +40,7 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
             setWindowDimensions(getWindowDimensions());
         }
         let porcent = 0.697;
-        if(windowDimensions.height < 976) porcent = 0.685;
+        if(windowDimensions.height < 976) porcent = 0.65;
         if(windowDimensions.height < 960) porcent = 0.67;
         if(windowDimensions.height < 820) porcent = 0.662;
         if(windowDimensions.height < 770) porcent = 0.65;

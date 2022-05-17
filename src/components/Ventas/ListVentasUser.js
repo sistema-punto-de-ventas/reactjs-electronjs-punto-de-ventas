@@ -28,7 +28,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
             setWindowDimensions(getWindowDimensions());
         }
         let porcent = 0.63;
-        if(windowDimensions.height < 976) porcent = 0.61;
+        if(windowDimensions.height < 976) porcent = 0.64;
         if(windowDimensions.height < 840) porcent = 0.59;
         if(windowDimensions.height < 750) porcent = 0.57;
         if(windowDimensions.height < 680) porcent = 0.55;

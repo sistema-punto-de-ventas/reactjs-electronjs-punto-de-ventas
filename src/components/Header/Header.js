@@ -29,7 +29,7 @@ const menuArray = [
     { active: false, path: '/gastos', img: Gastos, alt: 'gastos', name: 'Gastos', rolePermit: [{ name: 'admin' }] },
     { active: false, path: '/PCategoria', img: CategoriaImg, alt: 'pcategoria', name: 'Categoria', rolePermit: [{ name: 'admin' }] },
     // { active: false, path: '/galeria', img: Galeria, alt: 'galeria', name: 'Galeria', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
-    { active: false, path: '/estadistica', img: Estadisticas, alt: 'config', name: 'Estadistica', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
+    { active: false, path: '/estadisticas', img: Estadisticas, alt: 'estadisticas', name: 'Estadisticas', rolePermit: [{ name: 'admin' }, { name: 'onwer' }] },
 
 ]
 function Header(props) {

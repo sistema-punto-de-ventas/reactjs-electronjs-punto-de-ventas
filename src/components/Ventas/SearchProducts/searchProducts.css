@@ -1,7 +1,15 @@
 .content-serch-component{
     display: flex;
     justify-content: left;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+@media  screen and (min-width: 1600px) {
+    .content-serch-component{
+        margin-top: 14px;
+        margin-bottom: 14px;
+    }
 }
 
 .search-component{

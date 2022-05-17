@@ -9,7 +9,7 @@
 
 @media (min-width:1600px) {
     .head-container{
-        height: 200px;
+        height: 190px;
     }
 }
 .navigation-contend{
@@ -25,11 +25,20 @@
     position: relative;
     
 }
+/* header menu de navegacion */
 @media (min-width: 1600px){
     .navigation-contend{
-        height: 67%;
+        height: 53%;
+    }
+    .navigation-contend a{
+        height: 80px !important;
+    }
+    .navigation-contend a label{
+        font-weight: 100;
+        font-size: 1.4rem !important;
     }
 }
+
 .navigator{
     /* background-color:rgba(117, 0, 0, 0.432); */
     position: relative;
@@ -50,6 +59,7 @@
     object-fit: scale-down;  
     display:block;  
 }
+
 .labelLogo{
     position: absolute;
     top: 65%;
@@ -133,12 +143,7 @@
     color: white !important;
 }
 
-/* @media screen and (max-width: 1255px) {
-    .labelLogo{
-        font-size: 25px !important;
-    }
 
-} */
 
 .icon-menu{
     color: aliceblue !important;
@@ -148,3 +153,11 @@
 /* .menuSatate{
     height: 70px;
 } */
+
+@media screen and (min-width: 1600px) {
+    /* imagenes de los icono del mene header */
+    .logoImg{
+        height: 95%;
+    }
+
+}

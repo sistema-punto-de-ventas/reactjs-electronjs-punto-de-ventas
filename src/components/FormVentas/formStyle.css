@@ -127,9 +127,7 @@ input[type=number]::-webkit-outer-spin-button {
 .list-clientes::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
-.contend-left{     
-    position:absolute;    
-}
+
 .contend-right{
     width: 58%;
     position:absolute;
@@ -287,4 +285,22 @@ input[type=number]::-webkit-outer-spin-button {
 .select-cantidad-ventas::-webkit-scrollbar-track{
     background: #ffffff;
     border-radius: 20px 20px 20px 20px;
+}
+#listaDeCompras{
+    width: 100%;
+    height: 40% !important;
+}
+
+.contend-left{
+    width: 40%;
+    position:absolute;    
+    /* display: flex !important;
+    flex-direction: row-reverse !important; */
+    flex-direction: row;
+    /* background-color: #00347e; */
+}
+
+.sizedBoxBlank{
+    width: 100%;
+    height: 90px;
 }

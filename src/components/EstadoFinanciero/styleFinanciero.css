@@ -212,4 +212,11 @@
     height: calc(100vh - 42vh);
     overflow-y:scroll  !important;
     padding-bottom: 20px;
+    height: 100% !important;
 }
+.content-list-estados-financieros{
+    height: calc(100vh - 42vh) !important;
+}
+/* @media screen and (min-width: 1600px) { */
+ 
+/* } */

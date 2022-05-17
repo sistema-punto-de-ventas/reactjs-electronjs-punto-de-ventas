@@ -32,7 +32,7 @@ function CardMenu({ arrDatas, clickProduct }) {
             arrDatas.map((data, key) => {
                 return (
                     <div key={key} className='container-card-list' >
-                        <div className='navigation-contend'>
+                        <div className='card-contend'>
                             <div className='card-header-list'>
                             <div className='contend-image-ventas'>
                                 <img src={data.img?Url.urlBackEnd+data.img:srcImage}  alt=''></img>
@@ -78,7 +78,7 @@ function CardMenu({ arrDatas, clickProduct }) {
                             <div className='content-nombre-cantidad'>
                                    
                                    <motion.div  initial={{opacity:0}} animate={{opacity:1}}  transition={{duration:0.6}} className='text-header-title'>
-                                           {data.nombre} 
+                                           {data.nombre?data.nombre.slice(0,35):''} 
                                        </motion.div>
                                        
                                        <motion.div   initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6}} className='text-cantidad'>

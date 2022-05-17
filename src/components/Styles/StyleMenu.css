@@ -125,3 +125,15 @@
         transition: ease 350ms;
     }
 }
+
+@media screen and (min-width: 1600px) {
+    .headMenu{
+        display: flex !important;
+        /* background-color: #ffffff !important; */
+        flex-direction: row !important;
+        overflow-x: scroll;
+    }
+    .headMenu::-webkit-scrollbar {
+        display: none;
+    }
+}

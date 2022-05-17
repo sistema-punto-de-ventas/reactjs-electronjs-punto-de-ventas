@@ -7,7 +7,7 @@ export default function Table(props) {
     if (tableDatas) {        
         return (
             <>
-                <div className="contend-table tableOutModal">
+                <div className="contend-table tableOutModal ">
                     <table className="table">
                         <thead className="table-head">
                             <tr className="table-headers">
