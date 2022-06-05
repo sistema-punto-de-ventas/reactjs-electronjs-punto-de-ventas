@@ -195,6 +195,8 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
                     codigoProducto: data.codigoProducto?data.codigoProducto:'',
                     description: '',
                     precio: data.precio,
+                    descuentoUnidad: 0,
+                    totalDescuento:0,
                     unidadesDisponibles: data.quantity,
                     arrayUnidadesDisp:await  convertNumberToArray(data.quantity),
                     unidadesVendidos: data.unidadesVendidos+1,
@@ -207,7 +209,43 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
        
     }
 
-    const updateCantidad=async(data, e)=>{
+    const updateDescuentoUnidad = async (data, e) => {
+        console.log(data)
+        console.log(e.target.value)
+        console.log(typeof(e.target.value))
+        var descuentoU = e.target.value>0 && e.target.value!=''?e.target.value:0;
+        let auxSelected = auxSelectList[data.id];
+        var countP = productSelect.map((item) => {
+            if (data.id === item.id) {
+                var updateCanttidad = {
+                    ...item,
+                    descuentoUnidad: parseInt(descuentoU),
+                    totalDescuento: parseInt(descuentoU) * item.unidadesVendidos
+                }
+                return updateCanttidad;
+            }
+            return item;
+
+        });
+        setProductSelect(countP)
+
+        let auxSelected2 = auxSelectList[data.id];
+        var countP2 = listProduct.map((item) => {
+            if (data.id === item.id) {
+                var updateCanttidad = {
+                    ...item,
+                    descuentoUnidad: parseInt(descuentoU),
+                    totalDescuento: parseInt(descuentoU) * item.unidadesVendidos
+                }
+                return updateCanttidad;
+            }
+            return item;
+
+        });
+        setListProduct(countP2)
+    }
+
+    const updateCantidad= async(data, e)=>{
 
         // console.log('%c data', 'color: pink', data);
         // console.log('%c data', 'color: pink', e.target.value);
@@ -474,6 +512,7 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
                         colors={colors}
                         msgToast={msgToast}
                         updateCantidad={updateCantidad}
+                        updateDescuentoUnidad={updateDescuentoUnidad}
                     />
                 </div>
 

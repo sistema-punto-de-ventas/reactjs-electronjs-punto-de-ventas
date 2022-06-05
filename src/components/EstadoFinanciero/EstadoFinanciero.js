@@ -485,8 +485,9 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                     isButtonPosition={true}
                                     functionsMenu={fucntionMenu}
                                 />
+                                {/* style={{height:heightT}} */}
                                 {sectionCategori === 0 &&
-                                    <div style={{height:heightT}} className="contend-table tableOutModal">
+                                    <div id='caja-content-table' className="contend-table tableOutModal">
                                         <div className='content-search-sizePage'>
                                             <div className='content-left'>
                                                 <select
@@ -525,7 +526,8 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                                 />
                                             </div>
                                         </div>
-                                        <table className="table">
+                                        
+                                        <table id="caja-list-ventas" className="table">
                                             <thead className="table-head">
                                                 <tr className="table-headers">
                                                     <th className="header" scope="col">N°</th>
@@ -628,7 +630,7 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                     </div>
                                 }
                                 {sectionCategori !== 0 &&
-                                    <div className="contend-table tableOutModal">
+                                    <div id='caja-content-table' className="contend-table tableOutModal">
                                         <table className="table">
                                             <thead className="table-head">
                                                 <tr className="table-headers">
@@ -843,7 +845,8 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                         <tr className="table-headers">
                             <th className="header" scope="col">N°</th>
                             <th className="header" scope="col">Nombre</th>
-                            <th className="header" scope="col">Descripcion</th>
+                            {/* <th className="header" scope="col">Descripcion</th> */}
+                            <th className="header" scope="col">Descuento</th>
                             <th className="header" scope="col">Categoria</th>
                             <th className="header" scope="col">Precio</th>
                             <th className="header" scope="col">Cantidad Vendido</th>
@@ -856,10 +859,10 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                 <tr key={key} className="table-row">
                                     <td className="row-cell">{key + 1}</td>
                                     <td className="row-cell">{data.nameProduct}</td>
-                                    <td className="row-cell">{data.detalleVenta}</td>
+                                    <td className="row-cell">{data.descuentoUnidad?data.descuentoUnidad:0} Bs.</td>
                                     <td className="row-cell">{data.category}</td>
                                     <td className="row-cell">{data.precioUnitario}</td>
-                                    <td className="row-cell">{data.unidadesVendidos}Bs</td>
+                                    <td className="row-cell">{data.unidadesVendidos}</td>
                                     <td className="row-cell">{data.total} Bs</td>
                                 </tr>
                             );

@@ -83,24 +83,7 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 0 0 5px;
 
 }
-.button-form-venta{
-    background-color: #1D2D44; /* Green */
-    border: none;
-    color: #D8DBE2;
-    padding: 7px 10px 7px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 15px;
-    margin: 10.5px 6px;
-    cursor: pointer;
-    border-radius: 15px; 
-    width: 100px; 
-}
-.button-form-venta:hover{
-    background-color: #d8dbe24b;
-    transition: ease 350ms;
-}
+
 
 .list-clientes::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -303,4 +286,67 @@ input[type=number]::-webkit-outer-spin-button {
 .sizedBoxBlank{
     width: 100%;
     height: 90px;
+}
+
+/* btn formulario ventas */
+.content-btn-decuento-verificar{
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-formVentas-descuento{
+    background-color: #1D2D44;
+    border:1px  #27272B solid;
+    cursor:pointer;
+    width:100px;
+    height: 35px;
+    color:white;
+    font-size: 13px;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.btn-formVentas-descuento:hover{
+    background-color: #d8dbe24b;
+    transition: ease 350ms;
+}
+
+.button-form-venta{
+    background-color: #1D2D44; /* Green */
+    border: none;
+    color: #D8DBE2;
+    padding: 7px 10px 7px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 10.5px 6px;
+    cursor: pointer;
+    border-radius: 15px; 
+    width: 100px; 
+    height: 35px;
+}
+.button-form-venta:hover{
+    background-color: #d8dbe24b;
+    transition: ease 350ms;
+}
+
+/* content datos de ventas, cambio, descuento */
+.contend-input-data-venta-montos{
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 150px;
+}
+
+.descuento-unidad{
+    border-radius: 20px;
+    max-width: 150px !important;
+    width:80px !important;
+    background-color: rgb(255, 255, 255);
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 600;
+    font-size: 13px;
 }

@@ -44,9 +44,9 @@ function PdfTicket({ data }) {
                             </tbody>
                         </table> */}
                         
-                        <Text>Total: {data.total}Bs</Text>
-                        <Text>Efectivi: {data.efectivo}Bs</Text>
-                        <Text>Cambio: {data.cambio}Bs</Text>
+                        <Text>Total: {data.total} Bs.</Text>
+                        <Text>Efectivi: {data.efectivo} Bs.</Text>
+                        <Text>Cambio: {data.cambio} Bs.</Text>
                     </View>
 
                     <Text>--------------------------------------------------</Text>

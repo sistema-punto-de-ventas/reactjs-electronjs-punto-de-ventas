@@ -220,3 +220,13 @@
 /* @media screen and (min-width: 1600px) { */
  
 /* } */
+
+#caja-content-table{
+ 
+    height: calc(100vh - 56vh) !important;
+}
+
+#reporte-ventas-table{
+    height: calc(100vh - 56vh) !important;
+
+}

@@ -25,14 +25,17 @@ const error = {
 
 
 
-function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openModalPreView, colors, msgToast, updateCantidad }) {
+function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openModalPreView, colors, msgToast, updateCantidad, updateDescuentoUnidad}) {
     const [form, setForm] = useState(formVenta);
     const [formErro, setformErro] = useState(error);
     const [openModal, setOpenModal] = useState(false);
     const [sumaTotal, setSumaTotal] = useState(0);
+    const [subtotal, setSubtotal] = useState(0);
+    const [totalDescuento, setTotalDescuento] = useState(0);
     const [buscador, setbuscador] = useState('');
     const [listClients, setListClients] = useState([]);
     const [cantidadLocal, setCantidadLocal] = useState(0);
+    const [descuentoUnidad, setDescuentoUnidad] = useState(0);
 
     const [cantidadDisponible, setCanitdadDisponible] = useState([0]);
 
@@ -134,11 +137,17 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
         }
         if (arrProductSelect.length > 0) {
             let sum = 0;
+            let totalDesc=0;
+            let subt =0;
             for (let i = 0; i < arrProductSelect.length; i++) {
                 console.log('%c' + arrProductSelect[i].unidadesVendidos, 'color:red')
                 console.log(arrProductSelect[i])
-                sum = await (arrProductSelect[i].precio*arrProductSelect[i].unidadesVendidos) + sum;
+                sum = await ((arrProductSelect[i].precio*arrProductSelect[i].unidadesVendidos) + sum) - (arrProductSelect[i].descuentoUnidad*arrProductSelect[i].unidadesVendidos);
+                totalDesc = await (arrProductSelect[i].descuentoUnidad *arrProductSelect[i].unidadesVendidos)+totalDesc;
+                subt = await ((arrProductSelect[i].precio*arrProductSelect[i].unidadesVendidos) + subt)
             }
+            setTotalDescuento(totalDesc);
+            setSubtotal(subt);
             setSumaTotal(sum)
             let obj = form;
             obj['cambioCliente'] = obj.pagoCliente - sum;
@@ -357,6 +366,7 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                                     <th className="header" scope="col">Cantidad</th>
                                     <th className="header" scope="col">C._Compra</th>
                                     <th className="header" scope="col">Precio</th>
+                                    <th className='header' scope='col'>descuento</th>
                                     <th className="header" scope="col">Opciones</th>
                                 </tr>
                             </thead>
@@ -403,6 +413,14 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                                                 </select>
                                             </td>
                                             <td className="row-cell">{data.precio}</td>
+                                            <td className="row-cell descuento">
+                                                <input
+                                                    onChange={(e)=>{updateDescuentoUnidad(data,e);setDescuentoUnidad(e.target.value);}}
+                                                    value={data.descuentoUnidad==0?'':data.descuentoUnidad}
+                                                    className='descuento-unidad' type="number" placeholder='Monto' min="0">
+                                                    
+                                                 </input>
+                                            </td>
                                             <td className="row-cell">
                                                 {/* Quitar productos */}
                                                 <button onClick={() => deleteProduct(key, data)} className='tableButton'>
@@ -448,16 +466,20 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                                 </svg>
                             </button>
                         </section>
-                        <button className='button-form-venta' 
-                            onClick={() => onSubmit({
-                                nombreCliente: form.nombreCliente,
-                                idCliente: form.idCliente,
-                                pagoCliente: form.pagoCliente,
-                                cambioCliente: form.cambioCliente,
-                                precioTotal: sumaTotal,
-                            })}
-                        >Verificar</button>
-                        <div className='sizedBoxBlank'></div>
+                        <div className="content-btn-decuento-verificar">
+                            <button className='button-form-venta' 
+                                onClick={() => onSubmit({
+                                    nombreCliente: form.nombreCliente,
+                                    idCliente: form.idCliente,
+                                    pagoCliente: form.pagoCliente,
+                                    cambioCliente: form.cambioCliente,
+                                    precioTotal: sumaTotal,
+                                })}
+                            >Verificar</button>
+                            {/* <button  className='btn-formVentas-descuento' > Descuento</button> */}
+                            <div className='sizedBoxBlank'></div>
+                        </div>
+                        
                     </div>
                     <div className="contend-right">
                         <div className='contend-input-venta'>
@@ -473,10 +495,14 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                             </input>
                             <label className='venta-label size'>PAGO CLIENTE  <code className='spanError'>{formErro.pagoCliente ? 'Error' : ''}</code></label>
                         </div>
-                        <p className='spanError'>{formErro.pagoCliente}</p>
-                        <label className='label-detalle'>CAMBIO: Bs {form.cambioCliente < 0 ? 0 : form.cambioCliente}</label>
-                        <br />
-                        <label className='label-detalle'>TOTAL: Bs {sumaTotal}</label>
+                        <div className='contend-input-data-venta-montos'>
+                            <p className='spanError'>{formErro.pagoCliente}</p>
+                            <label className='label-detalle'>Cambio: Bs {form.cambioCliente < 0 ? 0 : form.cambioCliente}</label>
+                            <label className='label-detalle'>Descuento: Bs {totalDescuento}</label>
+                            <label className='label-detalle'>Subtotal: Bs {subtotal}</label>
+                            <hr style={{height:'3px', background:'white'}}></hr>
+                            <label className='label-detalle'>TOTAL: Bs {sumaTotal}</label>
+                        </div>
                     </div>
 
 

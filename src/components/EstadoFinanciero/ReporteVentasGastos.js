@@ -327,8 +327,10 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                             isButtonPosition={true}
                             functionsMenu={fucntionMenu}
                         />
+
+                        {/* style={{height:heightT}} */}
                         {sectionCategori === 0 &&
-                            <div style={{height:heightT}} className="contend-table tableOutModal">
+                            <div id='reporte-ventas-table' className="contend-table tableOutModal">
                                 <div className='content-search-sizePage'>
                                     <div className='content-left'>
                                         <select

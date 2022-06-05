@@ -1,3 +1,4 @@
+
 .ticket-container{
     /* background-color: red; */
     width: 100% !important;
@@ -36,6 +37,22 @@
     margin-right: auto;
     text-align: end;
 }
+.data-ticket{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+} 
+.divider-tickets{
+    color: #fbfdff;
+    height: 2px !important;
+    
+}
+.ticketTable thead{
+    border-bottom: 1px solid #181818;
+}
+
+
 .button-ticket{
     background-color: #1D2D44; /* Green */
     border: none;
@@ -48,9 +65,10 @@
     margin: 10.5px 6px;
     cursor: pointer;
     border-radius: 15px; 
-    width: 180px;  
+    width: 240px;  
 }
 .button-ticket:hover{
     background-color: #d8dbe24b;
     transition: ease 350ms;
 }
+
