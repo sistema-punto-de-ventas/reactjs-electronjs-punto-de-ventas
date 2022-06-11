@@ -469,7 +469,7 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
             });
             setProductSelect([]);
             listGastos();
-            modalFunction();
+            // modalFunction();
         }
 
     }

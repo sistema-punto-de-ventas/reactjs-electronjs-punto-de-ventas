@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import VentasRoutes from '../../routes/Ventas';
 import './StyleTicket.css'
 
+import { useReactToPrint } from 'react-to-print';
+
 const Ticket=({ data,registrarVenta }) =>{
     const [dataTicket, setDataTicket] = useState();
     useEffect(async()=>{
@@ -92,17 +94,23 @@ const Ticket=({ data,registrarVenta }) =>{
 
     }
     
+    const ref = React.createRef();
+    const hanldlePrint = useReactToPrint({
+        content: () => ref.current
+    })
+    
+
     return (
         <>
-            <div id='print'>
+            <div id='print' ref={ref}>
                 <div className='ticket-container' >
-                    <h4 className='ticket-title'>{data.nomNegocio}</h4>
+                    <h4 className='ticket-title'>"{data.nomNegocio}"</h4>
                     {/* <h4 className='ticket-title'>Ticket N°: {dataTicket?.numeroTicketActual}</h4> */}
                     <div className='ticket-header'>
                         <li className='ticket-list'>Direccion: {data.direccion}</li>
                         <li className='ticket-list'>{data.paisCiudad}</li>
                     </div>
-                    <hr  className='divider-tickets' />
+                    <div  className='divider-tickets' />
 
                     <div className='ticket-body'>
                         <div className='data-ticket'>
@@ -111,7 +119,7 @@ const Ticket=({ data,registrarVenta }) =>{
                             <li className='ticket-list'>{data.nombreCliente}</li>
                         </div>
                         <br />
-                        <hr className='divider-tickets' />
+                        <div  className='divider-tickets' />
                         <table className='ticketTable'>
                             <thead>
                                 <tr>
@@ -129,56 +137,54 @@ const Ticket=({ data,registrarVenta }) =>{
                                     return (
                                         <tr key={key}>
                                             <td>{data.unidadesVendidos}</td>
-                                            <td>{data.nombre}</td>
+                                            <td className='name-product'>{data.nombre}</td>
                                             {/* <td>{data.description}</td> */}
-                                            <td>{data.precio}</td>
-                                            <td>{data.total}</td>
+                                            <td>{data.precio -data.descuentoUnidad}</td>
+                                            <td>{data.total -data.totalDescuento}</td>
                                         </tr>
                                     );
                                 })}
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th className="header" scope="col"></th>
-                                    <th className="header" scope="col"></th>
-                                    {/* <th className="header" scope="col"></th> */}
-                                    <th className="header" scope="col">Total: Bs</th>
+                            
+                        </table>
+                        <div className='ticket-resumen'>
+                            <div className='content-resumen-ticket'>
+                                   
+                                   <th className="header" scope="col">Efectivo: Bs</th>
+                                   <th className="header" scope="col">Cambio: Bs</th>
+                                   <th className="header" scope="col">Total: Bs</th>
+
+                               </div>
+                                <div className='content-resumen-ticket'>
+                             
+                                    <th className="header" scope="col">{data.efectivo}</th>
+                                    <th className="header" scope="col">{data.cambio}</th>
                                     <th className="header" scope="col">{data.total}</th>
 
-                                </tr>
-                                <tr>
-                                    <th className="header" scope="col"></th>
-                                    <th className="header" scope="col"></th>
-                                    {/* <th className="header" scope="col"></th> */}
-                                    <th className="header" scope="col">Efectivo: Bs</th>
-                                    <th className="header" scope="col">{data.efectivo}</th>
-
-                                </tr>
-                                <tr>
-                                    <th className="header" scope="col"></th>
-                                    <th className="header" scope="col"></th>
-                                    {/* <th className="header" scope="col"></th> */}
-                                    <th className="header" scope="col">Cambio: Bs</th>
-                                    <th className="header" scope="col">{data.cambio}</th>
-
-                                </tr>
-                            </tfoot>
-                        </table>
+                                </div>
+                             
+                            </div>
                         <br />
                     </div>
 
-                    <hr className='divider-tickets' />
+                    <div  className='divider-tickets' />
                     <div className='ticket-footer'>
                         <li className='ticket-list'>Usuario: {data.usuario}</li>
-                        gracias por su compra
+                        <p>gracias por su compra</p> 
                     </div>
 
                 </div>
             </div>
-        
-            <button className='button-ticket' onClick={print}>Realizar venta e imprimir</button>
+            
+            <button className='button-ticket' onClick={()=>{registrarVenta()}}>Registrar venta</button>
+            <button className='button-ticket' onClick={hanldlePrint} > Imprimir Ticket de la venta </button>
+            {/* <button className='button-ticket' onClick={hanldlePrint} > Imprimir Ticket de cotización </button> */}
+
+
         </>
     )
+
+  
 }
 
 export default Ticket
