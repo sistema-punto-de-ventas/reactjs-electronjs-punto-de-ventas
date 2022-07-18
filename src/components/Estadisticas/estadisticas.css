@@ -1,0 +1,44 @@
+.content-reporte{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}   
+
+.conten-btn-download-report{
+    display: flex;
+    flex-direction: column;
+}
+
+.conten-btn-download-report .btn-download-reporte{
+    background-color: aliceblue;
+    border-radius: 1rem;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.conten-btn-download-report a{
+    margin-left: auto;
+    margin-right: auto;
+}
+.icon-imgExcel{
+    margin-right: 3px;
+    width: 20px;
+    height: 20px;
+}
+
+.btn-download{
+    margin-top: 10px;
+    display: flex;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+/* table reporte actual del negocio */
+.table-reporte-actual{
+   margin-left: 20px;
+  
+}

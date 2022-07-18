@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
@@ -11,7 +11,10 @@
     "bootstrap-icons": "^1.7.1",
     "electron-is-dev": "^2.0.0",
     "framer-motion": "^3.1.4",
+    "html2canvas": "^1.4.1",
     "izitoast": "^1.4.0",
+    "jspdf": "^2.5.1",
+    "mathjs": "^10.6.4",
     "network": "^0.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

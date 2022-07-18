@@ -4,6 +4,7 @@ import Form from '../Form';
 import CLienteRoutes from '../../routes/Clientes';
 import { FiX } from "react-icons/fi"; //FiX
 import './formStyle.css';
+import Redondear from '../../utils/redondeNumeros/redondeNumeros';
 
 
 const formVenta = {
@@ -89,7 +90,7 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                 nombreCliente: `${resp.resp.result.name} ${resp.resp.result.lastName}`,
                 idCliente: resp.resp.result._id,
                 pagoCliente: form.pagoCliente,
-                cambioCliente: form.cambioCliente,
+                cambioCliente: await Redondear.redondearMonto(form.cambioCliente),
             }
             setForm(newObj)
 
@@ -103,15 +104,17 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
 
         }
     }
-    const handleChange = (e) => {
-        const { value, name } = e.target;
+    const handleChange = async (e) => {
+        // console('ññññññññññññññññññññññññññññññññññññ')
+        const { value, name } = e.target;   
         console.log(value, name)
+        
         if (name === 'pagoCliente') {
 
             setForm({
                 ...form,
                 pagoCliente: value,
-                cambioCliente: value - sumaTotal
+                cambioCliente:await Redondear.redondearMonto(value - sumaTotal)
             })
         } else {
 
@@ -140,11 +143,12 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
             let totalDesc=0;
             let subt =0;
             for (let i = 0; i < arrProductSelect.length; i++) {
-                console.log('%c' + arrProductSelect[i].unidadesVendidos, 'color:red')
+                // console.log('%c' + arrProductSelect[i].unidadesVendidos, 'color:red')
+                // console.log('%c' + arrProductSelect[i].descuentoUnidad, 'color:red')
                 console.log(arrProductSelect[i])
-                sum = await ((arrProductSelect[i].precio*arrProductSelect[i].unidadesVendidos) + sum) - (arrProductSelect[i].descuentoUnidad*arrProductSelect[i].unidadesVendidos);
-                totalDesc = await (arrProductSelect[i].descuentoUnidad *arrProductSelect[i].unidadesVendidos)+totalDesc;
-                subt = await ((arrProductSelect[i].precio*arrProductSelect[i].unidadesVendidos) + subt)
+                sum = await Redondear.redondearMonto(((arrProductSelect[i].precio*arrProductSelect[i].unidadesVendidos) + sum) - (arrProductSelect[i].descuentoUnidad*arrProductSelect[i].unidadesVendidos));
+                totalDesc = await Redondear.redondearMonto((arrProductSelect[i].descuentoUnidad * arrProductSelect[i].unidadesVendidos)+totalDesc);
+                subt = await Redondear.redondearMonto(((arrProductSelect[i].precio*arrProductSelect[i].unidadesVendidos) + subt))
             }
             setTotalDescuento(totalDesc);
             setSubtotal(subt);
@@ -295,7 +299,24 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
     }
 
   
+   const  handlerDescuento= async (data, e)=>{
+    var montoDescuento = await parseFloat(e.target.value);
+    console.log(montoDescuento);
+    console.log(typeof(montoDescuento))
+    console.log(data.precio)
+    
+    await setDescuentoUnidad(montoDescuento)
+    
+    if(montoDescuento>=0 && montoDescuento!='' && montoDescuento!=NaN){
+        console.log(`descuento -----${montoDescuento} -pppp`)
+        updateDescuentoUnidad(data, montoDescuento);
+    }else{
+        updateDescuentoUnidad(data, 0);
 
+    }
+
+        // setDescuentoUnidad(e.target.value)
+    }
 
 
     return (
@@ -415,9 +436,9 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                                             <td className="row-cell">{data.precio}</td>
                                             <td className="row-cell descuento">
                                                 <input
-                                                    onChange={(e)=>{updateDescuentoUnidad(data,e);setDescuentoUnidad(e.target.value);}}
-                                                    value={data.descuentoUnidad==0?'':data.descuentoUnidad}
-                                                    className='descuento-unidad' type="number" placeholder='Monto' min="0">
+                                                    onChange={(e)=>{handlerDescuento(data,e)}}
+                                                    value={data.descuento}
+                                                    className='descuento-unidad' type="Number" placeholder='Monto' min="0">
                                                     
                                                  </input>
                                             </td>

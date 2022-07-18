@@ -1,18 +1,21 @@
 /*----fontst-- */
 
 #print *{
+
     font-family: 'PT Serif', serif;
     font-family: 'Roboto Mono', monospace;
     font-family: 'Roboto Slab', serif;
     font-family: 'Source Serif 4', serif;
     font-family: 'Ubuntu', sans-serif;
     font-size: 13px;
+    
 }
 /* ----end--- */
 
 .ticket-container{
     /* background-color: red; */
-    width: 100% !important;
+    width: 90% !important;
+    padding-left: 20px;
     text-align: center;
 }
 .ticket-container li{
@@ -60,7 +63,7 @@
 
 .divider-tickets{
     width: 100%;
-    height: 0.2px;
+    height: 0.3px;
     border: 0.1px solid #000;
     
 }
@@ -68,7 +71,7 @@
     border-bottom: 1px solid #000000;
 }
 .ticket-resumen{
-    margin-top: 20px;
+    margin-top: 10px;
     /* background-color: #003ac2; */
     display: flex;
     gap: 8px;
@@ -87,6 +90,8 @@
 
 .name-product{
     text-align: start;
+    font-weight: 500 !important;
+    font-size: 11.9px !important;
 }
 
 .button-ticket{

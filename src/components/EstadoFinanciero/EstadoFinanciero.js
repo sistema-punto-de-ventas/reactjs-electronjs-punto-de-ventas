@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './styleFinanciero.css';
 import EstadoFinancieroRoute from '../../routes/EstadoFinanciero';
 import Form from '../Form';
@@ -7,6 +7,8 @@ import Modal from '../Modal';
 import Menu from '../Menu'
 import CategoriaProductosRoute from '../../routes/CategoriaProductos';
 import getWindowDimensions from '../Hooks.js/windowDimensions'
+import GeneratorPDF from '../generador_de_pdf/generador_de_pdf';
+import Redondear from '../../utils/redondeNumeros/redondeNumeros';
 const buttonsArr = [
     { button: 'Lista de ventas', selected: 'buttonSeleccted' },
     { button: 'Lista de gastos', selected: '' },
@@ -67,6 +69,7 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const [heightR, setHeightR] = useState(0);
     const [heightT, setHeigthT] = useState(0);
+    
     useEffect(() => {
         function handleResize() {
             setWindowDimensions(getWindowDimensions());
@@ -449,6 +452,22 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
             setProductCategoriList(resp.resp.result)
         }
     }
+
+
+        // cambia de color al text de ala tabal para generar el pdf con letras de color negro
+        const [style, setStyle]= useState({style:{color:"white !important"}});
+        const handlerColor=async(e)=>{
+            
+            style.color==='black'?setStyle({...style,color:'white'}):setStyle({...style,color:'black'})
+        }
+        
+        // genera un pdf de al tabla
+        const myRef = useRef();
+        const generatePdf =()=>{
+            
+            GeneratorPDF(myRef, 'a2');
+        }
+
     return (
         <>
             <div className="conted-cierreCaja">
@@ -457,13 +476,13 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                         <h1>Cierre de caja</h1>
                     </div>
                     <div className="body">
-                        <li>Monto inicial en caja: {dataEstadoFinanciero.montoInicial}Bs</li>
+                        <li>Monto inicial en caja Bs: {dataEstadoFinanciero.montoInicial}</li>
                         <li>Cantidad de Ventas: {dataEstadoFinanciero.cantidadVendido} </li>
                         <li>Cantidad de Gastos:  {dataEstadoFinanciero.cantidadDeGastos}</li>
 
-                        <li>Total Gastos BS:  {dataEstadoFinanciero.montoActualUtilizado}</li>
-                        <li>Total Ventas BS:  {dataEstadoFinanciero.ventas?.total}</li>
-                        <li>Total BS: {dataEstadoFinanciero.montoActualDisponble}</li>
+                        <li>Total Gastos Bs:  {dataEstadoFinanciero.montoActualUtilizado}</li>
+                        <li>Total Ventas Bs:  {dataEstadoFinanciero.ventas?.total}</li>
+                        <li>Total Bs: {dataEstadoFinanciero?.montoActualDisponble}</li>
                         {/*  <li>Total:  Bs</li> */}
                     </div>
                     <div className="footer">
@@ -502,12 +521,13 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                                     value={formPagination.pgsV}
                                                     className='sizePage'
                                                 >
-                                                    <option value='6'>6</option>
-                                                    <option value='10'>10</option>
+                                                    <option value='5'>5</option>
                                                     <option value='30'>30</option>
+                                                    <option value='50'>50</option>
+                                                    <option value='100'>100</option>
 
                                                 </select>
-                                                <label>Tamanio de pagina</label>
+                                                <label>Tamaño de pagina</label>
                                             </div>
                                             <div className='content-right'>
                                                 <label>Buscar:</label>
@@ -527,22 +547,22 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                             </div>
                                         </div>
                                         
-                                        <table id="caja-list-ventas" className="table">
+                                        <table ref={myRef} id="caja-list-ventas" className="table" style={style}>
                                             <thead className="table-head">
                                                 <tr className="table-headers">
-                                                    <th className="header" scope="col">N°</th>
-                                                    <th className="header" scope="col">N° venta</th>
-                                                    <th className="header" scope="col">Usuario</th>
-                                                    <th className="header" scope="col">Cliente</th>
-                                                    <th className="header" scope="col">F / H</th>
-                                                    <th className="header" scope="col">Efectivo</th>
-                                                    <th className="header" scope="col">Cambio</th>
-                                                    <th className="header" scope="col">Total</th>
+                                                    <th className="header" scope="col" style={style}>N°</th>
+                                                    <th className="header" scope="col" style={style}>N° venta</th>
+                                                    <th className="header" scope="col" style={style}>Usuario</th>
+                                                    <th className="header" scope="col" style={style}>Cliente</th>
+                                                    <th className="header" scope="col" style={style}>F / H</th>
+                                                    <th className="header" scope="col" style={style}>Efectivo</th>
+                                                    <th className="header" scope="col" style={style}>Cambio</th>
+                                                    <th className="header" scope="col" style={style}>Total</th>
 
-                                                    <th className="header" scope="col">Opciones</th>
+                                                    <th className="header" scope="col" style={style}>Opciones</th>
                                                 </tr>
                                             </thead>
-                                            <tbody className="table-body">
+                                            <tbody className="table-body" style={style}>
                                                 {dataEstadoFinanciero.listVentas?.result.map((data, key) => {
 
                                                     return (
@@ -571,9 +591,9 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                                     <th className="header" scope="col"></th>
                                                     <th className="header" scope="col"></th>
                                                     <th className="header" scope="col"></th>
-                                                    <th className="header" scope="col">Efectivo: {dataEstadoFinanciero.ventas?.sumEfectivoTotal} Bs</th>
-                                                    <th className="header" scope="col">Cambio: {dataEstadoFinanciero.ventas?.sumCambio} Bs</th>
-                                                    <th className="header" scope="col">Total: {dataEstadoFinanciero.ventas?.total} Bs</th>
+                                                    <th className="header" scope="col" style={style}>Efectivo: {dataEstadoFinanciero.ventas?.sumEfectivoTotal} Bs</th>
+                                                    <th className="header" scope="col" style={style}>Cambio: {dataEstadoFinanciero.ventas?.sumCambio} Bs</th>
+                                                    <th className="header" scope="col" style={style}>Total: {dataEstadoFinanciero.ventas?.total} Bs</th>
 
                                                     <th className="header" scope="col"></th>
                                                 </tr>
@@ -626,6 +646,24 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                                     </div>
                                                 }
                                             </div>
+
+                                            {/* btn download pdf */}
+                                            <div className='content-btn-pdf'>
+
+                                                <label class="label-imprimir">
+                                                    <input onChange={(e)=>handlerColor(e)} 
+                                                    type="checkbox" name="radio" value="false"/>
+                                                    Descargar reporte
+                                                    </label>
+                                                {
+                                                    style.color==="black"?
+                                                    <div onClick={generatePdf} className='btn-donwload-pdf'>
+                                                        Descargar pdf
+                                                    </div>
+                                                    :''
+                                                }
+                                            </div>
+
                                         </div>
                                     </div>
                                 }
@@ -701,7 +739,7 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                             <option value='30'>30</option>
 
                                         </select>
-                                        <label>Tamanio de pagina</label>
+                                        <label>Tamaño de pagina</label>
                                     </div>
                                     <div className='content-right'>
                                         <label>Buscar:</label>
@@ -723,7 +761,7 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                 <table className="table">
                                     <thead className="table-head">
                                         <tr className="table-headers">
-                                            <th className="header" scope="col">N°</th>
+                                            <th className="header" scope="col">N</th>
                                             <th className="header" scope="col">Categoria</th>
                                             <th className="header" scope="col">Usuario</th>
                                             <th className="header" scope="col">Descripcion</th>
@@ -746,7 +784,7 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
 
                                                     <td className="row-cell">{data.montoAsignadoA}</td>
                                                     {/*  <td className="row-cell">{data.isUpdate ? 'si' : 'no'}</td> */}
-                                                    <td className="row-cell">{data.montoGasto} Bs</td>
+                                                    <td className="row-cell">{(data.montoGasto).toLocaleString()} Bs</td>
 
                                                     {/*  <td className="row-cell">
                                                         <button className='tableButton'>Detalles</button>
@@ -863,7 +901,7 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                     <td className="row-cell">{data.category}</td>
                                     <td className="row-cell">{data.precioUnitario}</td>
                                     <td className="row-cell">{data.unidadesVendidos}</td>
-                                    <td className="row-cell">{data.total} Bs</td>
+                                    <td className="row-cell">{data.total} Bs </td>
                                 </tr>
                             );
                         })}
@@ -896,7 +934,7 @@ function List(props) {
     for (let i = 0; i < props.number; i++) {
         item.push(props.children(i));
     }
-    const data = item.slice(0 + props.num, 5 + props.num);
+    const data = item.slice(0 + props.num, 10 + props.num);
     return data
 }
 

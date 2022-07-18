@@ -230,3 +230,65 @@
     height: calc(100vh - 56vh) !important;
 
 }
+
+/* btn imprimit   reporte*/
+.content-btn{
+    /* background: red; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    
+}
+.btn-imprimir{
+    align-items: center;
+
+    background-color: var(--color-secuandrio-1);
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    /* width: 90px; */
+}
+.btn-imprimir:hover{
+    background-color: var(--color-secuandrio-2);
+}
+
+/* inut radio */
+input[type="radio"] {
+    /* ...existing styles */
+    display: grid;
+    place-content: center;
+  }
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+  .label-imprimir{
+    margin-right: 20px;
+  }
+  .abel-imprimir input{
+    margin-right: 20px;
+  } 
+
+  /* btn generar descargar pdf */
+  .content-btn-pdf{
+    /* background-color: red; */
+    margin-top: 30px;
+    margin-bottom: 40px;    display: flex !important;
+    justify-content: center !important;
+  }
+  .btn-donwload-pdf{
+    color: white;
+  }

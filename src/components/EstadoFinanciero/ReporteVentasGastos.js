@@ -3,6 +3,11 @@ import Modal from '../Modal'
 import Menu from '../Menu'
 import CategoriaProductosRoute from '../../routes/CategoriaProductos'
 import getWindowDimensions from '../Hooks.js/windowDimensions';
+import { useReactToPrint } from 'react-to-print';
+import jsPDF from 'jspdf';
+import GeneratorPDF from '../generador_de_pdf/generador_de_pdf';
+
+
 const buttonsArr = [
     { button: 'Productos', selected: 'buttonSeleccted' },
     { button: 'Gastos', selected: '' },
@@ -20,6 +25,8 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
 
     const [buttonsMenu, setButtonsMenu] = useState(menuButton);
     const [sectionCategori, setSectionCategori] = useState(0);
+
+    const [style, setStyle]= useState({style:{color:"white !important"}});
 
     const [section, setSection] = useState({
         title: 'Productos',
@@ -263,6 +270,46 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
         });
         changeFormFecha(e);
     }
+
+    const myRef = React.createRef();
+    const hanldlePrint =useReactToPrint({
+        content: () => myRef.current
+    })
+
+    // const handlerShare= useReactToPrint({
+    //     content: ()=>myRef.current,
+    //     documentTitle:`reporte.pdf`,
+    //     copyStyles: true,
+    //     print: async (printIframe: HTMLIframeElement)=>{
+    //         const document = printIframe.contentDocument;
+    //         if(document){
+    //             const html = document.getElementById('htm')[0];
+    //             console.log(html);
+    //             await html2pddf().from(html).save();
+    //         }
+    //     }
+    // })
+
+
+    //funcion que genera un pdf de los reportes de las ventas
+    const downloadPdf = async () => {
+        // const doc = new jsPDF("p","pt","a2");
+        // doc.html(myRef.current,{
+        //     callback:function(pdf){
+        //         pdf.save("reporte.pdf");
+        //     }
+        // });
+
+        GeneratorPDF(myRef);
+    }
+
+    
+    const handlerColor=async(e)=>{
+        
+        style.color==='black'?setStyle({...style,color:'white'}):setStyle({...style,color:'black'})
+
+    }
+
     return (
         <div className="conted-cierreCaja">
             <div className="cierre-caja" style={{height:heightR}}>
@@ -293,7 +340,7 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                 </div>
                 <div className="body reporte-gastos">
                     <li> Monto inicial en caja: {reporteVentaGatos?.montoInicial}</li>
-                    <li>CantidadVendido: {reporteVentaGatos?.cantidadVendido}</li>
+                    <li>Cantidad de ventas: {reporteVentaGatos?.cantidadVendido}</li>
                     <li>Gastos realizados: {reporteVentaGatos?.gastosLength}</li>
                     <li>Total Ventas:  {reporteVentaGatos?.totalVentas} Bs</li>
                     <li>Gastos: {reporteVentaGatos?.gasatoTotal} Bs</li>
@@ -348,9 +395,10 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                             <option value='6'>6</option>
                                             <option value='10'>10</option>
                                             <option value='30'>30</option>
+                                            <option value='100'>100</option>
 
                                         </select>
-                                        <label>Tamanio de pagina</label>
+                                        <label>Tamaño de pagina</label>
                                     </div>
                                     <div className='content-right'>
                                         <label>Buscar:</label>
@@ -369,24 +417,24 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                         />
                                     </div>
                                 </div>
-                                <table className="table">
-                                    <thead className="table-head">
+                                <table className="table" ref={myRef} style={style}>
+                                    <thead className="table-head" style={style}>
                                         <tr className="table-headers">
-                                            <th className="header" scope="col">N°</th>
-                                            <th className="header" scope="col">N° venta</th>
-                                            <th className="header" scope="col">Usuario</th>
-                                            <th className="header" scope="col">Cliente</th>
-                                            <th className="header" scope="col">Fecha</th>
-                                            <th className="header" scope="col">Hora</th>
+                                            <th className="header" scope="col" style={style}>N°</th>
+                                            <th className="header" scope="col" style={style}>N° venta</th>
+                                            <th className="header" scope="col" style={style}>Usuario</th>
+                                            <th className="header" scope="col" style={style}>Cliente</th>
+                                            <th className="header" scope="col" style={style}>Fecha</th>
+                                            <th className="header" scope="col" style={style}>Hora</th>
 
-                                            <th className="header" scope="col">Efectivo</th>
-                                            <th className="header" scope="col">Cambio</th>
-                                            <th className="header" scope="col">Total</th>
+                                            <th className="header" scope="col" style={style}>Efectivo</th>
+                                            <th className="header" scope="col" style={style}>Cambio</th>
+                                            <th className="header" scope="col" style={style}>Total</th>
 
-                                            <th className="header" scope="col">Opciones</th>
+                                            <th className="header" scope="col" style={style}>Opciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="table-body">
+                                    <tbody className="table-body" style={style}>
                                         {reporteVentaGatos.productVendido?.result.map((data, key) => {
 
                                             return (
@@ -408,7 +456,7 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                             );
                                         })}
                                     </tbody>
-                                    <tfoot className="table-head">
+                                    <tfoot className="table-head" style={style}>
                                         <tr>
                                             <th className="header" scope="col"></th>
                                             <th className="header" scope="col"></th>
@@ -418,12 +466,24 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                             <th className="header" scope="col"></th>
                                             <th className="header" scope="col">{/* Total: {dataEstadoFinanciero.ventas?.sumEfectivoTotal} Bs */}</th>
                                             <th className="header" scope="col">{/* Total: {dataEstadoFinanciero.ventas?.sumCambio} Bs */}</th>
-                                            <th className="header" scope="col">Total: {reporteVentaGatos?.totalVentas} Bs</th>
+                                            <th className="header" scope="col" style={style}>Total: {reporteVentaGatos?.totalVentas} Bs</th>
 
                                             <th className="header" scope="col"></th>
                                         </tr>
                                     </tfoot>
                                 </table>
+                                <div className='content-btn'>
+                                    <label class="label-imprimir">
+                                        <input onChange={(e)=>handlerColor(e)} 
+                                        type="checkbox" name="radio" value="false"/>
+                                        Descargar reporte
+                                        </label>
+                                    {
+                                        style.color=='black'?<div 
+                                        onClick={async()=>{ downloadPdf()}} 
+                                        className='btn-imprimir'>Descargar pdf</div>:''
+                                    }
+                                </div>
                                 <div className="content-pagination">
                                     <div className='content-pagination-left'>
                                         <label>Pagina {reporteVentaGatos.productVendido?.pageNumber + 1} de {reporteVentaGatos.productVendido?.pageCount}</label>
@@ -545,7 +605,7 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                         <option value='30'>30</option>
 
                                     </select>
-                                    <label>Tamanio de pagina</label>
+                                    <label>Tamaño de pagina</label>
                                 </div>
                                 <div className='content-right'>
                                     <label>Buscar:</label>
@@ -684,6 +744,7 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                             <th className="header" scope="col">Descripcion</th>
                             <th className="header" scope="col">Categoria</th>
                             <th className="header" scope="col">Precio</th>
+                            <th className="header" scope="col">Descuento/U</th>
                             <th className="header" scope="col">Cantidad Vendido</th>
                             <th className="header" scope="col">Total</th>
                         </tr>
@@ -697,6 +758,8 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                     <td className="row-cell">{data.detalleVenta}</td>
                                     <td className="row-cell">{data.category}</td>
                                     <td className="row-cell">{data.precioUnitario} Bs</td>
+                                    <td className="row-cell">{data.descuentoUnidad?data.descuentoUnidad:'0'} Bs</td>
+
                                     <td className="row-cell">{data.unidadesVendidos}</td>
                                     <td className="row-cell">{data.total} Bs</td>
                                 </tr>

@@ -123,6 +123,7 @@ export default function CardView(props) {
         return () => isMounted = false;
     }, [])
 
+    
     if (arrDatas) {
         return (
             <>
@@ -192,12 +193,12 @@ export default function CardView(props) {
                                                     >
                                                         Detalles
                                                     </button>
-                                                    <button
+                                                    {/* <button
                                                         onClick={() => clickProduct(data, 'deleteMenu')}
                                                         className={`btn-cardFooter buttonRight ${btnStyle()}`}
                                                     >
                                                       {titleBtn()}
-                                                    </button>
+                                                    </button> */}
                                                 </div>
                                                 :
                                                 <></>
@@ -251,7 +252,7 @@ export default function CardView(props) {
         <>
             {/* lo que tiene que ser dinamico es la imagen de fondo del card view tambien 
             los colores de las letras y los background */}
-            <h1>No hay registro de mesas</h1>
+            <h1>No hay registro</h1>
             {/* {lista.map((data, key) => {
                 return (
                     <div key={key} className='containerCardList' style={{ width: 200, height: 190 }}>

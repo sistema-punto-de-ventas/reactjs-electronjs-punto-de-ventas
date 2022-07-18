@@ -69,7 +69,7 @@ function Gastos({modalFunction,buttonTableClick,buttonTable,RouteOnliAdmin,color
                                     <option value='30'>30</option>
 
                                 </select>
-                                <label>Tamanio de pagina</label>
+                                <label>Tamaño de pagina</label>
                             </div>
                             <div className='content-right'>
                                 <label>Buscar:</label>
@@ -113,7 +113,7 @@ function Gastos({modalFunction,buttonTableClick,buttonTable,RouteOnliAdmin,color
                                             <td className="row-cell">{data.montoAsignadoA}</td>
                                             <td className="row-cell">{data.hora}</td>
                                             <td className="row-cell">{data.dateCreate?.split('T')[0]}</td>
-                                            <td className="row-cell">{data.montoGasto}Bs</td>
+                                            <td className="row-cell">{data.montoGasto} Bs</td>
                                             {/* <td className="row-cell">
                                                             <button onClick={() => this.clickProduct(data, data._id)} className='tableButton'>Detalles</button>
                                                         </td> */}

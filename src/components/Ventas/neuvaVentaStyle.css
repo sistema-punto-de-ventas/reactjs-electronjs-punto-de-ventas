@@ -90,6 +90,30 @@
 .conted-form-venta::-webkit-scrollbar-track {
     border-radius: 10px;  
 }
+
+/* --- pdf--- */
+.content-btn-pdf{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.btn-donwload-pdf{
+    border-radius: 20px;
+    background-color: var(--color-primario);
+    padding:10px 30px 10px 30px;
+    cursor: pointer;
+}
+
+.btn-donwload-pdf:hover{
+    background-color: var(--color-secuandrio-2);
+}
+.label-imprimir{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+/* --------- */
+
 @media screen and (max-width: 1140px) {    
     .conted-products{
         grid-template-columns: repeat(auto-fit, 11rem);

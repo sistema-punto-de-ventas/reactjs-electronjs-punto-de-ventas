@@ -12,7 +12,7 @@ import 'izitoast/dist/css/iziToast.css';
 import axios from 'axios';
 
 
-// axios.defaults.baseURL = 'https://serverfood-api.herokuapp.com';
+// axios.defaults.baseURL = 'https://api-puntodeventas.herokuapp.com/';
 axios.defaults.baseURL = 'http://127.0.0.1:4000';
 // axios.defaults.baseURL = 'http://192.168.100.9:4000';
 

@@ -139,8 +139,8 @@ const Ticket=({ data,registrarVenta }) =>{
                                             <td>{data.unidadesVendidos}</td>
                                             <td className='name-product'>{data.nombre}</td>
                                             {/* <td>{data.description}</td> */}
-                                            <td>{data.precio -data.descuentoUnidad}</td>
-                                            <td>{data.total -data.totalDescuento}</td>
+                                            <td>{(data.precio - data.descuentoUnidad).toFixed(2)?(data.precio - data.descuentoUnidad).toFixed(2):(data.precio - data.descuentoUnidad)}</td>
+                                            <td>{(data.total - data.totalDescuento).toFixed(2)?(data.total - data.totalDescuento).toFixed(2):(data.total - data.totalDescuento)}</td>
                                         </tr>
                                     );
                                 })}

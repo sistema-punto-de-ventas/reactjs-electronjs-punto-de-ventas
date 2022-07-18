@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
 import EstadoFinancieroRoute from '../../routes/EstadoFinanciero'
 import Modal from '../Modal';
 import getWindowDimensions from '../Hooks.js/windowDimensions'
+import GeneratorPDF from '../generador_de_pdf/generador_de_pdf';
+
+
 function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
     const [listVentasDiarias, setlistVentasDiarias] = useState({});
     const [modal, setModal] = useState(false);
@@ -9,7 +12,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
     const [buttonClick, setButtonClick] = useState(0);
     const [formP, setFormP] = useState({
         numPagina: 0,
-        tamanioPagina: 5,
+        tamanioPagina: 30,
         buscador: '',
         isUser: true
     });
@@ -188,6 +191,21 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
         getLisVentasUser();
     }, [getLisVentasUser]);
 
+
+    // cambia de color al text de ala tabal para generar el pdf con letras de color negro
+    const [style, setStyle]= useState({style:{color:"white !important"}});
+    const handlerColor=async(e)=>{
+        
+        style.color==='black'?setStyle({...style,color:'white'}):setStyle({...style,color:'black'})
+    }
+    
+    // genera un pdf de al tabla
+    const myRef = useRef();
+    const generatePdf =()=>{
+        GeneratorPDF(myRef, 'a0');
+    }
+
+
     return (
         <div>
             <div className="contend-gastos">
@@ -225,12 +243,12 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                                     value={formP.tamanioPagina}
                                     className='sizePage'
                                 >
-                                    <option value='5'>5</option>
-                                    <option value='10'>10</option>
                                     <option value='30'>30</option>
+                                    <option value='50'>60</option>
+                                    <option value='100'>100</option>
 
                                 </select>
-                                <label>Tamanio de pagina</label>
+                                <label></label>
                             </div>
                             <div className='content-right'>
                                 <label>Buscar:</label>
@@ -249,27 +267,27 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                                 />
                             </div>
                         </div>
-                        <table className="table">
+                        <table ref={myRef} className="table" style={style}>
                             <thead className="table-head">
                                 <tr className="table-headers">
 
 
-                                    <th className="header" scope="col">N°</th>
-                                    <th className="header" scope="col">Usuario</th>
-                                    <th className="header" scope="col">Cliente</th>
-                                    <th className="header" scope="col">N° venta</th>
-                                    <th className="header" scope="col">Fecha de Registro</th>
-                                    <th className="header" scope="col">Hora de Registro</th>
-                                    <th className="header" scope="col">Efectivo</th>
-                                    <th className="header" scope="col">Cambio</th>
-                                    <th className="header" scope="col">Total</th>
+                                    <th className="header" scope="col" style={style}>N°</th>
+                                    <th className="header" scope="col" style={style}>Usuario</th>
+                                    <th className="header" scope="col" style={style}>Cliente</th>
+                                    <th className="header" scope="col" style={style}>N° venta</th>
+                                    <th className="header" scope="col" style={style}>Fecha de Registro</th>
+                                    <th className="header" scope="col" style={style}>Hora de Registro</th>
+                                    <th className="header" scope="col" style={style}>Efectivo</th>
+                                    <th className="header" scope="col" style={style}>Cambio</th>
+                                    <th className="header" scope="col" style={style}>Total</th>
 
                                     <th className="header" scope="col">Opciones</th>
 
 
                                 </tr>
                             </thead>
-                            <tbody className="table-body">
+                            <tbody className="table-body" style={style}>
                                 {listVentasDiarias.listVentas?.result.map((data, key) => {
                                     return (
                                         <tr key={key} className="table-row">
@@ -291,18 +309,17 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                                     );
                                 })}
                             </tbody>
-                            <tfoot className="table-head">
-                                <tr>
+                            <tfoot className="table-head" >
+                                <tr >
                                     <th className="header" scope="col"></th>
                                     <th className="header" scope="col"></th>
                                     <th className="header" scope="col"></th>
                                     <th className="header" scope="col"></th>
                                     <th className="header" scope="col"></th>
                                     <th className="header" scope="col"></th>
-
-                                    <th className="header" scope="col">Efectivo: {listVentasDiarias.ventas?.sumEfectivoTotal} Bs</th>
-                                    <th className="header" scope="col">Cambio: {listVentasDiarias.ventas?.sumCambio} Bs</th>
-                                    <th className="header" scope="col">Total: {listVentasDiarias.ventas?.total} Bs</th>
+                                    <th className="header" scope="col" style={style}>Efectivo: {listVentasDiarias.ventas?.sumEfectivoTotal} Bs</th>
+                                    <th className="header" scope="col" style={style}>Cambio: {listVentasDiarias.ventas?.sumCambio} Bs</th>
+                                    <th className="header" scope="col" style={style}>Total: {listVentasDiarias.ventas?.total} Bs</th>
 
                                     <th className="header" scope="col"></th>
                                 </tr>
@@ -353,6 +370,22 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                                 }
                             </div>
                         </div>
+                        {/* btn download pdf */}
+                        <div className='content-btn-pdf'>
+
+                                <label class="label-imprimir">
+                                    <input onChange={(e)=>handlerColor(e)} 
+                                    type="checkbox" name="radio" value="false"/>
+                                    Descargar reporte
+                                    </label>
+                                {
+                                    style.color==="black"?
+                                    <div onClick={generatePdf} className='btn-donwload-pdf'>
+                                        Descargar pdf
+                                    </div>
+                                    :''
+                                }
+                        </div>
                     </div>
                 </div>
             </div>
@@ -363,7 +396,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                 size='60%'
                 title='Detalles de venta'
             >
-                <table className="table">
+                <table className="table" style={style}>
                     <thead className="table-head">
                         <tr className="table-headers">
                             <th className="header" scope="col">N°</th>
@@ -390,7 +423,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                             );
                         })}
                     </tbody>
-                    <tfoot className="table-head">
+                    <tfoot className="table-head" >
                         <tr>
 
                             <th className="header" scope="col">{oneVenta.idUser}</th>

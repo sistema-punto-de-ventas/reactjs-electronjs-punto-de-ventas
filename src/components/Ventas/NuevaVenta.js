@@ -12,6 +12,7 @@ import Modal from '../Modal'
 import { Url } from '../../routes/Url';
 import { SearcProdcuts } from './SearchProducts/SearchProducts';
 import CategoriaProductosRoute from '../../routes/CategoriaProductos';
+import Redondear from '../../utils/redondeNumeros/redondeNumeros';
 
 const dataTicket = {
     nomNegocio: '',
@@ -209,19 +210,20 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
        
     }
 
-    const updateDescuentoUnidad = async (data, e) => {
-        console.log(data)
-        console.log(e.target.value)
-        console.log(typeof(e.target.value))
-        var descuentoU = e.target.value>0 && e.target.value!=''?e.target.value:0;
+    const updateDescuentoUnidad = async (data, nun) => {
+        // console.log(data)
+        // console.log(e.target.value)
+        // console.log(typeof(e.target.value))
+        var descuentoU = nun;
         let auxSelected = auxSelectList[data.id];
         var countP = productSelect.map((item) => {
             if (data.id === item.id) {
                 var updateCanttidad = {
                     ...item,
-                    descuentoUnidad: parseInt(descuentoU),
-                    totalDescuento: parseInt(descuentoU) * item.unidadesVendidos
+                    descuentoUnidad: parseFloat(descuentoU),
+                    totalDescuento: parseFloat(descuentoU) * item.unidadesVendidos
                 }
+                console.log('%c updateCanttidad', 'color: orange', updateCanttidad.totalDescuento);
                 return updateCanttidad;
             }
             return item;
@@ -251,20 +253,39 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
         // console.log('%c data', 'color: pink', e.target.value);
         
         let auxSelected = auxSelectList[data.id];
-        var countP = productSelect.map((item) => {
-            if (data.id === item.id) {
-                var updateCanttidad = {
-                    ...item,
-                    quantity: auxSelected.data.quantity === item.quantity ? item.quantity : data.unidadesDisponibles - e.target.value,
-                    unidadesVendidos: parseInt(e.target.value),
-                    total: parseInt(e.target.value) * item.precio
-                }
-                return updateCanttidad;
-            }
-            return item;
+        // var countP = productSelect.map((item) => {
+        //     if (data.id === item.id) {
+        //         var updateCanttidad = {
+        //             ...item,
+        //             quantity: auxSelected.data.quantity === item.quantity ? item.quantity : data.unidadesDisponibles - e.target.value,
+        //             unidadesVendidos: parseFloat(e.target.value),
+        //             total: parseFloat(e.target.value) * item.precio,
+        //             totalDescuento: parseFloat(e.target.value) * item.descuentoUnidad
+        //         }
+        //         return updateCanttidad;
+        //     }
+        //     return item;
 
-        });
-        setProductSelect(countP)
+        // });
+        
+        var arrayList=[];
+        for(var i=0; i<productSelect.length; i++){
+            if(productSelect[i].id===data.id){
+               var updateCantidad = await  {
+                                ...productSelect[i],
+                                quantity: auxSelected.data.quantity === productSelect[i].quantity ? productSelect[i].quantity : data.unidadesDisponibles - e.target.value,
+                                unidadesVendidos: parseFloat(e.target.value),
+                                total: await Redondear.redondearMonto( parseFloat(e.target.value) * productSelect[i].precio),
+                                totalDescuento: await Redondear.redondearMonto(parseFloat(e.target.value) * productSelect[i].descuentoUnidad)
+                            }
+                arrayList.push(updateCantidad);
+            }
+            else{
+
+                arrayList.push(productSelect[i]);
+            }
+        }
+        await setProductSelect(arrayList)
 
         let auxSelected2 = auxSelectList[data.id];
         var countP2 = listProduct.map((item) => {
@@ -272,15 +293,17 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
                 var updateCanttidad = {
                     ...item,
                     quantity: auxSelected2.data.quantity === item.quantity ? item.quantity : data.unidadesDisponibles - e.target.value,
-                    unidadesVendidos: parseInt(e.target.value)
+                    unidadesVendidos: parseInt(e.target.value),
+                    totalDescuento: parseFloat(e.target.value) * item.descuentoUnidad
                 }
                 return updateCanttidad;
             }
             return item;
 
         });
+        
         setListProduct(countP2)
-        //  console.log('%c updatePrecio', 'color: red', countP);
+        
     }
 
 
@@ -380,8 +403,8 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
             nombreCliente: clienteData, //realizar una ruta que saque el nombre del cliente con su id
             productos: arr,
             total: dataVenta?.precioTotal,
-            efectivo: dataVenta?.pagoCliente?dataVenta?.pagoCliente:0,
-            cambio: dataVenta?.cambioCliente?dataVenta?.cambioCliente:0,
+            efectivo: await Redondear.redondearMonto(dataVenta?.pagoCliente?dataVenta?.pagoCliente:0),
+            cambio:await Redondear.redondearMonto(dataVenta?.cambioCliente?dataVenta?.cambioCliente:0),
             usuario: `${user.user.name} ${user.user.lastName}`,
         })
     }

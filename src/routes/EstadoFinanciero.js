@@ -104,6 +104,21 @@ class EstadoFinancieroRoute {
              return {error:true, err:error?.response?.data}
         }
     }
+
+    static async getDownloadListAllProductsXlsx(){        
+        const token = await JSON.parse(localStorage.getItem('tokTC'));
+        try {
+            const resp = await axios.get(`reports/list/all/prodcuts/${token.user.idNegocio}`, {
+                headers: {
+                    'authorization': token.t
+                }
+            });
+            return {error:false,resp:resp.data}
+        } catch (error) {
+            console.error(error)
+             return {error:true, err:error?.response?.data}
+        }
+    }
 }
 
 export default EstadoFinancieroRoute;
