@@ -9,6 +9,8 @@ import CategoriaProductosRoute from '../../routes/CategoriaProductos';
 import getWindowDimensions from '../Hooks.js/windowDimensions'
 import GeneratorPDF from '../generador_de_pdf/generador_de_pdf';
 import Redondear from '../../utils/redondeNumeros/redondeNumeros';
+
+import socketIoClient from 'socket.io-client'
 const buttonsArr = [
     { button: 'Lista de ventas', selected: 'buttonSeleccted' },
     { button: 'Lista de gastos', selected: '' },
@@ -34,7 +36,7 @@ const menuButton = [
     //dinamicButton menu
 
 ]
-function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, listGastos }) {
+function EstadoFinanciero({ modalFunction, RouteOnliAdmin, msgToast, colors, changeCierreCaja, listGastos }) {
     const [formCIerreCaja, setFormCierreCaja] = useState(formC);
     const [buttons, setButtons] = useState(buttonsArr);
     const [section, setSection] = useState({
@@ -314,10 +316,14 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                     }
                     return data
                 })
-
+     
                 setFormCierreCaja(esto)
             }
         }
+        
+       
+    
+        
         getUserCajaActivos();
     }, [msgToast]);
 
@@ -347,6 +353,13 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
 
     useEffect(() => {
         getEstdoFinancieroActivo();
+        
+        // const socket = socketIoClient('http://127.0.0.0:4000');
+        // socket.on('[ventasGastos] reporte',(data)=>{
+        //     console.log(':1010101010101010100110')
+        //     getEstdoFinancieroActivo();
+        // })
+   
     }, [getEstdoFinancieroActivo, changeCierreCaja])
     const inserData = async (data) => {
 
@@ -427,6 +440,11 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
     useEffect(() => {
         getListCategoriaP();
     }, [getListCategoriaP])
+
+    const updaDateResquest=()=>{
+        console.log('update data')
+        getEstdoFinancieroActivo()
+    };
 
     //list productos segun us categoria del estado financiero
     const getPorductosCategori = async (categoria) => {
@@ -741,7 +759,13 @@ function EstadoFinanciero({ RouteOnliAdmin, msgToast, colors, changeCierreCaja, 
                                         </select>
                                         <label>Tamaño de pagina</label>
                                     </div>
+                                    
                                     <div className='content-right'>
+                                    <button className="btn-op" onClick={updaDateResquest}>
+                                        Actualizar
+                                    </button>
+                                    <button onClick={() => modalFunction(1)} className="btn-op">Nuevo gasto</button>
+
                                         <label>Buscar:</label>
                                         <input
                                             style={{

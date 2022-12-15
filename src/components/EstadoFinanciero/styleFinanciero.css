@@ -292,3 +292,19 @@ input[type="radio"] {
   .btn-donwload-pdf{
     color: white;
   }
+
+  /* btn actualizar and new gast */
+
+  .btn-op{
+    color: white;
+    background-color: #1D2D44;
+    margin-right: 10px;
+    border-radius: 20px;
+    padding-left: 9px;
+    padding-right: 9px;
+    outline: none;
+    box-shadow: 90px;
+  }
+  .btn-op:hover{
+    background-color: #ac29e0;
+  }

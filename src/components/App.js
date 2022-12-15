@@ -41,6 +41,7 @@ import Network from '../routes/GetipServer';
 import TicketsCall from './TicketsCall/TicketsCall';
 import TicketCall from './TicketsCall/TicketsCall';
 
+import socketIoClient  from 'socket.io-client';
 
 class App extends React.Component {
 
@@ -85,6 +86,8 @@ class App extends React.Component {
     this.handleResize();//tamanio de heigth dinamico
     this.verifyUserLength(); // verificamos si la bd esta vacio
     this.getIpServer();
+
+    socketIoClient('http://127.0.0.0:4000');
   }
   showSidebarAdmin = () => {
     this.setState({

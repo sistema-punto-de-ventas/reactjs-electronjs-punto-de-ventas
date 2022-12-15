@@ -51,7 +51,7 @@ const Estadisticas = () => {
                         <li>Total Capital de inversión : {(dataCapital?.totalInversion)?.toLocaleString("es-BO", {style:"currency", currency:"BOB"})} </li>
                         <li>Total activos de productos disponibles : {(dataCapital.totalMontoProductosDisponibles).toLocaleString("es-BO", {style:"currency", currency:"BOB"})} </li>
                         <li>Total ganancias : {dataCapital.totalGanancias.toLocaleString("es-BO", {style:"currency", currency:"BOB"})} </li>
-                        <li>Procentaje de ganancias del 40% : {dataCapital.porcentaje.toLocaleString("es-BO", {style:"currency", currency:"BOB"})} </li>
+                        <li>Porcentaje de ganancias del 40% : {dataCapital.porcentaje.toLocaleString("es-BO", {style:"currency", currency:"BOB"})} </li>
                     </ul> */}
                     <table className="table-reporte-actual">
                         <tr><th>Total cantidad de productos disponibles : </th>
@@ -64,7 +64,7 @@ const Estadisticas = () => {
                             <td>{(dataCapital.totalMontoProductosDisponibles).toLocaleString("es-BO", {style:"currency", currency:"BOB"})}</td> </tr>
                         <tr><th>Total ganancias : </th>
                             <td>{dataCapital.totalGanancias.toLocaleString("es-BO", {style:"currency", currency:"BOB"})}</td> </tr>
-                        <tr><th>Procentaje de ganancias del 40% : </th>
+                        <tr><th>Porcentaje de ganancias del 40% : </th>
                             <td>{dataCapital.porcentaje.toLocaleString("es-BO", {style:"currency", currency:"BOB"})}</td> </tr>
                     </table>
                 </div>

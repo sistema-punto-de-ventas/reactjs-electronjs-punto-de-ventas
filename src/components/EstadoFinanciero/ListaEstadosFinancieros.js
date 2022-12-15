@@ -2,10 +2,12 @@ import React, {useState, useEffect, useRef} from 'react';
 import EstadoFinancieroRoute from '../../routes/EstadoFinanciero'
 import GeneratorPDF from '../generador_de_pdf/generador_de_pdf';
 
+import io  from 'socket.io-client'
+
 function ListaEstadosFinancieros({msgToast}) {
     const [list, setList] = useState([]);
 
-    useEffect(() =>{
+    useEffect(async() =>{
         const listaEstadoFinanciero = async () => {
             const resp = await EstadoFinancieroRoute.listEstadoFinanciero();
             if (resp.error) {
@@ -29,6 +31,14 @@ function ListaEstadosFinancieros({msgToast}) {
             }
         }
         listaEstadoFinanciero();
+
+         const socket = io('http://192.168.100.9:4000');
+         await socket.on('[ventasGastos] reporte',(data)=>{
+            console.log(data)
+            console.log('1010101010101010100110llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll')
+            // getEstdoFinancieroActivo();
+        })
+       
     },[msgToast])
 
 

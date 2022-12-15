@@ -18,7 +18,7 @@ const menuButton = [
     //dinamicButton menu
 
 ]
-function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, reportVentaGastos, RouteOnliAdmin, colors, msgToast }) {
+function ReporteVentasGastos({modalFunction, changeFormFecha, formFecha, reporteVentaGatos, reportVentaGastos, RouteOnliAdmin, colors, msgToast }) {
     const [buttons, setButtons] = useState(buttonsArr);
     const [modalOneProduct, setModalOneProduct] = useState(false)
     const [productSelected, setProductSelect] = useState({});
@@ -400,7 +400,9 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                         </select>
                                         <label>Tamaño de pagina</label>
                                     </div>
+                        
                                     <div className='content-right'>
+
                                         <label>Buscar:</label>
                                         <input
                                             style={{
@@ -607,7 +609,13 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                     </select>
                                     <label>Tamaño de pagina</label>
                                 </div>
+
+                                <div>
+
+                                </div>
                                 <div className='content-right'>
+                                
+
                                     <label>Buscar:</label>
                                     <input
                                         style={{
@@ -624,6 +632,7 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                                     />
                                 </div>
                             </div>
+                            
                             <table className="table">
                                 <thead className="table-head">
                                     <tr className="table-headers">
@@ -784,7 +793,7 @@ function ReporteVentasGastos({ changeFormFecha, formFecha, reporteVentaGatos, re
                 </table>
                 <button onClick={modalOpenClose} className="buttonMenu"> Cerrar</button>
             </Modal>
-
+           
         </div>
     )
 }

@@ -13,6 +13,8 @@ import Gastos from '../components/Ventas/gastos'
 import './Styles/VentasStyle.css';
 import ListStateOrdenRestaurante from "../components/listVentasStateOrdenRestaurante/listStateOrdenRestaurante";
 
+
+
 const formDatas = [
     {
         disable: false, error: '', isRequired: true, focus: '', name: 'idTipoGastos', label: 'Tipo de gasto', value: '', tipe: 'select', options: [
@@ -410,7 +412,7 @@ class Ventaas extends React.Component {
     }
     //reporte de ventas y gastos
     reportVentaGastos = async (form = this.state.formFecha) => {
-        console.log(form, ' === ruta')
+        console.log(form, ' === rutappppppppppppppppppppppppppppppppppppppppppppppppppppp')
         const fecha = await this.fecha();
         let dataFechas = {
             fechaInicio: this.state.formFecha.fechaInicio ? this.state.formFecha.fechaInicio : fecha,
@@ -443,6 +445,10 @@ class Ventaas extends React.Component {
             })
         }
     }
+   
+
+    
+    
     //buscar fechas para el reporte de ventas y gastos
     changeFormFecha = (e) => {
         const { value, name } = e.target
@@ -725,6 +731,7 @@ class Ventaas extends React.Component {
                 {this.state.sectionContainer === 3 &&
                     <>
                         <ReporteVentasGastos
+                            modalFunction={this.modalFunction}
                             changeFormFecha={this.changeFormFecha}
                             formFecha={this.state.formFecha}
                             reporteVentaGatos={this.state.reporteVentaGatos}
@@ -739,6 +746,7 @@ class Ventaas extends React.Component {
                     <>
 
                         <EstadoFinanciero
+                            modalFunction={this.modalFunction}
                             changeCierreCaja={this.state.changeCierreCaja}
                             colors={this.props.color}
                             RouteOnliAdmin={this.props.RouteOnliAdmin}

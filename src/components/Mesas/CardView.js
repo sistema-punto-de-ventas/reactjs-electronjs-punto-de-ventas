@@ -123,11 +123,25 @@ export default function CardView(props) {
         return () => isMounted = false;
     }, [])
 
+    const Confirmacion=(data, actionString)=>{
+        return(
+            <div className='modal-confirmacion'>
+               <div className='modal-content-conf'>
+                    <div className='close-modal'><strong>x</strong></div>
+                    <div>
+                        <h5>Para eliminar el producto escriba <strong>"eliminar"</strong> y precione el boton de confirma </h5>
+                    </div>
+                    <input type='text' placeholder='Escriba eliminar'/>
+                    <button> confirmar </button>
+               </div>
+            </div>
+        );
+    }
     
     if (arrDatas) {
         return (
             <>
-           
+            {/* <Confirmacion /> */}
                 {arrDatas.map((data, key) => {
                     return (
                         <div key={key} className='containerCardList'>
@@ -193,12 +207,14 @@ export default function CardView(props) {
                                                     >
                                                         Detalles
                                                     </button>
-                                                    {/* <button
+                                                    <button
                                                         onClick={() => clickProduct(data, 'deleteMenu')}
                                                         className={`btn-cardFooter buttonRight ${btnStyle()}`}
                                                     >
                                                       {titleBtn()}
-                                                    </button> */}
+                                                    </button>
+
+                                                   
                                                 </div>
                                                 :
                                                 <></>
