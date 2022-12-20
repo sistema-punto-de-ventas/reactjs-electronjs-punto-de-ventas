@@ -34,7 +34,7 @@ export default function ContainerList(props) {
     }, [windowDimensions]);
     return (
         <>
-            <div className={cardUser ? 'containerList user-container' : 'containerList'} style={{ height: `${heigthContainer}px`, marginTop:'10px', paddingBottom:'70px' }} >
+            <div className={cardUser ? 'containerList user-container' : 'containerList'} >
                 {props.children}
             </div>
         </>

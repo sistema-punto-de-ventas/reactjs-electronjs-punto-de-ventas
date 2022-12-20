@@ -407,7 +407,7 @@ class MenuProduct extends React.Component {
         const resp = await CategoriaProductosRoute.list();
         if (resp.error) {
             this.props.msgToast({
-                msg: resp.err.message,
+                msg: resp.err?.message,
                 tipe: 'warning',
                 title: `Error ${resp.err.status}`
             });

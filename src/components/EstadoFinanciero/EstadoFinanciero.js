@@ -489,7 +489,7 @@ function EstadoFinanciero({ modalFunction, RouteOnliAdmin, msgToast, colors, cha
     return (
         <>
             <div className="conted-cierreCaja">
-                <div className="cierre-caja" style={{height: heightR}}>
+                <div className="cierre-caja">
                     <div className="header">
                         <h1>Cierre de caja</h1>
                     </div>
@@ -511,7 +511,8 @@ function EstadoFinanciero({ modalFunction, RouteOnliAdmin, msgToast, colors, cha
                         })}
                     </div>
                 </div>
-                <div className="detalle" style={{height: heightR}}>
+                {/* <div className="detalle" style={{height: heightR}}> */}
+                <div className="detalle" >
                     <h4>{section.title}</h4>
                     {section.position === 0 &&
                         <>

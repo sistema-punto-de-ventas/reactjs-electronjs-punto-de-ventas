@@ -6,7 +6,23 @@
     height: 310px;   
     border-radius: 15px;
     color:#D8DBE2;
+    overflow-y: scroll;
 
+}
+
+.cardUser::-webkit-scrollbar{
+    /* visibility: hidden; */
+    /* color: transparent; */
+    width: 0px;
+}
+.cardUser::-webkit-scrollbar-thumb{
+    /* color: transparent; */
+    width: 1px;
+    height: 1px;
+}
+.cardUser::-webkit-scrollbar-track{
+    color: transparent;
+    width: 1px !important;
 }
 .client{
     height: 260px;   

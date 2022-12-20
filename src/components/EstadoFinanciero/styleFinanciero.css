@@ -1,12 +1,21 @@
 .conted-cierreCaja{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 15;
+    
+
+
     position: relative;
+    /* display: flex; */
     color: #D8DBE2;
 }
 .cierre-caja{
+
     background-color: var(--color-secuandrio-1);
     position: absolute;
     width: 30%;
-    height: 535px;
+    height: 100%;
     padding:  10px;
     border-radius: 15px;    
 }
@@ -16,7 +25,7 @@
     position:absolute;
     width: 69%;
     right: 0px;
-    height: 535px;
+    height: 100%;
     padding: 10px;
     border-radius: 15px;
 }
@@ -209,13 +218,19 @@
 
 
 .contend-table{
-    height: calc(100vh - 42vh);
+    /* height: calc(100vh - 42vh); */
     overflow-y:scroll  !important;
     padding-bottom: 20px;
     height: 100% !important;
 }
 .content-list-estados-financieros{
-    height: calc(100vh - 42vh) !important;
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 13;
+    height: 100%;
+    overflow-y: scroll;
+    /* margin-bottom: 2200px; */
 }
 /* @media screen and (min-width: 1600px) { */
  
@@ -223,11 +238,11 @@
 
 #caja-content-table{
  
-    height: calc(100vh - 56vh) !important;
+    /* height: calc(100vh - 56vh) !important;} */
 }
 
 #reporte-ventas-table{
-    height: calc(100vh - 56vh) !important;
+    /* height: calc(100vh - 56vh) !important; */
 
 }
 

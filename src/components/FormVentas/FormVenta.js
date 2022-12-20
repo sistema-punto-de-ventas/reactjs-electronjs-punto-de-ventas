@@ -457,72 +457,74 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                         </table>
                     </div>
                     <br />
-                    <div className="contend-left">
-                        <section className="buttons-number">
-                            <button onClick={() => buttonsVenta(7)} className="button-number">7</button>
-                            <button onClick={() => buttonsVenta(8)} className="button-number">8</button>
-                            <button onClick={() => buttonsVenta(9)} className="button-number">9</button>
+                    <div className='content-left-and-right'>
+                        <div className="contend-left">
+                            <section className="buttons-number">
+                                <button onClick={() => buttonsVenta(7)} className="button-number">7</button>
+                                <button onClick={() => buttonsVenta(8)} className="button-number">8</button>
+                                <button onClick={() => buttonsVenta(9)} className="button-number">9</button>
 
-                            <button onClick={() => buttonsVenta(10)} className="button-number n">+10</button>
+                                <button onClick={() => buttonsVenta(10)} className="button-number n">+10</button>
 
-                            <button onClick={() => buttonsVenta(4)} className="button-number">4</button>
-                            <button onClick={() => buttonsVenta(5)} className="button-number">5</button>
-                            <button onClick={() => buttonsVenta(6)} className="button-number">6</button>
+                                <button onClick={() => buttonsVenta(4)} className="button-number">4</button>
+                                <button onClick={() => buttonsVenta(5)} className="button-number">5</button>
+                                <button onClick={() => buttonsVenta(6)} className="button-number">6</button>
 
-                            <button onClick={() => buttonsVenta(20)} className="button-number n">+20</button>
+                                <button onClick={() => buttonsVenta(20)} className="button-number n">+20</button>
 
-                            <button onClick={() => buttonsVenta(1)} className="button-number">1</button>
-                            <button onClick={() => buttonsVenta(2)} className="button-number">2</button>
-                            <button onClick={() => buttonsVenta(3)} className="button-number">3</button>
+                                <button onClick={() => buttonsVenta(1)} className="button-number">1</button>
+                                <button onClick={() => buttonsVenta(2)} className="button-number">2</button>
+                                <button onClick={() => buttonsVenta(3)} className="button-number">3</button>
 
-                            <button onClick={() => buttonsVenta(30)} className="button-number n">+30</button>
+                                <button onClick={() => buttonsVenta(30)} className="button-number n">+30</button>
 
-                            <button onClick={() => buttonsVenta('C')} className="button-number">C</button>
-                            <button onClick={() => buttonsVenta(0)} className="button-number">0</button>
-                            <button onClick={() => buttonsVenta(".")}className="button-number">.</button>
+                                <button onClick={() => buttonsVenta('C')} className="button-number">C</button>
+                                <button onClick={() => buttonsVenta(0)} className="button-number">0</button>
+                                <button onClick={() => buttonsVenta(".")}className="button-number">.</button>
 
-                            <button onClick={() => buttonsVenta('D')} className="button-number n">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" style={{width:'30px'}} viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M6.707 4.879A3 3 0 018.828 4H15a3 3 0 013 3v6a3 3 0 01-3 3H8.828a3 3 0 01-2.12-.879l-4.415-4.414a1 1 0 010-1.414l4.414-4.414zm4 2.414a1 1 0 00-1.414 1.414L10.586 10l-1.293 1.293a1 1 0 101.414 1.414L12 11.414l1.293 1.293a1 1 0 001.414-1.414L13.414 10l1.293-1.293a1 1 0 00-1.414-1.414L12 8.586l-1.293-1.293z" clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                        </section>
-                        <div className="content-btn-decuento-verificar">
-                            <button className='button-form-venta' 
-                                onClick={() => onSubmit({
-                                    nombreCliente: form.nombreCliente,
-                                    idCliente: form.idCliente,
-                                    pagoCliente: form.pagoCliente,
-                                    cambioCliente: form.cambioCliente,
-                                    precioTotal: sumaTotal,
-                                })}
-                            >Verificar</button>
-                            {/* <button  className='btn-formVentas-descuento' > Descuento</button> */}
-                            <div className='sizedBoxBlank'></div>
+                                <button onClick={() => buttonsVenta('D')} className="button-number n">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" style={{width:'30px'}} viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M6.707 4.879A3 3 0 018.828 4H15a3 3 0 013 3v6a3 3 0 01-3 3H8.828a3 3 0 01-2.12-.879l-4.415-4.414a1 1 0 010-1.414l4.414-4.414zm4 2.414a1 1 0 00-1.414 1.414L10.586 10l-1.293 1.293a1 1 0 101.414 1.414L12 11.414l1.293 1.293a1 1 0 001.414-1.414L13.414 10l1.293-1.293a1 1 0 00-1.414-1.414L12 8.586l-1.293-1.293z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </section>
+                            <div className="content-btn-decuento-verificar">
+                                <button className='button-form-venta' 
+                                    onClick={() => onSubmit({
+                                        nombreCliente: form.nombreCliente,
+                                        idCliente: form.idCliente,
+                                        pagoCliente: form.pagoCliente,
+                                        cambioCliente: form.cambioCliente,
+                                        precioTotal: sumaTotal,
+                                    })}
+                                >Verificar</button>
+                                {/* <button  className='btn-formVentas-descuento' > Descuento</button> */}
+                                <div className='sizedBoxBlank'></div>
+                            </div>
+                            
                         </div>
-                        
-                    </div>
-                    <div className="contend-right">
-                        <div className='contend-input-venta'>
-                            <input
-                                type='number'
-                                onWheel={(e) => e.target.blur()}
-                                name='pagoCliente'
-                                onChange={handleChange}
-                                value={form.pagoCliente}
-                                className='input-venta pago-cliente'
-                                autoComplete="off"
-                            >
-                            </input>
-                            <label className='venta-label size'>PAGO CLIENTE  <code className='spanError'>{formErro.pagoCliente ? 'Error' : ''}</code></label>
-                        </div>
-                        <div className='contend-input-data-venta-montos'>
-                            <p className='spanError'>{formErro.pagoCliente}</p>
-                            <label className='label-detalle'>Cambio: Bs {form.cambioCliente < 0 ? 0 : form.cambioCliente}</label>
-                            <label className='label-detalle'>Descuento: Bs {totalDescuento}</label>
-                            <label className='label-detalle'>Subtotal: Bs {subtotal}</label>
-                            <hr style={{height:'3px', background:'white'}}></hr>
-                            <label className='label-detalle'>TOTAL: Bs {sumaTotal}</label>
+                        <div className="contend-right">
+                            <div className='contend-input-venta'>
+                                <input
+                                    type='number'
+                                    onWheel={(e) => e.target.blur()}
+                                    name='pagoCliente'
+                                    onChange={handleChange}
+                                    value={form.pagoCliente}
+                                    className='input-venta pago-cliente'
+                                    autoComplete="off"
+                                >
+                                </input>
+                                <label className='venta-label size'>PAGO CLIENTE  <code className='spanError'>{formErro.pagoCliente ? 'Error' : ''}</code></label>
+                            </div>
+                            <div className='contend-input-data-venta-montos'>
+                                <p className='spanError'>{formErro.pagoCliente}</p>
+                                <label className='label-detalle'>Cambio: Bs {form.cambioCliente < 0 ? 0 : form.cambioCliente}</label>
+                                <label className='label-detalle'>Descuento: Bs {totalDescuento}</label>
+                                <label className='label-detalle'>Subtotal: Bs {subtotal}</label>
+                                <hr style={{height:'3px', background:'white'}}></hr>
+                                <label className='label-detalle'>TOTAL: Bs {sumaTotal}</label>
+                            </div>
                         </div>
                     </div>
 

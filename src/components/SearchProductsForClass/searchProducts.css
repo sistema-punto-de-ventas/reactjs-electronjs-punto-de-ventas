@@ -1,4 +1,9 @@
 .content-serch-component{
+    grid-column-start: 2;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
     display: flex;
     justify-content: left;
     margin-bottom: 2px;

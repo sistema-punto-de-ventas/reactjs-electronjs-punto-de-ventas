@@ -312,7 +312,7 @@ function ReporteVentasGastos({modalFunction, changeFormFecha, formFecha, reporte
 
     return (
         <div className="conted-cierreCaja">
-            <div className="cierre-caja" style={{height:heightR}}>
+            <div className="cierre-caja" >
                 <div className="header">
                     <h4>Del {reporteVentaGatos?.Fecha}</h4>
                     <div className='contend-input-venta'>
@@ -364,7 +364,7 @@ function ReporteVentasGastos({modalFunction, changeFormFecha, formFecha, reporte
                     })}
                 </div>
             </div>
-            <div className="detalle" style={{height:heightR}}>
+            <div className="detalle" >
                 <h4>{section.title}</h4>
                 {section.position === 0 &&
                     <div className={RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>

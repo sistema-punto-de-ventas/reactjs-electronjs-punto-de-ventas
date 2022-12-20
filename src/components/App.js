@@ -52,6 +52,7 @@ class App extends React.Component {
     RouteOnliAdmin: false,//esto es para activar lo del administrador
     sidebarAdmin: true, //'esto es del sidevar admin'
     inactive: false,
+    showMenu:true,
     color: {
       colorGlobal: '#27272B',
       colorHeader: {
@@ -114,6 +115,14 @@ class App extends React.Component {
     this.setState({
       RouteOnliAdmin: admTc === 'tcAdm' ? true : false
     })
+
+  }
+
+  handleMenuOption=()=>{
+    console.log(this.state.showMenu)
+    this.setState({
+      showMenu:!this.state.showMenu
+  })
 
   }
 
@@ -350,7 +359,7 @@ class App extends React.Component {
       return (
         <div className='contend-g' style={
           {
-            height: this.state.windowDimensions.height,
+            // height: this.state.windowDimensions.height,
             /* backgroundColor: 'red' */
           }
         }>
@@ -467,113 +476,121 @@ class App extends React.Component {
     }
     return (
       
-      <div className={this.state.isLoged ? 'contend-g' : 'contend-g loginBackground'} style={
-        {
-          height: this.state.windowDimensions.height
-        }
-      }>
+      // <div className={this.state.isLoged ? 'contend-g' : 'contend-g loginBackground'} style={
+      //   {
+      //     height: this.state.windowDimensions.height
+      //   }
+      // }>
+
+      <div className={this.state.isLoged ? 'contend-g' : 'contend-g loginBackground'}>
    
         <HashRouter>
           {this.state.isLoged ?
             <>
-              <Header onliAdmin={this.onliAdmin} msgToast={this.msgToast} singOut={this.singOut} colorHeader={this.state.color.colorHeader} />
-              <Layout color={this.state.color} isLoged={this.state.isLoged}>
-                <Routes>
-                <Route path='/' element={<Home permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
-                  <Route path='/estadisticas' element={<Home permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
-                  <Route
-                    path='/mesas'
-                    element={
-                      <Mesas
+              <div className='content-head-and-body'>
+                <Header showMenu={this.state.showMenu} handleMenuOption={this.handleMenuOption} onliAdmin={this.onliAdmin} msgToast={this.msgToast} singOut={this.singOut} colorHeader={this.state.color.colorHeader} />
+                
+                <Layout showMenu={this.state.showMenu} color={this.state.color} isLoged={this.state.isLoged}>
+                  <Routes>
+                  <Route path='/' element={<Home permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
+                    <Route path='/estadisticas' element={<Home permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
+                    <Route
+                      path='/mesas'
+                      element={
+                        <Mesas
+                          permissions={this.permissions}
+                          msgToast={this.msgToast}
+                          verifyToken={this.verifiToken}
+                          color={this.state.color} />}>
+                    </Route>
+                    <Route path='/usuarios' element={
+                      <Usuarios
+                        menuButtonsPermit={this.menuButtonsPermit}
                         permissions={this.permissions}
-                        msgToast={this.msgToast}
                         verifyToken={this.verifiToken}
-                        color={this.state.color} />}>
-                  </Route>
-                  <Route path='/usuarios' element={
-                    <Usuarios
-                      menuButtonsPermit={this.menuButtonsPermit}
-                      permissions={this.permissions}
-                      verifyToken={this.verifiToken}
-                      color={this.state.color}
-                      msgToast={this.msgToast}
-                    />}>
+                        color={this.state.color}
+                        msgToast={this.msgToast}
+                      />}>
 
-                  </Route>
-                  <Route path='/config' element={<Config permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
-                  <Route path='/ventas' element={
-                    <Ventas
-                      menuButtonsPermit={this.menuButtonsPermit}
-                      permissions={this.permissions}
-                      verifyToken={this.verifiToken}
-                      color={this.state.color}
-                      msgToast={this.msgToast}
-                    />
-                  }>
-                  </Route>
-                  <Route path='/menu' element={
-                    <MenuProduct
-                      menuButtonsPermit={this.menuButtonsPermit}
-                      msgToast={this.msgToast}
-                      permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
-                  {/* <Route element={NotFound} /> */}
-                  <Route path='/clientes' element={
-                    <Clientes
-                      menuButtonsPermit={this.menuButtonsPermit}
-                      permissions={this.permissions}
-                      verifyToken={this.verifiToken}
-                      color={this.state.color}
-                      msgToast={this.msgToast}
-                    ></Clientes>
-                  }></Route>
-                  <Route path='/gastos' element={
-                    <Gastos
-                      menuButtonsPermit={this.menuButtonsPermit}
-                      permissions={this.permissions}
-                      verifyToken={this.verifiToken}
-                      color={this.state.color}
-                      msgToast={this.msgToast}
-                    ></Gastos>
-                  }></Route>
+                    </Route>
+                    <Route path='/config' element={<Config permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
+                    <Route path='/ventas' element={
+                      <Ventas
+                        menuButtonsPermit={this.menuButtonsPermit}
+                        permissions={this.permissions}
+                        verifyToken={this.verifiToken}
+                        color={this.state.color}
+                        msgToast={this.msgToast}
+                      />
+                    }>
+                    </Route>
+                    <Route path='/menu' element={
+                      <MenuProduct
+                        menuButtonsPermit={this.menuButtonsPermit}
+                        msgToast={this.msgToast}
+                        permissions={this.permissions} verifyToken={this.verifiToken} color={this.state.color} />}></Route>
+                    {/* <Route element={NotFound} /> */}
+                    <Route path='/clientes' element={
+                      <Clientes
+                        menuButtonsPermit={this.menuButtonsPermit}
+                        permissions={this.permissions}
+                        verifyToken={this.verifiToken}
+                        color={this.state.color}
+                        msgToast={this.msgToast}
+                      ></Clientes>
+                    }></Route>
+                    <Route path='/gastos' element={
+                      <Gastos
+                        menuButtonsPermit={this.menuButtonsPermit}
+                        permissions={this.permissions}
+                        verifyToken={this.verifiToken}
+                        color={this.state.color}
+                        msgToast={this.msgToast}
+                      ></Gastos>
+                    }></Route>
 
-                  <Route path='/PCategoria' element={
-                    <PCategory
-                      menuButtonsPermit={this.menuButtonsPermit}
-                      permissions={this.permissions}
-                      verifyToken={this.verifiToken}
-                      color={this.state.color}
-                      msgToast={this.msgToast}
-                    ></PCategory>
-                  }></Route>
+                    <Route path='/PCategoria' element={
+                      <PCategory
+                        menuButtonsPermit={this.menuButtonsPermit}
+                        permissions={this.permissions}
+                        verifyToken={this.verifiToken}
+                        color={this.state.color}
+                        msgToast={this.msgToast}
+                      ></PCategory>
+                    }></Route>
 
-                  <Route path='/galeria' element={
-                    <Galeria
-                      menuButtonsPermit={this.menuButtonsPermit}
-                      permissions={this.permissions}
-                      verifyToken={this.verifiToken}
-                      color={this.state.color}
-                      msgToast={this.msgToast}
-                      setVistaProductos = {this.setVistaProductos}
-                    ></Galeria>
-                  }></Route>
+                    <Route path='/galeria' element={
+                      <Galeria
+                        menuButtonsPermit={this.menuButtonsPermit}
+                        permissions={this.permissions}
+                        verifyToken={this.verifiToken}
+                        color={this.state.color}
+                        msgToast={this.msgToast}
+                        setVistaProductos = {this.setVistaProductos}
+                      ></Galeria>
+                    }></Route>
 
-               
+                
 
-                </Routes>
-              </Layout>
-            </>
-            : this.state.isBDnull ?
+                  </Routes>
+                </Layout>
+                </div>
 
-              <StoreRegister
-                msgToast={this.msgToast}
-                verifiToken={this.verifiToken} color={this.state.color}
-                verifyUserLength={this.verifyUserLength}
-              />
-              :
-              <Login verifiToken={this.verifiToken} color={this.state.color} />
 
-          }
-        </HashRouter>
+              </>
+              : this.state.isBDnull ?
+
+                <StoreRegister
+                  msgToast={this.msgToast}
+                  verifiToken={this.verifiToken} color={this.state.color}
+                  verifyUserLength={this.verifyUserLength}
+                />
+                :
+                <Login verifiToken={this.verifiToken} color={this.state.color} />
+
+            }
+            
+          </HashRouter>
       </div>
 
     );

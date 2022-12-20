@@ -1,16 +1,22 @@
 .content-serch-component{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 2;
+    grid-row-end: 3;
+
     display: flex;
     justify-content: left;
-    margin-bottom: 4px;
-    margin-top: 4px;
+    align-items: center;
+    margin-bottom: 1px;
+    margin-top: 1px;
+    padding: 1px 2px 1px 2px;
+    /* overflow-x: scroll; */
+
+    background-color: cornflowerblue;
+    
 }
 
-@media  screen and (min-width: 1600px) {
-    .content-serch-component{
-        margin-top: 14px;
-        margin-bottom: 14px;
-    }
-}
+
 
 .search-component{
     display: flex;

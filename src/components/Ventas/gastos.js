@@ -47,7 +47,7 @@ function Gastos({modalFunction,buttonTableClick,buttonTable,RouteOnliAdmin,color
 
 
                 </div>
-                <div style={{height:heightR}} className={RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>
+                <div  className={RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>
                     <div className="contend-table tableOutModal">
                         <div className='content-search-sizePage'>
                             <div className='content-left'>

@@ -265,7 +265,7 @@ export class PCategory extends Component {
             );
         }
         return (
-            <div>
+            <>
                 {this.state.secttion === 0 &&
                     <div className="contend-gastos" >
                         <div className="conted-left">
@@ -426,7 +426,7 @@ export class PCategory extends Component {
                         isUpdate={false}
                     ></Form>
                 </Modal>
-            </div>
+            </>
         )
     }
 }

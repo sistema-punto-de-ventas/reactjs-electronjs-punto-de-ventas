@@ -1,18 +1,32 @@
 
 .containerList{
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 3;
+    grid-row-end: 16;
+
+
+    border: var(--border-1-solid);
+
     background-color: var(--color-secuandrio-1);
+    /* background-color: red; */
     width: 100%;
+    height:100%;
     overflow-y: scroll;
     padding: 0px 0px 0px 0px;
+    
     display: grid;
-    grid-template-columns: repeat(auto-fit, 12.5rem);
+    grid-template-columns: repeat(auto-fit, 11.5rem);
+
     justify-content: center;
     position: relative;
-    height:740px;
-    border-radius: 20px;        
+    padding-bottom: 90px;
+    /* border-radius: 20px;   */
+
 }
 .user-container{
     grid-template-columns: repeat(auto-fit, 16rem);
+    
 }
 .containerList::-webkit-scrollbar {
     -webkit-appearance: none;

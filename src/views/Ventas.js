@@ -536,7 +536,7 @@ class Ventaas extends React.Component {
             );
         }
         return (
-            <>
+            <div className="ventas-content">
                 <Menu
                     colors={this.props.color}
                     buttons={this.state.buttonsMenu}
@@ -821,7 +821,7 @@ class Ventaas extends React.Component {
                     ></Form>
                 </Modal>
 
-            </>
+            </div>
         );
     }
 }

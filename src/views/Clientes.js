@@ -5,6 +5,9 @@ import CardUser from "../components/CardUser";
 import Modal from '../components/Modal';
 import Form from "../components/Form";
 import CLienteRoutes from '../routes/Clientes';
+
+import './Styles/clientes.css'
+
 const formDatas = [
     { disable: false, error: '', isRequired: true, focus: '', name: 'name', label: 'Nombres', value: '', tipe: 'text' },
     { disable: false, error: '', isRequired: true, focus: '', name: 'lastName', label: 'Apellidos', value: '', tipe: 'text' },
@@ -210,7 +213,7 @@ export class Clientes extends Component {
             );
         }
         return (
-            <div>
+            <div className='client-content'>
                 <Menu
                     colors={this.props.color}
                     buttons={this.state.buttonsMenu}

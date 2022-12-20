@@ -40,7 +40,7 @@ const Estadisticas = () => {
     }
     else
     return (
-        <div>
+        <>
             <div className="content-reporte">
                 
                     <div className="content-estado-capital">
@@ -81,7 +81,7 @@ const Estadisticas = () => {
                     }
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

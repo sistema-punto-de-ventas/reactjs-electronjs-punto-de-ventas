@@ -1,10 +1,17 @@
 .head-container{
-    background-color: var(--color-primario);
+    /* background-color: var(--color-primario); */
+    grid-column-start: 1;
+    grid-column-end: 13;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+
     /* background-color: green; */
     position: relative;    
-    padding: 0 4px 0 4px;
-    min-width: 576px;
-    height: 140px;
+    /* padding: 0 4px 0 4px; */
+    height: 100%;
+    /* min-width: 576px; */
+    /* height: 140px; */
 }
 
 @media (min-width:1600px) {
@@ -13,40 +20,47 @@
     }
 }
 .navigation-contend{
-    /* background-color:red; */
+    /* background-color:red !important; */
     display: grid;
-    grid-template-columns: repeat(auto, 1fr);
+    grid-template-columns: repeat(1,1fr) !important;
+    grid-template-rows: repeat(15, 1fr) !important;
     padding: 5px;
-    height: 60%;
-    border-radius: 25px; 
+    /* height: 100%; */
+    /* border-radius: 25px;  */
     /* background-color: rgb(145, 255, 71) !important; */
-    width: 100%;
-    min-width:576px;
-    position: relative;
+    width: 16.5%;
+    height: 100vh;
+    background-color: rebeccapurple;
+    /* min-width:576px; */
+    position: absolute;
+    /* bottom: 0; */
+    left: 0;
+    z-index: 100;
     
 }
 /* header menu de navegacion */
 @media (min-width: 1600px){
-    .navigation-contend{
-        height: 53%;
-    }
-    .navigation-contend a{
-        height: 80px !important;
-    }
-    .navigation-contend a label{
-        font-weight: 100;
-        font-size: 1.4rem !important;
-    }
+  
 }
 
 .navigator{
     /* background-color:rgba(117, 0, 0, 0.432); */
     position: relative;
+    /* display: flex !important;
+    flex-direction: column !important; */
     text-decoration: none;     
     border-radius: 10px;
     margin:9px;
     height:57.5% /* 1080 maximo alto es 113px  */
     
+}
+
+.navigato-content-text-icon{
+    display: flex;
+    /* justify-items: center;
+    justify-content: center;
+    align-items: center; */
+    width: 30px;
 }
 .navigator:hover{
     border-radius: 20px;    
@@ -56,16 +70,19 @@
 .logoImg{
     max-height: 100%;
     width: 100%;
-    object-fit: scale-down;  
-    display:block;  
+    /* object-fit: scale-down;   */
+    /* display:block;   */
 }
 
 .labelLogo{
-    position: absolute;
-    top: 65%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: absolute; */
+    /* top: 65%;
+    left: 50%; */
+    /* transform: translate(-50%, 0%);
+    font-size: 28px; */
 }
 .selected{
     border-radius: 15px;
@@ -85,9 +102,10 @@
     flex-wrap: no-wrap;
     align-items: center;
     background-color: var(--color-primario);
-    height: 38%;
+    height: 100%;
     padding: 2px 10px 2px 10px;
-    margin: 0 0 2px 0;
+    border: 1px solid white;
+    /* margin: 0 0 2px 0; */
 }
 .content-user{
     display: flex;
@@ -125,13 +143,15 @@
     display: flex;
     justify-content: flex-end;
     /* background: chartreuse; */
-    padding: 10px;
+    /* padding: 10px; */
     width: 15%;
+    margin-left: 20px;
+
 
 }
 
 .button-getOut{
-    padding: 2px 26px 2px 26px;
+    padding: 2px 10px 2px 10px;
     border: none;
     border-radius: 18px;
     font-size: 100%;
@@ -160,4 +180,33 @@
         height: 95%;
     }
 
+}
+
+/* menu icon */
+.content-menu-icon{
+    width: 35px;
+    height: 35px;
+}
+
+.content-menu-icon:hover{
+    background-color: rgb(63, 63, 63);
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.content-menu-icon svg{
+    color: rgb(255, 255, 255);
+
+}
+
+.icon-and-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.logo-nuxtbo{
+    margin-left: 10px;
+    font-size: larger;
+    color: white;
 }

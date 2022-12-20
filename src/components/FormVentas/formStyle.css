@@ -111,10 +111,19 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 10px;  
 }
 
+/* tecaldo numero an inputs datat */
+.content-left-and-right{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
 .contend-right{
-    width: 58%;
-    position:absolute;
-    right:10px;
+    /* background-color: royalblue; */
+    /* width: 58%; */
+    /* position:absolute; */
+    /* right:10px; */
     text-align:start;
 }
 
@@ -275,8 +284,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .contend-left{
-    width: 40%;
-    position:absolute;    
+    /* width: 40%; */
+    /* position:absolute;     */
     /* display: flex !important;
     flex-direction: row-reverse !important; */
     flex-direction: row;

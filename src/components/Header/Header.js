@@ -33,7 +33,7 @@ const menuArray = [
 
 ]
 function Header(props) {
-    const { colorHeader, singOut, msgToast } = props;
+    const { colorHeader, singOut, msgToast, showMenu } = props;
     const [path, setPath] = useState('/mesas');
     const [links, setLinks] = useState(menuArray);
     const [dataUserNegocio, setDataUserNegocio] = useState({});
@@ -44,6 +44,8 @@ function Header(props) {
     const [buttonSize, setButtonSize] = useState(20)
 
     const [imgUser, setImgUser] = useState(0)
+    const [stateMenu, setStateMenu] = useState(true)
+
     useEffect(() => {
         function handleResize() {
             setWindowDimensions(getWindowDimensions());
@@ -169,15 +171,45 @@ function Header(props) {
         dataUserNegocio();
     }, [msgToast])
 
+    const showMenuOption=()=>{
+        // setStateMenu(!stateMenu)
+        props.handleMenuOption()
+        
+    }
+
 
     return (
         <>
          {/* style={{ height: `${heightR}px` }} */}
             <div className='head-container menuSatate'>
                 {/* navbar */}
-                <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }} className='navbar-content'>
+                <motion.div 
+                initial={{ opacity: 0, y: -20 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.4 }} 
+                className='navbar-content'>
+
+                    <div className="icon-and-logo">
+                        <div className="content-menu-icon">
+                            <svg onClick={()=>showMenuOption()} className="svg-menu-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                        </div>
+                        <div className="logo-nuxtbo">
+                            NuxtBo
+                        </div>
+                    </div>
+                    
+                  
+
+
+                    <div className='col-sm-auto logo'>
+                        <h1 className='nameLogo' style={{ color: colorHeader.colorText, fontSize: windowDimensions.height > 920 ? '2rem' : sizeLabel }} >{dataUserNegocio.negocio?.nombre}</h1>{/* para que algo este en el centro es d-flex justify-content-center */}
+                    </div>
+
 
                     
+
                     <div className='content-user'>
                         {/* MENU */}
                         {/* <svg className="icon-menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -188,15 +220,8 @@ function Header(props) {
                             <li style={{ color: colorHeader.colorText }}>{dataUserNegocio.usuario?.name} {dataUserNegocio.usuario?.lastname}</li>
                             <li className="textRole" style={{ color: colorHeader.colorText }}>{dataUserNegocio.usuario?.role[0]?.name}</li>
                         </div>
-                    </div>
-
-
-                    <div className='col-sm-auto logo'>
-                        <h1 className='nameLogo' style={{ color: colorHeader.colorText, fontSize: windowDimensions.height > 920 ? '2rem' : sizeLabel }} >{dataUserNegocio.negocio?.nombre}</h1>{/* para que algo este en el centro es d-flex justify-content-center */}
-                    </div>
-
-
-                    <div className='contendButtons'>
+                        
+                        <div className='contendButtons'>
                         <motion.button
                             whileHover={{ scale: 1.04 }}
                             className='button-getOut'
@@ -206,31 +231,34 @@ function Header(props) {
                             Salir
                         </motion.button>
                     </div>
+                    </div>
 
                 </motion.div>
                 {/* end navbar */}
 
                 {
-                    true?
+                    showMenu?
 
 
 
-                <div className="navigation-contend" style={{ gridTemplateColumns: `repeat(${links.length}, 1fr)`, backgroundColor: colorHeader.contendNavigation }}>
+                <div className="navigation-contend" >
                     {links.map((data, keys) => {
                         if (data.active) {
                             if (data.alt === 'config') {
                                 return (
                                     <a
-                                        style={{ height: `${heightNavigator}px` }}
+                                        
                                         href='/#' key={keys} className='navigator'>
+                                             {/* <div className="navigato-content-text-icon"> */}
                                         <img
                                             className={path === data.path ? 'logoImg selected' : 'logoImg'} src={data.img} alt={data.alt} ></img>
                                         <label
                                             className={path === data.path ? 'labelLogo labelSelected' : 'labelLogo'}
                                             style={{ color: colorHeader.colorText, fontSize: sizeLabel }}
                                         >
-                                            {data.name}
+                                            {data.name} 
                                         </label>
+                                        {/* </div> */}
                                     </a>
 
 
@@ -239,18 +267,20 @@ function Header(props) {
                             return (
                            
                                 <Link
-                                    style={{ height: `${heightNavigator}px` }}
+                                   
                                     key={keys} to={data.path} className='navigator' onClick={() => changeRoute(data.path)}>
                                     
+                                   <div className="navigato-content-text-icon">
                                     <img
-                                        className={path === data.path ? 'logoImg selected' : 'logoImg'} src={data.img} alt={data.alt}
-                                    ></img>
-                                    <label
-                                        className={path === data.path ? 'labelLogo labelSelected' : 'labelLogo'}
-                                        style={{ color: colorHeader.colorText, fontSize: sizeLabel }}
-                                    >
-                                        {data.name}
-                                    </label>
+                                            className={path === data.path ? 'logoImg selected' : 'logoImg'} src={data.img} alt={data.alt}
+                                        ></img>
+                                        <div
+                                            className={path === data.path ? 'labelLogo labelSelected' : 'labelLogo'}
+                                            style={{ color: colorHeader.colorText, fontSize: sizeLabel }}
+                                        >
+                                            {data.name}
+                                        </div>
+                                   </div>
 
                                 </Link>
                                

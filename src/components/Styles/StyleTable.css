@@ -1,6 +1,7 @@
 .contend-table{
     background-color: #1D2D44;
     width: 100%;
+    height: inherit;
     border-radius: 17.5px;
     overflow:auto;
 }

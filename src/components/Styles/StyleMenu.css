@@ -1,22 +1,29 @@
-.headMenu{    
-    height: 60px;
-    margin-bottom: 10px;
+.headMenu{   
+    grid-column-start: 1;
+    grid-column-end: 16;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    /* margin-bottom: 10px; */
     border-radius: 15px;
     padding-left: 10px;
-    position: relative;
+    /* position: relative; */
     background-color: var(--color-secuandrio-1) !important;
 }
 .button-content-left{
     /* background-color: blue; */
-    height: 100%;    
-    position: absolute;
-    left: 5px;
+    /* height: 100%;     */
+    /* position: absolute; */
+    /* left: 5px; */
 }
 .button-content-rigth{
     /* background-color: red; */
-    height: 100%;    
-    position: absolute;
-    right:5px;
+    /* height: 100%;     */
+    /* position: absolute; */
+    /* right:5px; */
 }
 .buttonMenu {
     background-color: #1D2D44; /* Green */
@@ -84,7 +91,7 @@
 @media screen and (max-width: 1400px) {
     .headMenu{
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         height: 45px;
         background-color: var(--color-secuandrio-1) !important;
         /* background-color: #12e72e !important; */

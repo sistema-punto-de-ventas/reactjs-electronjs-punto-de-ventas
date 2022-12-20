@@ -207,7 +207,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
 
 
     return (
-        <div>
+        <>
             <div className="contend-gastos">
                 <div className="conted-left">
                     <h2>{listVentasDiarias.message}</h2>{/* no esta funcionando */}
@@ -226,7 +226,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
 
 
                 </div>
-                <div style={{height: heightR}} className={RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>
+                <div  className={RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>
                     <div className="contend-table tableOutModal">
 
                         <div className='content-search-sizePage'>
@@ -441,7 +441,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                 </table>
                 <button onClick={openModal} className="buttonMenu"> Cerrar</button>
             </Modal>
-        </div>
+        </>
     )
 }
 function List(props) {

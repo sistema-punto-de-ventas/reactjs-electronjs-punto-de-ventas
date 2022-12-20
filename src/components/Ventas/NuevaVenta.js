@@ -42,7 +42,7 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
         }
         let porcent = 0.697;
         if(windowDimensions.height < 976) porcent = 0.65;
-        if(windowDimensions.height < 960) porcent = 0.67;
+        if(windowDimensions.height < 960) porcent = 0.69;
         if(windowDimensions.height < 820) porcent = 0.662;
         if(windowDimensions.height < 770) porcent = 0.65;
         if(windowDimensions.height < 695) porcent = 0.635;
@@ -516,29 +516,34 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
 
     return (
         <>
-            <div className='conted-venta'>
                 <SearcProdcuts setListProduct={setListProduct} />
-                <div style={{height: heightR}} className={RouteOnliAdmin ? 'conted-products heightAdmin' : 'conted-products'}>
-                    
-                    <CardMenu
-                        arrDatas={listProduct} // lista de datos dinamico
-                        clickProduct={clickProduct}// esta funcion servira para seleccionar un producto
-                    />
-                </div>
+            <div className='contend-venta'>
+                {/* <div style={{height: heightR}} className={RouteOnliAdmin ? 'conted-products heightAdmin' : 'conted-products'}> */}
+                
+                <div className='content-and-form-ventas'>
+                    <div  className={RouteOnliAdmin ? 'conted-products heightAdmin' : 'conted-products'}>
+                        
+                        <CardMenu
+                            arrDatas={listProduct} // lista de datos dinamico
+                            clickProduct={clickProduct}// esta funcion servira para seleccionar un producto
+                        />
+                    </div>
+                    {/* <div style={{height: heightR}} className={RouteOnliAdmin ? 'conted-form-venta heightAdmin' : 'conted-form-venta'}> */}
+                        
+                    <div  className={RouteOnliAdmin ? 'conted-form-venta heightAdmin' : 'conted-form-venta'}>
+                        <FormVenta
+                            changeDescription={changeDescription}
+                            arrProductSelect={productSelect}
+                            deleteProduct={deleteProduct}
+                            openModalPreView={modalFunction}
+                            colors={colors}
+                            msgToast={msgToast}
+                            updateCantidad={updateCantidad}
+                            updateDescuentoUnidad={updateDescuentoUnidad}
+                        />
+                    </div>
 
-                <div style={{height: heightR}} className={RouteOnliAdmin ? 'conted-form-venta heightAdmin' : 'conted-form-venta'}>
-                    <FormVenta
-                        changeDescription={changeDescription}
-                        arrProductSelect={productSelect}
-                        deleteProduct={deleteProduct}
-                        openModalPreView={modalFunction}
-                        colors={colors}
-                        msgToast={msgToast}
-                        updateCantidad={updateCantidad}
-                        updateDescuentoUnidad={updateDescuentoUnidad}
-                    />
                 </div>
-
                
 
             </div>
