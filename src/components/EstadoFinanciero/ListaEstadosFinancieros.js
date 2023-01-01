@@ -79,7 +79,7 @@ function ListaEstadosFinancieros({msgToast}) {
                     <tbody className="table-body">
                         {list.map((data, key) => {
                             return (
-                                <tr key={key} className="table-row">
+                                <tr key={key} className={`table-row ${key%2==0?'bl':'wi'}`}>
                                     <td className="row-cell" style={style}>{key + 1}</td>
                                     <td className="row-cell" style={style}>{data.montoInicial}</td>
                                     <td className="row-cell" style={style}>{data.montoActualUtilizado}</td>

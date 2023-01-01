@@ -24,11 +24,11 @@ const Modal =(props)=> {
     return ReactDOM.createPortal(
         <div className="Modal">
             {/* el tamanio del modal se puede cambiar modal-sm, modal-lg, modal-xl y el modal-fullscreen */}           
-            <div className="modalStyle-box" style={{width:size}}>
+            <div className="modalStyle-box">
                 <div className="modalStyle-header" 
                 style={{
                     background:colors?  colors.colorGlobal:'white',
-                    color: colors? colors.colorHeader.colorText : 'black'
+                    color: colors? colors.colorHeader.colorText : 'white'
                 }}>
                     <div onClick={props.onClose} className="close-modalStyle">✖</div>
                     {/* <h2>{title}: {dataTicket.numeroTicketActual}</h2> */}
@@ -36,7 +36,7 @@ const Modal =(props)=> {
                 </div>
                 <div className="modalStyle-body" style={{
                     background:colors?  colors.colorGlobal:'white',
-                    color: colors? colors.colorHeader.colorText : 'black'
+                    color: colors? colors.colorHeader.colorText : 'white'
                 }}>
                     {children}
                     {/* <button className="close-modal">Close!</button> */}

@@ -12,7 +12,7 @@
     padding: 1px 2px 1px 2px;
     /* overflow-x: scroll; */
 
-    background-color: cornflowerblue;
+    /* background-color: cornflowerblue; */
     
 }
 
@@ -72,10 +72,13 @@
     border-radius: 20px;
     cursor: pointer;
     color:black;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--border-btn-1);
 }
 
 .btn-codigo-producto.active-codigo{
-    background-color: rgb(22, 214, 166);
+    background-image: var(--bg-btn-1);
     color: aliceblue;
 }
 

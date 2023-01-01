@@ -54,10 +54,10 @@ class App extends React.Component {
     inactive: false,
     showMenu:true,
     color: {
-      colorGlobal: '#27272B',
+      colorGlobal: '#FFFFFF',
       colorHeader: {
         contendNavigation: '#1D2D44',
-        colorText: '#D8DBE2'
+        colorText: '#3d3d3d'
       },
       windowHeight: window.innerHeight
     },

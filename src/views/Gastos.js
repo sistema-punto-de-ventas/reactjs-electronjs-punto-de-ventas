@@ -254,7 +254,7 @@ class Gastos extends React.Component {
 
                                     {this.state.listTipoGastos.map((data, key) => {
                                         return (
-                                            <tr key={key} className="table-row">
+                                            <tr key={key} className={`table-row ${key%2==0?'bl':'wi'}`}>
                                                 <td className="row-cell">{key + 1}</td>
                                                 <td className="row-cell">{data.name}</td>
                                                 <td className="row-cell">{data.description}</td>

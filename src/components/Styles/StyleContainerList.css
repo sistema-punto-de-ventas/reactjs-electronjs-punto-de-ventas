@@ -16,7 +16,8 @@
     padding: 0px 0px 0px 0px;
     
     display: grid;
-    grid-template-columns: repeat(auto-fit, 11.5rem);
+    grid-template-columns: repeat(auto-fit, 12.5rem);
+    
 
     justify-content: center;
     position: relative;
@@ -25,7 +26,10 @@
 
 }
 .user-container{
+    display: grid;
     grid-template-columns: repeat(auto-fit, 16rem);
+    /* grid-template-rows: repeat(auto-fit,390px); */
+    
     
 }
 .containerList::-webkit-scrollbar {
@@ -55,7 +59,7 @@
 }
 @media (max-width: 1140px) {
     .user-container{
-        grid-template-columns: repeat(auto-fit, 14rem);
+        grid-template-columns: repeat(auto-fit, 13rem);
     }
 }
 @media (max-width: 745px) {

@@ -40,7 +40,7 @@ function CardUser(props) {
                 {arrlist.map((data, keys) => {
 
                     return (
-                        <div key={keys} className='cardUser isUser'>
+                        <div key={keys} className='cardUser isUser '>
                             <img src={User} alt='userIMG'></img>
                             <div className='card-container-user'>
                                 <div className='cardUSer-body'>

@@ -171,8 +171,8 @@ const  SearcProdcutsForClass=(props)=>{
                         Por codigo  
                     </motion.div>
                 </div>
-                <div className={`content-select-products ${selectPrecio}`}>
-                    <div className='btn-select'>
+                <div className={`content-select-products ${selectPrecio} btn-border-circle`}>
+                    <div className='btn-select'> 
                     por precio : 
                     <select onClick={handleSelectPrecio} className='select-option-propduct'>
                         <option  value="">Ninguno</option>
@@ -182,7 +182,7 @@ const  SearcProdcutsForClass=(props)=>{
                     </div>
                     
                 </div>
-                <div className={`content-select-products ${selectCantidad}`}>
+                <div className={`content-select-products ${selectCantidad} btn-border-circle`}>
                     <div className='btn-select'>
                     por cantidad : 
                     <select onClick={handleSelectCantidad} className='select-option-propduct'>
@@ -194,7 +194,7 @@ const  SearcProdcutsForClass=(props)=>{
                     </div>
                     
                 </div>
-                <div className={`content-select-products ${selectCategoriaStyle}`}>
+                <div className={`content-select-products ${selectCategoriaStyle} btn-border-circle`}>
                     <div className='btn-select'>
                     por categoria : 
                     <select onClick={handleSelectPCategoria} id='select-categoria' className={`select-option-propduct`}>

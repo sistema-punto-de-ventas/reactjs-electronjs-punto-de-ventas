@@ -105,7 +105,7 @@ function Gastos({modalFunction,buttonTableClick,buttonTable,RouteOnliAdmin,color
                             <tbody className="table-body">
                                 {listGastos.map((data, key) => {
                                     return (
-                                        <tr key={key} className="table-row">
+                                        <tr key={key} className={`table-row ${key%2==0?'bl':'wi'}`}>
                                             <td className="row-cell">{key + 1}</td>
                                             <td className="row-cell">{data.idTipoGastos}</td>
                                             <td className="row-cell">{data.description}</td>

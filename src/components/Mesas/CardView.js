@@ -146,7 +146,7 @@ export default function CardView(props) {
                     return (
                         <div key={key} className='containerCardList'>
                             
-                            <div className='cardContainer'>
+                            <div className='cardContainer shadow-1'>
                                 <div className='image-content' style={{background:"white"}}>
                                     {type === 'mesas' ?
                                         <img src={Mesa} alt='imagen'></img>

@@ -585,7 +585,7 @@ function EstadoFinanciero({ modalFunction, RouteOnliAdmin, msgToast, colors, cha
                                                 {dataEstadoFinanciero.listVentas?.result.map((data, key) => {
 
                                                     return (
-                                                        <tr key={key} className="table-row">
+                                                        <tr key={key} className={`table-row ${key%2==0?'bl':'wi'}`}>
                                                             <td className="row-cell">{key + 1}</td>
                                                             <td className="row-cell">{data.venta}</td>
                                                             <td className="row-cell">{data.idUser}</td>

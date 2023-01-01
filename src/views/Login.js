@@ -66,16 +66,17 @@ export class Login extends Component {
     }
     render() {
         return (
-            <>
+            <div className='content-login'>
                 <div className={this.state.msg?'login-msg active':'login-msg'}>
                     <label className={this.state.msg?'msg active-msg':'msg'}>{this.state.msg}</label>
                 </div>
                 <div className="login-box">
-                    <h2 className='login-title'>Acceder</h2>                  
+                    <h2 className='login-title'>Nuxtbo</h2>                  
                     <div className="user-box">
                         <input 
                         autoComplete='off'
                         name='email'
+                        autocomplete="off"
                         onChange={this.onChange}
                         value={this.state.form.email}
                         className='login-input' type="text" required={true}/>
@@ -98,7 +99,7 @@ export class Login extends Component {
                     </div>   
                                    
                 </div>                            
-            </>
+            </div>
         )
     }
 }

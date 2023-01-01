@@ -1,25 +1,62 @@
 :root{
-    --color-primario: #131315;
-    --color-secuandrio-1: #18181B;
+    --color-primario: #40255b;
+    --color-secuandrio-1: #FFFFFF;
     --color-secuandrio-2: #1D2D44;
+
     --color-secunadrio: #772CE8;
     --color-secundario-hover: #9256ED;
     --color-terciario: #1F1F23;
-    --color-cuarto: #464649;  
+    --color-cuarto: #fdfdfd;  
 
     /* tetx */
-    --color-text-primario: #EFEFF1;
-    --color-text-secundario: #bbbbbb;
+
+    --color-text-primario: #3d3d3d;
+    --color-text-secundario: #40255b;
+    --color-text-primry-1:#ED6D7E;
     --color-text-white: #FFFFFF;
 
+    
+
+    /* text color - hover */
+    --color-text-hover-1:white;
+
     /* border */
-    --border-1-solid:1px solid white;
-    --border-2-solid:2px solid white;
+    --border-1-solid:1px solid #e9e9e9;
+    --border-2-solid:2px solid #056cb1;
+
+    --border-3-solid:rgb(228, 228, 228);
+
+    --border-btn-1:#ED6D7E;
+
+
 
     /* table */
+    --table-text-head:rgb(0, 0, 0);
+    --table-text-body:rgb(71, 71, 71);
     --table-text-1:white;
     --table-text-2:white;
     --table-border-1:white;
-        
+    
+    /* surface */
+    --surface-1:#FFFFFF;
+    --surface-2:#A0AEC0;
+
+    /* background */
+    --background-image-1:linear-gradient(45deg, #8046d3 0%, #ED6D7E 100%);
+
+    /* background buttons */
+    --bg-btn-1:linear-gradient(45deg, #8046d3 0%, #ED6D7E 100%);
+    --bg-btn-3: white;
+
+    --bg-btn-hover-1:linear-gradient(45deg, #8046d3 0%, #ED6D7E 100%);
+    --bg-btn-hover-2:#ED6D7E;
+
     
 }
+
+
+.shadow-1{
+    -webkit-box-shadow: 6px 6px 7px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 6px 7px -7px rgba(0,0,0,0.75);
+    box-shadow: 6px 6px 7px -7px rgba(0,0,0,0.75);
+    }

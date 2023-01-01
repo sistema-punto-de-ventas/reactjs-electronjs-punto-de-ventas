@@ -33,7 +33,7 @@ function Layout(props){
             <div className='containerBody'>
                 
             
-                <div className={`contendRoutes ${showMenu===true?'grid-template':''}`} style={{backgroundColor:color.colorHeader.contendNavigation,color:color.colorHeader.colorText}}>
+                <div className={`contendRoutes ${showMenu===true?'grid-template':''}`}>
                     {/* {`${heightR} heigth total ${windowDimensions.height}`} */}
                     {props.children}
                 </div>

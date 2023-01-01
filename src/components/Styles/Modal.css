@@ -1,4 +1,6 @@
 .Modal {
+
+
   position: fixed;
   top: 0;
   left: 0;
@@ -15,7 +17,25 @@
 
 .modalStyle,
 .modalStyle-box {
+  
+  width: 70%;
   z-index: 40;
+  background-color: var(--surface-1);
+  padding: 4px;
+}
+@media screen and (max-width:575px) {
+  .modalStyle-box{
+    /* background-color: aqua !important; */
+    width: 95%;
+  }
+
+}
+
+@media  screen and (min-width:1199px) {
+  .modalStyle-box{
+    /* background-color: rgb(217, 255, 0) !important; */
+    width: 50%;
+  }
 }
 .modalStyle-box { 
   position: relative;

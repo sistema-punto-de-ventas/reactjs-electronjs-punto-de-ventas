@@ -409,7 +409,7 @@ class MenuProduct extends React.Component {
             this.props.msgToast({
                 msg: resp.err?.message,
                 tipe: 'warning',
-                title: `Error ${resp.err.status}`
+                title: `Error ${resp?.err?.status}`
             });
             return;
         }

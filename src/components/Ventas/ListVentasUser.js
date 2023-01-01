@@ -290,7 +290,7 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
                             <tbody className="table-body" style={style}>
                                 {listVentasDiarias.listVentas?.result.map((data, key) => {
                                     return (
-                                        <tr key={key} className="table-row">
+                                        <tr key={key} className={`table-row ${key%2==0?'bl':'wi'}`}>
                                             <td className="row-cell">{key + 1}</td>
                                             <td className="row-cell">{data.idUser}</td>
                                             <td className="row-cell">{data.idCLiente}</td>

@@ -290,7 +290,7 @@ export class PCategory extends Component {
 
                                         {this.state.listCategorias.map((data, key) => {
                                             return (
-                                                <tr key={key} className="table-row">
+                                                <tr key={key} className={`table-row ${key%2==0?'bl':'wi'}`}>
                                                     <td className="row-cell">{key + 1}</td>
                                                     <td className="row-cell">{data.nombre}</td>
                                                     <td className="row-cell">{data.createdAt?.split('T')[0]}</td>

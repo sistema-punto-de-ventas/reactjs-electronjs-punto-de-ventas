@@ -26,17 +26,24 @@
     /* right:5px; */
 }
 .buttonMenu {
-    background-color: #1D2D44; /* Green */
-    border: none;
-    color: #D8DBE2;
-    padding: 7px 10px 7px 10px;
+    /* border: none; */
+    color: var(--color-text-secundario);
+    padding: auto 10px auto 10px;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+
+    text-justify: distribute-all-lines;
     font-size: 15px;
     margin: 10.5px 6px;
     cursor: pointer;
-    border-radius: 15px;    
+    border-radius: 15px; 
+    border-width: 1px;
+    font-weight: 500;
+    background-color: var(--background-btn-1); 
+
 }
 /* button para modo ligth */
 .buttonWithe{
@@ -51,7 +58,7 @@
     color:#D8DBE2;
 }
 .buttonMenu:hover{
-    background-color: var(--color-secundario-hover);;
+    background-color: var(--bg-btn-hover-1);;
     transition: ease 350ms;
 }
 .buttonWithe:hover{
@@ -65,8 +72,11 @@
     transition: ease 350ms;
 }
 .buttonSeleccted{
-    background-color: var(--color-secunadrio);
+    /* background-color: var(--color-secunadrio); */
+    color: var(--color-text-white);
+    background-image: linear-gradient(45deg, #8046d3 0%, #ED6D7E 100%);
     border: 1px solid rgba(255, 0, 0, 0);
+
 }    
 
 @media screen and (max-height: 900px) {
@@ -111,6 +121,8 @@
         /* font-weight: bold !important; */
         height: 30px;
         margin: 2px;
+        /* border-radius: 1px; */
+        border-color: var(--border-btn-1);
         
     }
 
@@ -128,8 +140,9 @@
         border: 1px solid rgba(255, 0, 0, 0);
     } 
     .buttonMenu:hover{
-        background-color: var(--color-secundario-hover);
+        background-color: var(--bg-btn-hover-2);
         transition: ease 350ms;
+        color: var(--color-text-hover-1);
     }
 }
 

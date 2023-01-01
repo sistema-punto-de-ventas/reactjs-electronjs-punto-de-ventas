@@ -241,7 +241,7 @@ function Header(props) {
 
 
 
-                <div className="navigation-contend" >
+                <div className="navigation-contend navbar-navegation" >
                     {links.map((data, keys) => {
                         if (data.active) {
                             if (data.alt === 'config') {
@@ -254,7 +254,7 @@ function Header(props) {
                                             className={path === data.path ? 'logoImg selected' : 'logoImg'} src={data.img} alt={data.alt} ></img>
                                         <label
                                             className={path === data.path ? 'labelLogo labelSelected' : 'labelLogo'}
-                                            style={{ color: colorHeader.colorText, fontSize: sizeLabel }}
+                                            style={{ fontSize: sizeLabel }}
                                         >
                                             {data.name} 
                                         </label>
@@ -276,7 +276,7 @@ function Header(props) {
                                         ></img>
                                         <div
                                             className={path === data.path ? 'labelLogo labelSelected' : 'labelLogo'}
-                                            style={{ color: colorHeader.colorText, fontSize: sizeLabel }}
+                                                
                                         >
                                             {data.name}
                                         </div>
