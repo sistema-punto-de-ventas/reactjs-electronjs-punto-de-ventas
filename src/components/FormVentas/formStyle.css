@@ -1,6 +1,9 @@
 .contend-input-venta{
     /* background-color: red; */
     position: relative;
+    /* background-color: rebeccapurple; */
+    
+    
     
 }
 
@@ -8,10 +11,11 @@
     width: 100%;
     padding: 10px 0;
     font-size: 20px;
-    color: #ececec;
-    margin-bottom: 30px;
+    color: #0e0e0e;
+    font-weight: 700;
+    margin-bottom: 0px;
     border: none;
-    border-bottom: 1px solid #a8a8a8;
+    border-bottom: 2px solid #ED6D7E;
     outline: none;
     background: transparent;
     transition: .2s;
@@ -33,18 +37,31 @@ input[type=number]::-webkit-outer-spin-button {
     color: #818181;
     pointer-events: none;
     transition: .2s;
+    /* background-color: rebeccapurple !important; */
 }
 .input-venta:focus ~ .venta-label,
 .input-venta:valid ~ .venta-label {
   top: -20px;
   left: 0;
-  color: #D8DBE2;
-  font-size: 16px;           
+  color: #000000;
+  font-size: 16px;  
+  font-weight: 700;
+       
 }
 .label-detalle{
-    font-size: 22px;  
+    font-size: 16px;  
+    font-weight: 500;
 }
-
+.monto-total{
+    font-size: 18.5px !important;  
+    font-weight: 700;
+}
+.underline-venta{
+    margin-top: 20px;
+    color: #ED6D7E;
+    background-color: #000000 !important;
+    border-bottom: 2px solid #ED6D7E;
+}
 .tabel-input{
     width: 90%;
   /*   margin-bottom: 30px; */
@@ -62,7 +79,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .list-clientes{
     padding: 8px;
-    background-color: #1D2D44;
+    background-color: var(--surface-1);
     width: 100%;
     position:absolute;
     z-index: 1;
@@ -70,6 +87,10 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 10px;
     max-height: 320px;
     overflow-y: scroll;
+    font-weight: 500;
+    border-style: solid;
+    border-color: var(--border-2-solid);
+    border-width: 1px;
 }
 .list-clientes ul{
     list-style-type: none;
@@ -78,7 +99,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .list-clientes ul li{
     list-style-type: none;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgb(59, 59, 59);
     margin: 0px 0px 5px;
     padding: 0 0 5px;
 
@@ -87,6 +108,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .list-clientes::-webkit-scrollbar {
     -webkit-appearance: none;
+    
 }
 
 .list-clientes::-webkit-scrollbar:vertical {
@@ -98,11 +120,11 @@ input[type=number]::-webkit-outer-spin-button {
 } 
 
 .list-clientes::-webkit-scrollbar:horizontal {
-    height: 10px;
+    height: 9px;
 }
 
 .list-clientes::-webkit-scrollbar-thumb {
-    background-color: #27272B;
+    background-color: var(--scroll-bg-color-1);
     border-radius: 15px;
     border: 1px solid #f1f2f349;
 }
@@ -124,7 +146,10 @@ input[type=number]::-webkit-outer-spin-button {
     /* width: 58%; */
     /* position:absolute; */
     /* right:10px; */
+    padding: 2px;
+    font-weight: 500;
     text-align:start;
+    width: 45% !important;
 }
 
 .buttons-number{
@@ -132,18 +157,20 @@ input[type=number]::-webkit-outer-spin-button {
     grid-template-columns: repeat(4,50px);
 }
 .button-number{
-    background-color: #1D2D44;
-    border:1px  #27272B solid;
+    background-color: #ffffff;
+    border:1px  #2a272b solid;
     cursor:pointer;
     width:50px;
     height:50px;
-    color:white;
+    color:black;
+    font-weight: 800;
 }
+
 .button-number:hover{
     background-color: #a5a5a593;
 }
 .n{
-    background-color: #838383fd;
+    background-color: #cececefd;
 }
 .spanError{
     color: rgba(255, 0, 0, 0.651);
@@ -199,9 +226,11 @@ input[type=number]::-webkit-outer-spin-button {
     }
     .table-from-venta th {
         font-size: 14px;
+        /* background-color: red !important; */
     }
     .table-from-venta td {
         font-size: 11px;
+        /* background-color: rebeccapurple !important; */
     }
 }
 @media screen and (max-width: 880px) {    

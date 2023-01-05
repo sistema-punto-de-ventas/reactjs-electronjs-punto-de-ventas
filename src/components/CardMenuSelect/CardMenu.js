@@ -27,7 +27,9 @@ function CardMenu({ arrDatas, clickProduct }) {
           
             {
             arrDatas.length===0?
-            <div className='content-card-menu'>No Hay productos</div>
+            <div className='content-card-menu-vacio'>
+                <h4>No hay productos para mostrar</h4>
+            </div>
             :
             arrDatas.map((data, key) => {
                 return (
@@ -39,6 +41,18 @@ function CardMenu({ arrDatas, clickProduct }) {
                                 <div className='text-codigo-producto'>
                                             {data.codigoProducto?data.codigoProducto:''}
                                 </div>
+                                <div className='info-product'
+                                    onPointerMove={() => hoverDiv(true, data.id)} onMouseOut={() => hoverDiv(false, data.id)}
+                                >
+
+                                {/* <p className='tex-description'>{descriptionText(data.ingredientes)}</p> */}
+                                {/* <p className='tex-description'> */}
+                                    {/* <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg> */}
+                                {/* </p> */}
+
+                            </div>
                             </div>
 
                                 {/* <span>{data.nombre}</span>
@@ -54,18 +68,7 @@ function CardMenu({ arrDatas, clickProduct }) {
                               
 
                             </div>
-                            <div className='card-body-list'
-                                onMouseEnter={() => hoverDiv(true, data.id)} onMouseOut={() => hoverDiv(false, data.id)}
-                            >
-
-                                {/* <p className='tex-description'>{descriptionText(data.ingredientes)}</p> */}
-                                <p className='tex-description'>
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </p>
-
-                            </div>
+                           
                             {data.id === hoverPosition &&
                                 <div className='description-text-hover'>
                                     <p>{data.ingredientes}</p>
@@ -75,21 +78,21 @@ function CardMenu({ arrDatas, clickProduct }) {
 
 
                             <div className='card-footer-list'>
-                            <div className='content-nombre-cantidad'>
-                                   
-                                   <motion.div  initial={{opacity:0}} animate={{opacity:1}}  transition={{duration:0.6}} className='text-header-title'>
-                                           {data.nombre?data.nombre.slice(0,35):''} 
-                                       </motion.div>
-                                       
-                                       <motion.div   initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6}} className='text-cantidad'>
-                                           Cantidad: {data.quantity}
-                                       </motion.div>
-                                   
-                              </div>
-                                <motion.button whileHover={{scale:1.07}} whileTap={{scale:1}} onClick={() => clickProduct(data)}
+                                <div className='content-nombre-cantidad'>
+                                    
+                                    <motion.div  initial={{opacity:0}} animate={{opacity:1}}  transition={{duration:0.6}} className='text-header-title'>
+                                            {data.nombre?data.nombre.slice(0,35):''} 
+                                        </motion.div>
+                                        
+                                        <motion.div   initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.6}} className='text-cantidad'>
+                                            Cantidad: {data.quantity}
+                                        </motion.div>
+                                    
+                                </div>
+                                <motion.button whileHover={{scale:1.01}} whileTap={{scale:1}} onClick={() => clickProduct(data)}
                                     className={`btn-card-footer`}
                                 >
-                                    Insertar
+                                    Agregar
                                 </motion.button>
                                 {/* <button
                                     className='btn-cardFooter buttonRight'

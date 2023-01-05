@@ -516,7 +516,7 @@ function NuevaVenta({ colors, RouteOnliAdmin, msgToast, listGastos }) {
 
     return (
         <>
-                <SearcProdcuts setListProduct={setListProduct} />
+            <SearcProdcuts setListProduct={setListProduct} />
             <div className='contend-venta'>
                 {/* <div style={{height: heightR}} className={RouteOnliAdmin ? 'conted-products heightAdmin' : 'conted-products'}> */}
                 

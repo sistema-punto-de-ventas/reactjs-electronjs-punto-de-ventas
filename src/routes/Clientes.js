@@ -44,10 +44,14 @@ class CLienteRoutes{
         }
     }
     static async buscarCliente (data){
+        // console.log('post clients:.....');
+        // console.table(data)
         const token = await JSON.parse(localStorage.getItem('tokTC'));
         let buscador = {
             buscador:data
         }
+
+        // console.table(buscador)
         try {
             const resp = await axios.post('/cliente/buscar',buscador,{
                 headers: {

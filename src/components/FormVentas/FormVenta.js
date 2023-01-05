@@ -178,8 +178,9 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
     }
     //lista de clientes
     const listClientes = useCallback(async (data) => {
+        console.log(data)
         const resp = await CLienteRoutes.buscarCliente(data ? data : '');
-        //console.log(resp.resp, ' esto es del buscador')
+        // console.log(resp.resp, ' esto es del buscador')
         if (resp.error) {
             console.log('erro 1')
             msgToast({
@@ -199,6 +200,8 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
             return;
         }
         if (resp.resp.status === 'ok') {
+            console.log('LIST----')
+            console.log(resp.resp);
             setListClients(resp.resp.result);
         }
 
@@ -321,7 +324,7 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
 
     return (
         <>
-            <h3 className='title-form-venta'>Datos de la venta</h3>
+            <h4 className='title-form-venta'>Datos de la venta</h4>
             <br />
             {/* <div className='contend-input-venta'>
                 <input name='nombreCliente' type="text" className='input-venta'></input>
@@ -367,7 +370,7 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                             <ul>
                                 {
                                     listClients.map((data, key) => {
-                                        return <li onClick={() => onclickLista(data)} key={key}>{key + 1}: {data.name} {data.lastName}, C.I.: {data.ci}</li>
+                                        return <li className={`${key%2===0?'bl':'wt'}`} onClick={() => onclickLista(data)} key={key}> {key + 1}: {data.name} {data.lastName}, C.I.: {data.ci}</li>
                                     })
                                 }
 
@@ -513,6 +516,7 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                                     value={form.pagoCliente}
                                     className='input-venta pago-cliente'
                                     autoComplete="off"
+                                    placeholder='0.0'
                                 >
                                 </input>
                                 <label className='venta-label size'>PAGO CLIENTE  <code className='spanError'>{formErro.pagoCliente ? 'Error' : ''}</code></label>
@@ -522,8 +526,8 @@ function FormVenta({ arrProductSelect, deleteProduct, changeDescription, openMod
                                 <label className='label-detalle'>Cambio: Bs {form.cambioCliente < 0 ? 0 : form.cambioCliente}</label>
                                 <label className='label-detalle'>Descuento: Bs {totalDescuento}</label>
                                 <label className='label-detalle'>Subtotal: Bs {subtotal}</label>
-                                <hr style={{height:'3px', background:'white'}}></hr>
-                                <label className='label-detalle'>TOTAL: Bs {sumaTotal}</label>
+                                <div className='underline-venta'></div>
+                                <label className='label-detalle monto-total'>TOTAL: Bs {sumaTotal}</label>
                             </div>
                         </div>
                     </div>

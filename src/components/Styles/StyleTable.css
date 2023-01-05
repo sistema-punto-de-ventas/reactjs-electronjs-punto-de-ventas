@@ -26,8 +26,8 @@
 .table-body{
     color: var(--table-text-head);
     text-align: center;  
-    font-size: 15px; 
-    /* font-weight: 600; */
+    font-size: 16px; 
+    font-weight: 600;
     
 }
 .tableButton{

@@ -22,13 +22,15 @@
 
     /* border */
     --border-1-solid:1px solid #e9e9e9;
-    --border-2-solid:2px solid #056cb1;
+    --border-2-solid:2px solid #40255b;
 
     --border-3-solid:rgb(228, 228, 228);
 
     --border-btn-1:#ED6D7E;
 
-
+    /* scrooll */
+    --scroll-bg-color:#ED6D7E;
+    --scroll-bg-color-1:#d4d4d4;
 
     /* table */
     --table-text-head:rgb(0, 0, 0);

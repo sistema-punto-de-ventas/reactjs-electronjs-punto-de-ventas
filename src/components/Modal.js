@@ -28,7 +28,7 @@ const Modal =(props)=> {
                 <div className="modalStyle-header" 
                 style={{
                     background:colors?  colors.colorGlobal:'white',
-                    color: colors? colors.colorHeader.colorText : 'white'
+                    color: colors? colors.colorHeader.colorText : 'black'
                 }}>
                     <div onClick={props.onClose} className="close-modalStyle">✖</div>
                     {/* <h2>{title}: {dataTicket.numeroTicketActual}</h2> */}
@@ -36,7 +36,7 @@ const Modal =(props)=> {
                 </div>
                 <div className="modalStyle-body" style={{
                     background:colors?  colors.colorGlobal:'white',
-                    color: colors? colors.colorHeader.colorText : 'white'
+                    color: colors? colors.colorHeader.colorText : 'black'
                 }}>
                     {children}
                     {/* <button className="close-modal">Close!</button> */}

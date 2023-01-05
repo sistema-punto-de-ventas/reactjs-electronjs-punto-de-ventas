@@ -22,7 +22,7 @@ export default function Table(props) {
                         <tbody className="table-body">
                             {tableDatas.tableBodyDatas.map((data, key) => {
                                 return (
-                                    <tr key={key} className={`table-row ${key}`}>
+                                    <tr key={key} className={`table-row ${key%2==0?'bl':'wi'}`}>
                                         <td className="row-cell">{data.nombre}</td>
                                         <td className="row-cell">{data.ingredientes}</td>
                                         <td className="row-cell">{data.precio}</td>
