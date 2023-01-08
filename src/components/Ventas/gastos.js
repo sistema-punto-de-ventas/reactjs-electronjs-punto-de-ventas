@@ -29,7 +29,7 @@ function Gastos({modalFunction,buttonTableClick,buttonTable,RouteOnliAdmin,color
         <>
             <div className="contend-gastos">
                 <div className="conted-left">
-                    <h2>Lista de gastos</h2>
+                    <h3>Lista de gastos</h3>
                 </div>
                 <div className="conted-right">
                     <button onClick={() => modalFunction(1)} className="button-table">Nuevo gasto</button>

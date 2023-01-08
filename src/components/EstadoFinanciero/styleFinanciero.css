@@ -12,12 +12,43 @@
 }
 .cierre-caja{
 
-    background-color: var(--color-secuandrio-1);
+    background-color:var(--surface-1);
     position: absolute;
     width: 30%;
     height: 100%;
     padding:  10px;
-    border-radius: 15px;    
+    margin-left: 2px;
+    border-radius: 15px; 
+    border-style: solid;
+    border-color: rgb(221, 221, 221);
+    border-width: 2px;
+
+       
+}
+.cierre-caja{
+    color: var(--color-text-primario-black);
+}
+.title-date-filter{
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+.body.reporte-gastos{
+    /* background-color: red; */
+    margin-top: 20px;
+}
+.body.reporte-gastos li{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.date-filter{
+
+    /* background:red; */
+    margin-top: 12px;
+}
+.title-reprte-venta-gastos{
+    color:var(--color-secuandrio-2);
 }
 
 .detalle{
@@ -28,6 +59,9 @@
     height: 100%;
     padding: 10px;
     border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--border-3-solid);
 }
 
 .header{
@@ -323,3 +357,4 @@ input[type="radio"] {
   .btn-op:hover{
     background-color: #ac29e0;
   }
+

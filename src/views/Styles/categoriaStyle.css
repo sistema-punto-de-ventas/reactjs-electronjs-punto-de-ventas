@@ -1,7 +1,7 @@
 .buttonCategory {
-    background-color: #27272B; /* Green */
+    background-color:var(--bg-t-color-2) ; /* Green */
     border: none;
-    color: #D8DBE2;
+    color: white;
     padding: 3px 15px 3px 15px;
     text-align: center;
     text-decoration: none;
@@ -9,15 +9,32 @@
     font-size: 15px;
     margin: 5px 5px;
     cursor: pointer;
-    border-radius: 10px;    
+    border-radius: 15px;    
+}
+.buttonCategory.nuevo{
+    background-color:var(--bg-t-color-1) ; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 15px 3px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 5px 5px;
+    cursor: pointer;
+    border-radius: 15px; 
+}
+
+.bg-color-subcategoria{
+    background-color:var(--bg-t-color-1);
 }
 
 .blue{
-    background-color: #1D2D44;
+    background-color: var(--bg-t-color-2);
 }
 
 .buttonCategory:hover{
-    background-color:#ffffff6c;   
+    background-image:var(--bg-btn-1);   
     transition: ease 350ms;
 }
 

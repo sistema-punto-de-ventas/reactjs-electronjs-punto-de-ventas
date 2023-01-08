@@ -314,8 +314,8 @@ function ReporteVentasGastos({modalFunction, changeFormFecha, formFecha, reporte
         <div className="conted-cierreCaja">
             <div className="cierre-caja" >
                 <div className="header">
-                    <h4>Del {reporteVentaGatos?.Fecha}</h4>
-                    <div className='contend-input-venta'>
+                    <h4 className='title-date-filter'>Del {reporteVentaGatos?.Fecha}</h4>
+                    <div className='contend-input-venta date-filter'>
                         <input
                             type="date"
                             onChange={changeFormFecha}
@@ -326,7 +326,7 @@ function ReporteVentasGastos({modalFunction, changeFormFecha, formFecha, reporte
                         ></input>
                         <label className='venta-label lReport1'>Fecha Inicio</label>
                     </div>
-                    <div className='contend-input-venta'>
+                    <div className='contend-input-venta date-filter'>
                         <input
                             type="date"
                             onChange={changeFormFecha}
@@ -365,7 +365,7 @@ function ReporteVentasGastos({modalFunction, changeFormFecha, formFecha, reporte
                 </div>
             </div>
             <div className="detalle" >
-                <h4>{section.title}</h4>
+                <h4 className='title-reprte-venta-gastos'>{section.title}</h4>
                 {section.position === 0 &&
                     <div className={RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>
                         <Menu

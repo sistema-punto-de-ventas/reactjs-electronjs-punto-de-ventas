@@ -210,7 +210,8 @@ function ListVentasUser({ RouteOnliAdmin, colors, msgToast}) {
         <>
             <div className="contend-gastos">
                 <div className="conted-left">
-                    <h2>{listVentasDiarias.message}</h2>{/* no esta funcionando */}
+                    {/* <h2>{listVentasDiarias.message}</h2>no esta funcionando */}
+                    <h3>Lista de ventas diarias</h3>
                 </div>
                 <div className="conted-right">
 

@@ -377,6 +377,14 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 150px;
 }
 
+.icon-form-rigth{
+    color: #000000;
+
+}
+.icon-form-rigth:hover{
+    color: var(--hover-1);
+}
+
 .descuento-unidad{
     border-radius: 20px;
     max-width: 150px !important;

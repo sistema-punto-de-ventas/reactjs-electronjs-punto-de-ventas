@@ -56,7 +56,7 @@
 }
 
 .conted-left{
-    color:#0a4ce7;
+    color:var(--color-text-primario);
     position:absolute;
     left: 15px;
 }
@@ -69,17 +69,26 @@
 }
 .button-table{
     border:none;
-    border-radius: 15px;
-    padding: 7px 15px;
-    background-color: #27272B;
-    color: #D8DBE2;
+    /* border-radius: 15px; */
+    padding: 4px 7px;
+    background-image: white;
+    color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--bg-btn-4);
+    margin-left: 2px;
+    font-weight: 500;
 }
 
 .button-table:hover{   
-    background-color: rgba(230, 230, 230, 0.37);
+    background-color: var(--hover-1);
+    color: white;
+
+
 }
 .active-button-table{
-    background-color: rgba(197, 195, 195, 0.246);
+    background-color: var(--bg-btn-4);
+    color: white;
 }
 .contend-table-gastos{
     /* background-color:red; */

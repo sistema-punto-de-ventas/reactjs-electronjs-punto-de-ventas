@@ -269,11 +269,11 @@ export class PCategory extends Component {
                 {this.state.secttion === 0 &&
                     <div className="contend-gastos" >
                         <div className="conted-left">
-                            <h2>Categoria Porductos</h2>
+                            <h3>Categoria de los productos</h3>
                         </div>
                     
                         <div className="conted-right">
-                            <button className="buttonCategory" onClick={() => this.modalFunction(1)}>Nuevo</button>
+                            <button className="buttonCategory nuevo" onClick={() => this.modalFunction(1)}>Nuevo</button>
                         </div>
                         <div id='table-data' className={this.props.RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>
                             <div className="contend-table tableOutModal">
@@ -322,8 +322,8 @@ export class PCategory extends Component {
                             <h2>{this.state.nameCategoriSelected}</h2>
                         </div>
                         <div className="conted-right">
-                            <button className="buttonCategory" onClick={() => this.changeSecttion(0, '', '')}>Volver</button>
-                            <button className="buttonCategory" onClick={() => this.modalFunction(3)}>Nuevo</button>
+                            <button className="buttonCategory bg-color-subcategoria" onClick={() => this.changeSecttion(0, '', '')}>Volver</button>
+                            <button className="buttonCategory bg-color-subcategoria" onClick={() => this.modalFunction(3)}>Nuevo</button>
                         </div>
                         <div className={this.props.RouteOnliAdmin ? "contend-table-gastos heightAdmin" : "contend-table-gastos"}>
                             <div className="contend-table tableOutModal">
